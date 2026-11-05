@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { fetchRandomSentence } from './services/sentenceService';
-import { JapaneseSentence, AppState, JLPTLevel } from './types';
+import { JapaneseSentence, AppState, JLPTLevel, WordChunk } from './types';
 
 const JLPT_LEVELS: JLPTLevel[] = ['N5', 'N4', 'N3', 'N2', 'N1'];
 
@@ -11,50 +11,108 @@ const FuriganaText = ({ text, showFurigana }: { text: string, showFurigana: bool
       const regex = /([^\[]+)\[([^\]]+)\]/g;
       let lastIndex = 0;
       let match;
+
       while ((match = regex.exec(str)) !== null) {
-        if (match.index > lastIndex) parts.push(<span key={`text-${lastIndex}`}>{str.slice(lastIndex, match.index)}</span>);
-        const hasKanji = /[\u4e00-\u9faf]/.test(match[1]);
-        if (hasKanji) {
-          parts.push(
-            <ruby 
-              key={`ruby-${match.index}`} 
-              className="mx-0.5" 
-              style={{ rubyAlign: 'center', rubyPosition: 'over' }}
-            >
-              {match[1]}
-              <rt 
-                className={`text-[0.5em] font-semibold text-red-800 transition-all duration-300 ${
-                  showFurigana ? 'opacity-100 h-auto' : 'opacity-0 h-0 overflow-hidden'
-                }`}
-              >
-                {match[2]}
-              </rt>
-            </ruby>
-          );
+        const baseText = match[1]; 
+        const reading = match[2];
+
+        const kanjiMatch = baseText.match(/[\u4e00-\u9faf]+/);
+        
+        if (kanjiMatch) {
+            const kanji = kanjiMatch[0];
+            const beforeKanji = baseText.split(kanji)[0];
+            const afterKanji = baseText.split(kanji)[1] || "";
+
+            if (beforeKanji) {
+              parts.push(<span key={`pre-${match.index}`} className="text-black">{beforeKanji}</span>);
+            }
+            
+            parts.push(
+              <ruby key={`ruby-${match.index}`} className="mx-0 text-black" style={{ rubyAlign: 'start', rubyPosition: 'over' }}>
+                {kanji}
+                <rt className={`text-[0.55em] font-bold text-red-600 transition-all duration-300 ${showFurigana ? 'opacity-100' : 'opacity-0 overflow-hidden'}`} style={{ lineHeight: '1' }}>
+                  {reading}
+                </rt>
+              </ruby>
+            );
+
+            if (afterKanji) {
+              parts.push(<span key={`post-${match.index}`} className="text-black">{afterKanji}</span>);
+            }
         } else {
-          parts.push(<span key={`text-${match.index}`}>{match[1]}</span>);
+            parts.push(<span key={`text-${match.index}`} className="text-black">{baseText}</span>);
         }
+        
         lastIndex = regex.lastIndex;
       }
-      if (lastIndex < str.length) parts.push(<span key={`text-end`}>{str.slice(lastIndex)}</span>);
+      
+      if (lastIndex < str.length) {
+        parts.push(<span key={`text-end`} className="text-black">{str.slice(lastIndex)}</span>);
+      }
       return parts.length > 0 ? parts : [str];
     }
-    return [<span key="raw">{str}</span>];
+    return [<span key="raw" className="text-black">{str}</span>];
   };
   return <>{parseFurigana(text)}</>;
+};
+
+const WordBlock = ({ 
+  chunk, 
+  showEigo, 
+  showWordFurigana, 
+  onClick 
+}: { 
+  chunk: WordChunk, 
+  showEigo: boolean, 
+  showWordFurigana: boolean, 
+  onClick: () => void 
+}) => {
+  const hasFurigana = chunk.furigana.includes('[');
+  const showTooltip = (showEigo && chunk.en !== "?") || (showWordFurigana && hasFurigana);
+
+  return (
+    <div className="relative group">
+      {showTooltip && (
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-xs bg-white border border-gray-200 shadow-xl rounded-lg p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50 flex flex-col items-center gap-1">
+          
+          {showWordFurigana && hasFurigana && (
+             <div className="text-base font-semibold">
+                <FuriganaText text={chunk.furigana} showFurigana={true} />
+             </div>
+          )}
+          
+          {showEigo && chunk.en !== "?" && (
+            <div className="text-xs text-gray-600 font-medium">
+              {chunk.en}
+            </div>
+          )}
+          
+          <div className="absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent border-t-white" />
+        </div>
+      )}
+
+      <button 
+        onClick={onClick}
+        className="px-5 py-3 rounded-xl bg-white border border-gray-200 text-xl font-medium text-gray-700 shadow-sm hover:border-gray-300 hover:shadow hover:text-black transition-all active:scale-95"
+      >
+        {chunk.ja}
+      </button>
+    </div>
+  );
 };
 
 const App: React.FC = () => {
   const [level, setLevel] = useState<JLPTLevel>('N5');
   const [sentence, setSentence] = useState<JapaneseSentence | null>(null);
   
-  // Toggles
   const [showFurigana, setShowFurigana] = useState(true);
   const [isSlowAudio, setIsSlowAudio] = useState(false);
   const [enableWordAudio, setEnableWordAudio] = useState(false);
+  const [showEigo, setShowEigo] = useState(false);
+  const [showWordFurigana, setShowWordFurigana] = useState(false);
 
-  const [selectedWords, setSelectedWords] = useState<string[]>([]);
-  const [availableWords, setAvailableWords] = useState<string[]>([]);
+  const [selectedWords, setSelectedWords] = useState<WordChunk[]>([]);
+  const [availableWords, setAvailableWords] = useState<WordChunk[]>([]);
   const [appState, setAppState] = useState<AppState>(AppState.IDLE);
   const [isCorrect, setIsCorrect] = useState(false);
   const [showHint, setShowHint] = useState(false);
@@ -91,6 +149,8 @@ const App: React.FC = () => {
   };
 
   const initSession = useCallback(async (targetLevel: JLPTLevel = level) => {
+    window.speechSynthesis.cancel();
+
     setAppState(AppState.LOADING);
     setSelectedWords([]);
     setAvailableWords([]);
@@ -103,11 +163,12 @@ const App: React.FC = () => {
       currentSentenceRef.current = newSentence.kanji;
       
       setSentence(newSentence);
-      setAvailableWords(newSentence.wordBank || []);
+      const shuffledBank = [...(newSentence.wordBank || [])].sort(() => Math.random() - 0.5);
+      setAvailableWords(shuffledBank);
       setAppState(AppState.LISTENING);
       
       if (newSentence.kanji) {
-        setTimeout(() => speak(newSentence.kanji, isSlowAudio ? 0.7 : 0.9), 300);
+        setTimeout(() => speak(newSentence.kanji, isSlowAudio ? 0.75 : 1.0), 300);
       }
 
     } catch (error) {
@@ -130,22 +191,22 @@ const App: React.FC = () => {
   const playAudio = useCallback(async () => {
     const activeSentence = historyIndex !== null ? history[historyIndex].kanji : sentence?.kanji;
     if (activeSentence) {
-      speak(activeSentence, isSlowAudio ? 0.7 : 0.9);
+      speak(activeSentence, isSlowAudio ? 0.75 : 1.0);
     }
   }, [history, historyIndex, sentence, isSlowAudio]);
 
   const playMySentence = () => {
     if (selectedWords.length === 0) return;
-    const mySentence = selectedWords.join('');
-    speak(mySentence, isSlowAudio ? 0.7 : 0.9);
+    const mySentence = selectedWords.map(w => w.ja).join('');
+    speak(mySentence, isSlowAudio ? 0.75 : 1.0);
   };
 
-  const checkAnswer = (newSelectedWords: string[]) => {
+  const checkAnswer = (newSelectedWords: WordChunk[]) => {
     if (!sentence) return;
     
     const cleanRegex = /[.,\/#!$%\^&\*;:{}=\-_`~()！？。、（）\s]/g;
     const cleanTarget = sentence.kanji.replace(cleanRegex, "");
-    const joinedUserWords = newSelectedWords.join('').replace(cleanRegex, "");
+    const joinedUserWords = newSelectedWords.map(w => w.ja).join('').replace(cleanRegex, "");
     
     if (joinedUserWords === cleanTarget) {
       setIsCorrect(true);
@@ -155,24 +216,22 @@ const App: React.FC = () => {
     }
   };
 
-  const handleWordClick = (word: string, index: number, fromBank: boolean) => {
+  const handleWordClick = (chunk: WordChunk, index: number, fromBank: boolean) => {
     if (isCorrect) return;
 
-    const cleanWord = word.replace(/[\[\(].*?[\]\)]/g, '').replace(/（[^）]+）/g, '').trim();
-    
     if (fromBank && enableWordAudio) {
-      speak(cleanWord, 0.85);
+      speak(chunk.ja, 0.85);
     }
 
     if (fromBank) {
-      const newSelected = [...selectedWords, word];
+      const newSelected = [...selectedWords, chunk];
       setSelectedWords(newSelected);
       setAvailableWords(prev => prev.filter((_, i) => i !== index));
       checkAnswer(newSelected);
     } else {
       const newSelected = selectedWords.filter((_, i) => i !== index);
       setSelectedWords(newSelected);
-      setAvailableWords(prev => [...prev, word]);
+      setAvailableWords(prev => [...prev, chunk]);
     }
   };
 
@@ -249,6 +308,26 @@ const App: React.FC = () => {
               </div>
             </label>
         </div>
+
+        <div className="flex items-center space-x-6">
+            <label className="flex items-center cursor-pointer space-x-3 group">
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 group-hover:text-black transition-colors">Word Eigo</span>
+              <div className="relative">
+                <input type="checkbox" className="sr-only" checked={showEigo} onChange={() => setShowEigo(!showEigo)} />
+                <div className={`block w-10 h-6 rounded-full transition-colors ${showEigo ? 'bg-black' : 'bg-gray-200'}`}></div>
+                <div className={`absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform ${showEigo ? 'translate-x-4' : ''}`}></div>
+              </div>
+            </label>
+
+            <label className="flex items-center cursor-pointer space-x-3 group">
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 group-hover:text-black transition-colors">Word Furigana</span>
+              <div className="relative">
+                <input type="checkbox" className="sr-only" checked={showWordFurigana} onChange={() => setShowWordFurigana(!showWordFurigana)} />
+                <div className={`block w-10 h-6 rounded-full transition-colors ${showWordFurigana ? 'bg-black' : 'bg-gray-200'}`}></div>
+                <div className={`absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform ${showWordFurigana ? 'translate-x-4' : ''}`}></div>
+              </div>
+            </label>
+        </div>
       </div>
 
       {history.length > 0 && (
@@ -288,10 +367,10 @@ const App: React.FC = () => {
               )}
               <div className="flex flex-wrap justify-center gap-3">
                 {selectedWords.length === 0 && <span className="text-gray-200 text-2xl font-light tracking-wide mt-4">Tap words below to build the sentence</span>}
-                {selectedWords.map((word, idx) => (
-                  <button key={`selected-${idx}`} onClick={() => handleWordClick(word, idx, false)} disabled={isCorrect}
+                {selectedWords.map((chunk, idx) => (
+                  <button key={`selected-${idx}`} onClick={() => handleWordClick(chunk, idx, false)} disabled={isCorrect}
                     className={`px-5 py-3 rounded-xl text-2xl font-medium transition-all ${isCorrect ? 'bg-green-50 text-green-600 cursor-default' : 'bg-gray-50 text-black hover:bg-gray-100 active:scale-95'}`}>
-                    {word.replace(/[\[\(].*?[\]\)]/g, '').replace(/（[^）]+）/g, '').trim()}
+                    {chunk.ja}
                   </button>
                 ))}
               </div>
@@ -308,11 +387,14 @@ const App: React.FC = () => {
                 )}
 
                 <div className="flex flex-wrap justify-center gap-3">
-                  {availableWords.map((word, idx) => (
-                    <button key={`bank-${idx}`} onClick={() => handleWordClick(word, idx, true)}
-                      className="px-5 py-3 rounded-xl bg-white border border-gray-200 text-xl font-medium text-gray-700 shadow-sm hover:border-gray-300 hover:shadow hover:text-black transition-all active:scale-95">
-                      {word.replace(/[\[\(].*?[\]\)]/g, '').replace(/（[^）]+）/g, '').trim()}
-                    </button>
+                  {availableWords.map((chunk, idx) => (
+                    <WordBlock 
+                      key={`bank-${idx}`} 
+                      chunk={chunk} 
+                      showEigo={showEigo} 
+                      showWordFurigana={showWordFurigana} 
+                      onClick={() => handleWordClick(chunk, idx, true)} 
+                    />
                   ))}
                 </div>
               </div>
@@ -324,7 +406,6 @@ const App: React.FC = () => {
           <div className={`flex flex-col items-center space-y-12 w-full ${fadeUp}`}>
             <div className="text-center space-y-6">
               <div className="space-y-2">
-                {/* Adjusted spacing to keep text baseline aligned */}
                 <p className="text-5xl font-normal text-black flex justify-center flex-wrap gap-x-1 leading-[2] items-baseline">
                    <FuriganaText text={displayedSentence.furigana || displayedSentence.kanji} showFurigana={showFurigana} />
                 </p>

@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# CRITICAL: Ignore environment variables and API keys
+.env
+.env.local
+enrichBank.cjs
+updateBank.cjs
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
