@@ -1,0 +1,7 @@
+{
+  "name": "Zen Listen",
+  "description": "A minimalist Japanese listening and dictation app that focuses on accuracy and repetition.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
