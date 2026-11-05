@@ -19,10 +19,14 @@ const FuriganaText = ({ text, showFurigana }: { text: string, showFurigana: bool
             <ruby 
               key={`ruby-${match.index}`} 
               className="mx-0.5" 
-              style={{ rubyAlign: 'center', verticalAlign: 'baseline' }}
+              style={{ rubyAlign: 'center', rubyPosition: 'over' }}
             >
               {match[1]}
-              <rt className={`text-[0.4em] text-gray-400 font-normal transition-opacity ${showFurigana ? 'opacity-100' : 'opacity-0'}`}>
+              <rt 
+                className={`text-[0.5em] font-semibold text-red-800 transition-all duration-300 ${
+                  showFurigana ? 'opacity-100 h-auto' : 'opacity-0 h-0 overflow-hidden'
+                }`}
+              >
                 {match[2]}
               </rt>
             </ruby>
@@ -79,7 +83,7 @@ const App: React.FC = () => {
 
   const speak = (text: string, rate: number = 0.9) => {
     if (!text) return;
-    window.speechSynthesis.cancel(); // Stop any ongoing speech
+    window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'ja-JP';
     utterance.rate = rate;
@@ -156,7 +160,6 @@ const App: React.FC = () => {
 
     const cleanWord = word.replace(/[\[\(].*?[\]\)]/g, '').replace(/（[^）]+）/g, '').trim();
     
-    // Play audio if enabled and moving from bank
     if (fromBank && enableWordAudio) {
       speak(cleanWord, 0.85);
     }
@@ -211,14 +214,12 @@ const App: React.FC = () => {
         ))}
       </nav>
 
-      {/* Top Right Controls */}
       <div className="fixed top-12 right-12 z-10 flex flex-col items-end space-y-4">
         <div className="flex items-center space-x-6">
             <button onClick={handleReset} className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-red-400 transition-colors">
               Reset Session
             </button>
             
-            {/* Furigana Toggle */}
             <label className="flex items-center cursor-pointer space-x-3 group">
               <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 group-hover:text-black transition-colors">Furigana</span>
               <div className="relative">
@@ -230,7 +231,6 @@ const App: React.FC = () => {
         </div>
 
         <div className="flex items-center space-x-6">
-            {/* Slow Audio Toggle */}
             <label className="flex items-center cursor-pointer space-x-3 group">
               <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 group-hover:text-black transition-colors">Slow Audio</span>
               <div className="relative">
@@ -240,7 +240,6 @@ const App: React.FC = () => {
               </div>
             </label>
 
-            {/* Word Audio Toggle */}
             <label className="flex items-center cursor-pointer space-x-3 group">
               <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 group-hover:text-black transition-colors">Word Audio</span>
               <div className="relative">
@@ -301,7 +300,6 @@ const App: React.FC = () => {
             {!isCorrect && (
               <div className="flex flex-col items-center space-y-6 pt-4">
                 
-                {/* Play My Sentence Button */}
                 {selectedWords.length > 0 && (
                   <button onClick={playMySentence} className="flex items-center space-x-2 text-xs font-semibold tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -326,7 +324,8 @@ const App: React.FC = () => {
           <div className={`flex flex-col items-center space-y-12 w-full ${fadeUp}`}>
             <div className="text-center space-y-6">
               <div className="space-y-2">
-                <p className="text-5xl font-normal text-black flex justify-center flex-wrap gap-x-1 items-baseline">
+                {/* Adjusted spacing to keep text baseline aligned */}
+                <p className="text-5xl font-normal text-black flex justify-center flex-wrap gap-x-1 leading-[2] items-baseline">
                    <FuriganaText text={displayedSentence.furigana || displayedSentence.kanji} showFurigana={showFurigana} />
                 </p>
               </div>
