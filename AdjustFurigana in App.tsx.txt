@@ -1,0 +1,34 @@
+To make the Furigana smaller, you just need to change one number in the `App.tsx` file. 
+
+Look for the `FuriganaText` component at the very top of the file (around line 23). You will see this line:
+
+```tsx
+className={`text-[0.35em] font-semibold text-red-600 transition-all duration-300 ${
+```
+
+The `0.35em` is the current size (35% of the main text size). 
+*   To make it smaller, change it to **`text-[0.3em]`** (30%).
+*   If you want it even smaller, you can try **`text-[0.25em]`** (25%). 
+
+Here is what that exact block of code should look like with the update:
+
+```tsx
+              <rt 
+                className={`text-[0.3em] font-semibold text-red-600 transition-all duration-300 ${
+                  showFurigana ? 'opacity-100 h-auto' : 'opacity-0 h-0 overflow-hidden'
+                }`}
+              >
+                {match[2]}
+              </rt>
+```
+
+### Bonus Tip: Adjusting the height
+If you make it smaller, you might notice the line gets a bit too tall. You can tighten up the vertical space by changing the `leading-[2]` class on the main sentence paragraph (around line 265) to `leading-[1.6]` or `leading-[1.8]`.
+
+```tsx
+                <p className="text-5xl font-normal text-black flex justify-center flex-wrap gap-x-1 leading-[1.8] items-baseline">
+                   <FuriganaText text={displayedSentence.furigana || displayedSentence.kanji} showFurigana={showFurigana} />
+                </p>
+```
+
+Once you make the change, save the file, and run your three commands (`git add .`, `git commit -m "Smaller furigana"`, `git push`) to update your live app!
