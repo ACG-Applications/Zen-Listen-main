@@ -6,10 +6,18 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
-      base: '/Zen-Listen-main/', // <--- ADD THIS LINE (Use your exact repo name)
+      base: '/Zen-Listen-main/',
       server: {
         port: 3000,
         host: '0.0.0.0',
+        watch: {
+          usePolling: true,
+          interval: 1000,
+          ignored: ['**/node_modules/**', '**/.git/**']
+        }
+      },
+      optimizeDeps: {
+        exclude: ['@google/genai']
       },
       css: {
         postcss: path.resolve(__dirname, 'postcss.config.js'),
@@ -26,7 +34,6 @@ export default defineConfig(({ mode }) => {
             theme_color: '#fdfdfd',
             background_color: '#fdfdfd',
             display: 'standalone',
-            // Change the start_url to match your repo name too!
             start_url: '/Zen-Listen-main/', 
             icons: [
               {
