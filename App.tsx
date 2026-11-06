@@ -437,9 +437,7 @@ const App: React.FC = () => {
         )}
       </div>
 
-      <footer className="fixed bottom-8 opacity-20 text-[10px] tracking-[0.2em] uppercase font-bold">
-        {isViewingHistory ? `Reviewing past sentence` : `Listening at ${level} difficulty`}
-      </footer>
+
     </div>
   );
 };
