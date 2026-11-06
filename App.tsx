@@ -257,7 +257,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center p-8 bg-[#fdfdfd] text-[#2c2c2c] selection:bg-gray-100 font-sans transition-all duration-700">
       
-      <nav className="fixed top-12 flex items-center justify-center space-x-8 z-10">
+      <nav className="fixed top-12 left-1/2 -translate-x-1/2 flex items-center justify-center space-x-8 z-30 h-8">
         {JLPT_LEVELS.map((lvl) => (
           <button
             key={lvl}
@@ -273,7 +273,7 @@ const App: React.FC = () => {
         ))}
       </nav>
 
-      <div className="fixed top-12 right-12 z-10 flex flex-col items-end space-y-4">
+      <div className="fixed top-12 right-12 z-20 flex flex-col items-end space-y-4">
         <div className="flex items-center space-x-6">
             <button onClick={handleReset} className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-red-400 transition-colors">
               Reset Session
@@ -345,15 +345,15 @@ const App: React.FC = () => {
         </div>
       )}
 
-      <div className="max-w-2xl w-full flex-grow flex flex-col items-center justify-center space-y-12">
+      <div className="max-w-2xl w-full flex-grow flex flex-col items-center justify-center space-y-12 pt-32">
         <header className="text-center opacity-40"><h1 className="text-sm font-medium tracking-[0.3em] uppercase">{isViewingHistory ? 'Review Mode' : 'Zen Listen'}</h1></header>
 
         <div className="flex flex-col items-center space-y-8">
           <button onClick={playAudio}
             disabled={(!isViewingHistory && (appState === AppState.LOADING || !sentence)) || (isViewingHistory && !history[historyIndex])}
-            className={`group relative w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500 bg-white border border-gray-100 shadow-sm hover:shadow-lg hover:border-gray-200 active:scale-95 disabled:opacity-30 ${appState === AppState.LOADING ? 'animate-pulse' : ''}`}>
-            <svg xmlns="http://www.w3.org/2000/svg" className={`w-10 h-10 transition-colors ${(!isViewingHistory && !sentence) ? 'text-gray-200' : 'text-gray-400 group-hover:text-black'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
-            {appState === AppState.LOADING && <div className="absolute inset-0 rounded-full border-2 border-black border-t-transparent animate-spin opacity-10" />}
+            className={`group relative w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500 bg-blue-50 border border-blue-100 shadow-sm hover:shadow-lg hover:bg-blue-100 hover:border-blue-200 active:scale-95 disabled:opacity-30 ${appState === AppState.LOADING ? 'animate-pulse' : ''}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" className={`w-10 h-10 transition-colors ${(!isViewingHistory && !sentence) ? 'text-blue-200' : 'text-blue-500 group-hover:text-blue-700'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
+            {appState === AppState.LOADING && <div className="absolute inset-0 rounded-full border-2 border-blue-500 border-t-transparent animate-spin opacity-10" />}
           </button>
         </div>
 
