@@ -1510,8 +1510,8 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "五枚", "furigana": "五枚[ごまい]", "en": "five (flat things)" },
       { "ja": "ください", "furigana": "ください", "en": "Please give me" },
-      { "ja": "三枚", "furigana": "三枚[さんまい]", "en": "three (flat things)
-      { "ja": "五本", "furigana": "五本[ごほん]", "en": "five (long things)
+      { "ja": "三枚", "furigana": "三枚[さんまい]", "en": "three (flat things)" },
+      { "ja": "五本", "furigana": "五本[ごほん]", "en": "five (long things)" }
     ]
   },
   {
@@ -2324,7 +2324,7 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "散歩", "furigana": "散歩[さんぽ]", "en": "Walk" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "頼まれました", "furigana": "頼[たの]まれました", "en": "was asked" },
-      { "ja": "頼みました", "furigana": "頼[たの]みました", "en": "asked (someone)
+      { "ja": "頼みました", "furigana": "頼[たの]みました", "en": "asked (someone)" },
       { "ja": "猫", "furigana": "猫[ねこ]", "en": "cat" }
     ]
   },
