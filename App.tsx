@@ -30,7 +30,10 @@ const FuriganaText = ({ text, showFurigana }: { text: string, showFurigana: bool
             parts.push(
               <ruby key={`ruby-${match.index}`} className="mx-0 text-black" style={{ rubyAlign: 'start', rubyPosition: 'over' }}>
                 {kanji}
-                <rt className={`text-[0.55em] font-bold text-red-600 transition-all duration-300 ${showFurigana ? 'opacity-100' : 'opacity-0 overflow-hidden'}`} style={{ lineHeight: '1' }}>
+                <rt 
+                  className={`text-[0.55em] font-bold text-red-600 transition-all duration-300 ${showFurigana ? 'opacity-100' : 'opacity-0 overflow-hidden'}`} 
+                  style={{ lineHeight: '1.6', paddingBottom: '2px' }}
+                >
                   {reading}
                 </rt>
               </ruby>
@@ -345,7 +348,7 @@ const App: React.FC = () => {
         </div>
       )}
 
-      <div className="max-w-2xl w-full flex-grow flex flex-col items-center justify-center space-y-12 pt-32">
+      <div className="max-w-2xl w-full flex-grow flex flex-col items-center justify-center space-y-12 pt-32 pb-24">
         <header className="text-center opacity-40"><h1 className="text-sm font-medium tracking-[0.3em] uppercase">{isViewingHistory ? 'Review Mode' : 'Zen Listen'}</h1></header>
 
         <div className="flex flex-col items-center space-y-8">
@@ -436,7 +439,6 @@ const App: React.FC = () => {
           </div>
         )}
       </div>
-
 
     </div>
   );
