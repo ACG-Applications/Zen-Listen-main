@@ -437,8 +437,8 @@ const App: React.FC = () => {
         )}
       </div>
 
-      {/* Acknowledgement Footer */}
-      <footer className="fixed bottom-6 text-[10px] text-gray-400 opacity-60 hover:opacity-100 transition-opacity duration-300 text-center px-4">
+      {/* Updated Acknowledgement Footer */}
+      <footer className="fixed bottom-6 text-[10px] text-gray-400 opacity-60 hover:opacity-100 transition-opacity duration-300 text-center px-4 w-full">
         Base code by{' '}
         <a 
           href="https://github.com/chrisloveliverpool-debug/Zen-Listen" 
@@ -448,7 +448,24 @@ const App: React.FC = () => {
         >
           chrisloveliverpool-debug
         </a>
-        {' '}• Perfected with the help of DeepSeek
+        {' '}• Perfected with the help of{' '}
+        <a 
+          href="https://github.com/ACG-Applications" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="font-bold underline decoration-gray-300 hover:text-black transition-colors"
+        >
+          ACG-Applications
+        </a>
+        {' '}and{' '}
+        <a 
+          href="https://github.com/deepseek-ai" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="font-bold underline decoration-gray-300 hover:text-black transition-colors"
+        >
+          DeepSeek
+        </a>
       </footer>
 
     </div>
