@@ -350,7 +350,6 @@ const App: React.FC = () => {
         </div>
       )}
 
-      {/* Reduced padding and spacing here to fit on one screen */}
       <div className="max-w-2xl w-full flex-grow flex flex-col items-center justify-center space-y-8 pt-24 pb-12">
         <header className="text-center opacity-40"><h1 className="text-sm font-medium tracking-[0.3em] uppercase">{isViewingHistory ? 'Review Mode' : 'Zen Listen'}</h1></header>
 
@@ -365,9 +364,10 @@ const App: React.FC = () => {
 
         {!isViewingHistory && (
           <div className="w-full space-y-8">
-            <div className="relative flex flex-col items-center min-h-[100px] justify-center border-b border-gray-100 pb-4">
+            {/* Added pt-8 to the container and adjusted the checkmark position */}
+            <div className="relative flex flex-col items-center min-h-[100px] justify-center border-b border-gray-100 pb-4 pt-8">
               {isCorrect && (
-                <div className="absolute -top-10 animate-in zoom-in fade-in duration-500 fill-mode-forwards">
+                <div className="absolute -top-4 animate-in zoom-in fade-in duration-500 fill-mode-forwards bg-white rounded-full">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
                 </div>
               )}
