@@ -260,7 +260,6 @@ const App: React.FC = () => {
       
       <div className="fixed top-12 right-12 z-30 flex flex-col items-end space-y-6">
         
-        {/* JLPT Levels moved here */}
         <nav className="flex items-center justify-end space-x-6 h-6">
           {JLPT_LEVELS.map((lvl) => (
             <button
@@ -277,7 +276,6 @@ const App: React.FC = () => {
           ))}
         </nav>
 
-        {/* Toggles */}
         <div className="flex items-center space-x-6">
             <button onClick={handleReset} className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-red-400 transition-colors">
               Reset Session
@@ -337,43 +335,47 @@ const App: React.FC = () => {
       {history.length > 0 && (
         <div className="fixed right-12 top-1/2 -translate-y-1/2 flex flex-col items-center space-y-4 z-20">
           <button onClick={() => navigateHistory('prev')} disabled={!canGoBack}
-            className={`p-4 rounded-full border border-gray-100 bg-white shadow-sm transition-all duration-300 active:scale-90 disabled:opacity-0 ${canGoBack ? 'hover:shadow-md hover:border-gray-200 text-gray-400 hover:text-black' : 'pointer-events-none'}`}>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" /></svg>
+            className={`px-5 py-3 rounded-full border border-gray-100 bg-white shadow-sm transition-all duration-300 active:scale-90 disabled:opacity-0 flex items-center space-x-2 ${canGoBack ? 'hover:shadow-md hover:border-gray-200 text-gray-400 hover:text-black' : 'pointer-events-none'}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" /></svg>
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Review</span>
           </button>
+          
           {isViewingHistory && (
             <button onClick={() => navigateHistory('next')}
-              className="p-4 rounded-full border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:border-gray-200 text-gray-400 hover:text-black active:scale-90">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" /></svg>
+              className="px-5 py-3 rounded-full border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:border-gray-200 text-gray-400 hover:text-black active:scale-90 flex items-center space-x-2">
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Next</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" /></svg>
             </button>
           )}
         </div>
       )}
 
-      <div className="max-w-2xl w-full flex-grow flex flex-col items-center justify-center space-y-12 pt-32 pb-24">
+      {/* Reduced padding and spacing here to fit on one screen */}
+      <div className="max-w-2xl w-full flex-grow flex flex-col items-center justify-center space-y-8 pt-24 pb-12">
         <header className="text-center opacity-40"><h1 className="text-sm font-medium tracking-[0.3em] uppercase">{isViewingHistory ? 'Review Mode' : 'Zen Listen'}</h1></header>
 
-        <div className="flex flex-col items-center space-y-8">
+        <div className="flex flex-col items-center space-y-6">
           <button onClick={playAudio}
             disabled={(!isViewingHistory && (appState === AppState.LOADING || !sentence)) || (isViewingHistory && !history[historyIndex])}
-            className={`group relative w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500 bg-blue-50 border border-blue-100 shadow-sm hover:shadow-lg hover:bg-blue-100 hover:border-blue-200 active:scale-95 disabled:opacity-30 ${appState === AppState.LOADING ? 'animate-pulse' : ''}`}>
-            <svg xmlns="http://www.w3.org/2000/svg" className={`w-10 h-10 transition-colors ${(!isViewingHistory && !sentence) ? 'text-blue-200' : 'text-blue-500 group-hover:text-blue-700'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
+            className={`group relative w-20 h-20 rounded-full flex items-center justify-center transition-all duration-500 bg-blue-50 border border-blue-100 shadow-sm hover:shadow-lg hover:bg-blue-100 hover:border-blue-200 active:scale-95 disabled:opacity-30 ${appState === AppState.LOADING ? 'animate-pulse' : ''}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" className={`w-8 h-8 transition-colors ${(!isViewingHistory && !sentence) ? 'text-blue-200' : 'text-blue-500 group-hover:text-blue-700'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
             {appState === AppState.LOADING && <div className="absolute inset-0 rounded-full border-2 border-blue-500 border-t-transparent animate-spin opacity-10" />}
           </button>
         </div>
 
         {!isViewingHistory && (
-          <div className="w-full space-y-12">
-            <div className="relative flex flex-col items-center min-h-[120px] justify-center border-b border-gray-100 pb-6">
+          <div className="w-full space-y-8">
+            <div className="relative flex flex-col items-center min-h-[100px] justify-center border-b border-gray-100 pb-4">
               {isCorrect && (
-                <div className="absolute -top-12 animate-in zoom-in fade-in duration-500 fill-mode-forwards">
+                <div className="absolute -top-10 animate-in zoom-in fade-in duration-500 fill-mode-forwards">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
                 </div>
               )}
               <div className="flex flex-wrap justify-center gap-3">
-                {selectedWords.length === 0 && <span className="text-gray-200 text-2xl font-light tracking-wide mt-4">Tap words below to build the sentence</span>}
+                {selectedWords.length === 0 && <span className="text-gray-200 text-xl font-light tracking-wide mt-2">Tap words below to build the sentence</span>}
                 {selectedWords.map((chunk, idx) => (
                   <button key={`selected-${idx}`} onClick={() => handleWordClick(chunk, idx, false)} disabled={isCorrect}
-                    className={`px-5 py-3 rounded-xl text-2xl font-medium transition-all ${isCorrect ? 'bg-green-50 text-green-600 cursor-default' : 'bg-gray-50 text-black hover:bg-gray-100 active:scale-95'}`}>
+                    className={`px-5 py-2.5 rounded-xl text-xl font-medium transition-all ${isCorrect ? 'bg-green-50 text-green-600 cursor-default' : 'bg-gray-50 text-black hover:bg-gray-100 active:scale-95'}`}>
                     {chunk.ja}
                   </button>
                 ))}
@@ -381,7 +383,7 @@ const App: React.FC = () => {
             </div>
             
             {!isCorrect && (
-              <div className="flex flex-col items-center space-y-6 pt-4">
+              <div className="flex flex-col items-center space-y-4 pt-2">
                 
                 {selectedWords.length > 0 && (
                   <button onClick={playMySentence} className="flex items-center space-x-2 text-xs font-semibold tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors">
@@ -407,19 +409,19 @@ const App: React.FC = () => {
         )}
 
         {(isCorrect || isViewingHistory) && displayedSentence && (
-          <div className={`flex flex-col items-center space-y-12 w-full ${fadeUp}`}>
-            <div className="text-center space-y-6">
+          <div className={`flex flex-col items-center space-y-8 w-full ${fadeUp}`}>
+            <div className="text-center space-y-4">
               <div className="space-y-2">
-                <p className="text-5xl font-normal text-black flex justify-center flex-wrap gap-x-1 leading-[2] items-baseline">
+                <p className="text-4xl font-normal text-black flex justify-center flex-wrap gap-x-1 leading-[2] items-baseline">
                    <FuriganaText text={displayedSentence.furigana || displayedSentence.kanji} showFurigana={showFurigana} />
                 </p>
               </div>
-              <div className="pt-6 max-w-lg mx-auto">
-                <p className="text-2xl text-gray-600 font-light tracking-wide">{displayedSentence.translation}</p>
+              <div className="pt-2 max-w-lg mx-auto">
+                <p className="text-xl text-gray-600 font-light tracking-wide">{displayedSentence.translation}</p>
               </div>
             </div>
             <button onClick={() => isViewingHistory ? setHistoryIndex(null) : initSession()}
-              className="px-12 py-5 bg-black text-white rounded-full text-xs font-semibold hover:bg-gray-800 transition-all hover:px-14 active:scale-95 tracking-[0.4em] uppercase shadow-lg shadow-black/5">
+              className="px-10 py-4 bg-black text-white rounded-full text-xs font-semibold hover:bg-gray-800 transition-all hover:px-12 active:scale-95 tracking-[0.4em] uppercase shadow-lg shadow-black/5">
               {isViewingHistory ? 'Back to Current' : 'Next Sentence'}
             </button>
           </div>
