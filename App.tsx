@@ -351,7 +351,12 @@ const App: React.FC = () => {
       )}
 
       <div className="max-w-2xl w-full flex-grow flex flex-col items-center justify-center space-y-8 pt-24 pb-12">
-        <header className="text-center opacity-40"><h1 className="text-sm font-medium tracking-[0.3em] uppercase">{isViewingHistory ? 'Review Mode' : 'Zen Listen'}</h1></header>
+        
+        <header className="text-center opacity-40">
+          <h1 className="text-sm font-medium tracking-[0.3em] uppercase">
+            {isViewingHistory ? 'Review Mode' : '🧘 Zen Listen 🧘'}
+          </h1>
+        </header>
 
         <div className="flex flex-col items-center space-y-6">
           <button onClick={playAudio}
@@ -366,7 +371,8 @@ const App: React.FC = () => {
           <div className="w-full space-y-8">
             <div className="relative flex flex-col items-center min-h-[100px] justify-center border-b border-gray-100 pb-4 pt-4">
               <div className="flex flex-wrap justify-center gap-3 items-center">
-                {selectedWords.length === 0 && <span className="text-gray-200 text-xl font-light tracking-wide mt-2">Tap words below to build the sentence</span>}
+                
+                {selectedWords.length === 0 && <span className="text-gray-400 text-xl font-light tracking-wide mt-2">Tap words below to build the sentence</span>}
                 
                 {selectedWords.map((chunk, idx) => (
                   <button key={`selected-${idx}`} onClick={() => handleWordClick(chunk, idx, false)} disabled={isCorrect}
@@ -375,7 +381,6 @@ const App: React.FC = () => {
                   </button>
                 ))}
 
-                {/* Success Tick placed at the end of the sentence */}
                 {isCorrect && (
                   <div className="ml-2 animate-in zoom-in fade-in duration-500 fill-mode-forwards flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-500" viewBox="0 0 20 20" fill="currentColor">
@@ -431,6 +436,20 @@ const App: React.FC = () => {
           </div>
         )}
       </div>
+
+      {/* Acknowledgement Footer */}
+      <footer className="fixed bottom-6 text-[10px] text-gray-400 opacity-60 hover:opacity-100 transition-opacity duration-300 text-center px-4">
+        Base code by{' '}
+        <a 
+          href="https://github.com/chrisloveliverpool-debug/Zen-Listen" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="font-bold underline decoration-gray-300 hover:text-black transition-colors"
+        >
+          chrisloveliverpool-debug
+        </a>
+        {' '}• Perfected with the help of DeepSeek
+      </footer>
 
     </div>
   );
