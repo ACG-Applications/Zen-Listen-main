@@ -10,7 +10,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "毎朝", "furigana": "毎朝[まいあさ]", "en": "Every morning" },
       { "ja": "六時", "furigana": "六時[ろくじ]", "en": "6 o'clock" },
       { "ja": "に", "furigana": "に", "en": "at (indicating time)" },
-      { "ja": "起きます", "furigana": "起[お]きます", "en": "wake up" }
+      { "ja": "起きます", "furigana": "起[お]きます", "en": "wake up" },
+      { "ja": "で", "furigana": "で", "en": "at (wrong particle — time uses に)" },
+      { "ja": "起きました", "furigana": "起[お]きました", "en": "woke up (past tense, not present)" }
     ]
   },
   {
@@ -22,7 +24,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "夜", "furigana": "夜[よる]", "en": "Night" },
       { "ja": "十時", "furigana": "十時[じゅうじ]", "en": "10 o'clock" },
       { "ja": "に", "furigana": "に", "en": "at (indicates time)" },
-      { "ja": "寝ます", "furigana": "寝[ね]ます", "en": "go to bed" }
+      { "ja": "寝ます", "furigana": "寝[ね]ます", "en": "go to bed" },
+      { "ja": "で", "furigana": "で", "en": "at (wrong particle — time uses に)" },
+      { "ja": "寝ました", "furigana": "寝[ね]ました", "en": "went to bed (past tense, not present)" }
     ]
   },
   {
@@ -37,7 +41,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "から", "furigana": "から", "en": "after" },
       { "ja": "歯", "furigana": "歯[は]", "en": "Teeth" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "磨きます", "furigana": "磨[みが]きます", "en": "brush" }
+      { "ja": "磨きます", "furigana": "磨[みが]きます", "en": "brush" },
+      { "ja": "前に", "furigana": "前[まえ]に", "en": "before (wrong — sentence uses から 'after')" },
+      { "ja": "食べます", "furigana": "食[た]べます", "en": "eat (plain form, not te-form)" }
     ]
   },
   {
@@ -50,7 +56,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "へ", "furigana": "へ", "en": "to (direction particle)" },
       { "ja": "八時", "furigana": "八時[はちじ]", "en": "8 o'clock" },
       { "ja": "に", "furigana": "に", "en": "at (time marker)" },
-      { "ja": "行きます", "furigana": "行[い]きます", "en": "go" }
+      { "ja": "行きます", "furigana": "行[い]きます", "en": "go" },
+      { "ja": "で", "furigana": "で", "en": "by/at (wrong — へ marks direction)" },
+      { "ja": "行きました", "furigana": "行[い]きました", "en": "went (past tense, not present)" }
     ]
   },
   {
@@ -63,7 +71,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "と", "furigana": "と", "en": "with" },
       { "ja": "図書館", "furigana": "図書館[としょかん]", "en": "library" },
       { "ja": "で", "furigana": "で", "en": "at (location marker)" },
-      { "ja": "勉強します", "furigana": "勉強[べんきょう]します", "en": "study" }
+      { "ja": "勉強します", "furigana": "勉強[べんきょう]します", "en": "study" },
+      { "ja": "に", "furigana": "に", "en": "at (wrong particle — action location uses で)" },
+      { "ja": "勉強しました", "furigana": "勉強[べんきょう]しました", "en": "studied (past tense, not present)" }
     ]
   },
   {
@@ -75,7 +85,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "昨日", "furigana": "昨日[きのう]", "en": "Yesterday" },
       { "ja": "は", "furigana": "は", "en": "Topic marker" },
       { "ja": "十時間", "furigana": "十時間[じゅうじかん]", "en": "10 hours" },
-      { "ja": "働きました", "furigana": "働[はたら]きました", "en": "worked" }
+      { "ja": "働きました", "furigana": "働[はたら]きました", "en": "worked" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 昨日 is the topic, は)" },
+      { "ja": "働きます", "furigana": "働[はたら]きます", "en": "work (present tense, but sentence is past)" }
     ]
   },
   {
@@ -90,7 +102,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "on (marking the specific day)" },
       { "ja": "映画", "furigana": "映画[えいが]", "en": "Movie" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "見ます", "furigana": "見[み]ます", "en": "watch" }
+      { "ja": "見ます", "furigana": "見[み]ます", "en": "watch" },
+      { "ja": "見ました", "furigana": "見[み]ました", "en": "watched (past tense, but sentence is future)" },
+      { "ja": "で", "furigana": "で", "en": "at (wrong — days use に)" }
     ]
   },
   {
@@ -106,7 +120,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "両親", "furigana": "両親[りょうしん]", "en": "parents" },
       { "ja": "と", "furigana": "と", "en": "and" },
       { "ja": "妹", "furigana": "妹[いもうと]", "en": "younger sister" },
-      { "ja": "です", "furigana": "です", "en": "is (copula)" }
+      { "ja": "です", "furigana": "です", "en": "is (copula)" },
+      { "ja": "姉", "furigana": "姉[あね]", "en": "older sister (wrong — sentence says 妹)" },
+      { "ja": "や", "furigana": "や", "en": "and (non-exhaustive list — sentence uses と)" }
     ]
   },
   {
@@ -121,7 +137,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "切り", "furigana": "切[き]り", "en": "cutting" },
       { "ja": "ながら", "furigana": "ながら", "en": "while (doing)" },
-      { "ja": "料理します", "furigana": "料理[りょうり]します", "en": "cooks" }
+      { "ja": "料理します", "furigana": "料理[りょうり]します", "en": "cooks" },
+      { "ja": "から", "furigana": "から", "en": "after (wrong — ながら means 'while')" },
+      { "ja": "切って", "furigana": "切[き]って", "en": "cut (te-form, not the ます-stem 切り)" }
     ]
   },
   {
@@ -135,7 +153,10 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "小さい", "furigana": "小[ちい]さい", "en": "small" },
       { "ja": "犬", "furigana": "犬[いぬ]", "en": "Dog" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "見ました", "furigana": "見[み]ました", "en": "saw" }
+      { "ja": "見ました", "furigana": "見[み]ました", "en": "saw" },
+      { "ja": "見ます", "furigana": "見[み]ます", "en": "see (present tense, but sentence is past)" },
+      { "ja": "大きい", "furigana": "大[おお]きい", "en": "big (antonym — sentence says 小さい)" },
+      { "ja": "に", "furigana": "に", "en": "at (wrong — action location uses で)" }
     ]
   },
   {
@@ -150,7 +171,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "大きな", "furigana": "大[おお]きな", "en": "big" },
       { "ja": "図書館", "furigana": "図書館[としょかん]", "en": "Library" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "あります", "furigana": "あります", "en": "there is" }
+      { "ja": "あります", "furigana": "あります", "en": "there is" },
+      { "ja": "小さい", "furigana": "小[ちい]さい", "en": "small (antonym — sentence says 大きな)" },
+      { "ja": "います", "furigana": "います", "en": "there is (for animate things — 図書館 is inanimate)" }
     ]
   },
   {
@@ -166,7 +189,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "が", "furigana": "が", "en": "but" },
       { "ja": "少し", "furigana": "少し[すこし]", "en": "a little" },
       { "ja": "高い", "furigana": "高[たか]い", "en": "expensive" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "遅い", "furigana": "遅[おそ]い", "en": "slow (antonym — sentence says 速い)" },
+      { "ja": "安い", "furigana": "安[やす]い", "en": "cheap (antonym — sentence says 高い)" }
     ]
   },
   {
@@ -182,7 +207,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "買って", "furigana": "買[か]って", "en": "buy (and)" },
       { "ja": "電車", "furigana": "電車[でんしゃ]", "en": "train" },
       { "ja": "に", "furigana": "に", "en": "to (destination)" },
-      { "ja": "乗ります", "furigana": "乗[の]ります", "en": "board" }
+      { "ja": "乗ります", "furigana": "乗[の]ります", "en": "board" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 乗ります takes に)" },
+      { "ja": "買います", "furigana": "買[か]います", "en": "buy (plain, not te-form — sentence needs 買って)" }
     ]
   },
   {
@@ -200,7 +227,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "で", "furigana": "で", "en": "at (location)" },
       { "ja": "本", "furigana": "本[ほん]", "en": "book" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "読みました", "furigana": "読[よ]みました", "en": "read" }
+      { "ja": "読みました", "furigana": "読[よ]みました", "en": "read" },
+      { "ja": "降る", "furigana": "降[ふ]る", "en": "rains (present tense, not past)" },
+      { "ja": "から", "furigana": "から", "en": "because (wrong — sentence uses ので)" }
     ]
   },
   {
@@ -214,7 +243,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "何", "furigana": "何[なに]", "en": "what" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "します", "furigana": "します", "en": "do" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "だれ", "furigana": "だれ", "en": "who (wrong question word — sentence asks 何 'what')" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 何 is the object, を)" }
     ]
   },
   {
@@ -228,7 +259,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "聞き", "furigana": "聞[き]き", "en": "listening" },
       { "ja": "ながら", "furigana": "ながら", "en": "while" },
-      { "ja": "散歩します", "furigana": "散歩[さんぽ]します", "en": "take a walk" }
+      { "ja": "散歩します", "furigana": "散歩[さんぽ]します", "en": "take a walk" },
+      { "ja": "から", "furigana": "から", "en": "after (wrong — sentence uses ながら 'while')" },
+      { "ja": "聞きます", "furigana": "聞[き]きます", "en": "listen (plain, not the ます-stem 聞き)" }
     ]
   },
   {
@@ -244,7 +277,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "一番", "furigana": "一番[いちばん]", "en": "the most" },
       { "ja": "好き", "furigana": "好[す]き", "en": "like" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "熱い", "furigana": "熱[あつ]い", "en": "hot (antonym — sentence says 冷たい)" },
+      { "ja": "嫌い", "furigana": "嫌[きら]い", "en": "dislike (opposite — sentence says 好き)" }
     ]
   },
   {
@@ -257,7 +292,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "コーヒー", "furigana": "コーヒー", "en": "Coffee" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "二杯", "furigana": "二杯[にはい]", "en": "two cups" },
-      { "ja": "飲みます", "furigana": "飲[の]みます", "en": "drink" }
+      { "ja": "飲みます", "furigana": "飲[の]みます", "en": "drink" },
+      { "ja": "三杯", "furigana": "三杯[さんばい]", "en": "three cups (wrong number — sentence says 二杯)" },
+      { "ja": "飲みました", "furigana": "飲[の]みました", "en": "drank (past tense, not habitual present)" }
     ]
   },
   {
@@ -272,7 +309,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "ので", "furigana": "ので", "en": "because / since" },
       { "ja": "部屋", "furigana": "部屋[へや]", "en": "room" },
       { "ja": "に", "furigana": "に", "en": "into" },
-      { "ja": "入れません", "furigana": "入[はい]れません", "en": "cannot enter" }
+      { "ja": "入れません", "furigana": "入[はい]れません", "en": "cannot enter" },
+      { "ja": "から", "furigana": "から", "en": "because (wrong — sentence uses ので)" },
+      { "ja": "入ります", "furigana": "入[はい]ります", "en": "enter (affirmative, but sentence is negative)" }
     ]
   },
   {
@@ -289,7 +328,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "です", "furigana": "です", "en": "is" },
       { "ja": "が", "furigana": "が", "en": "but" },
       { "ja": "美味しい", "furigana": "美味[おい]しい", "en": "delicious" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "甘い", "furigana": "甘[あま]い", "en": "sweet (antonym — sentence says 辛い)" },
+      { "ja": "まずい", "furigana": "まずい", "en": "bad-tasting (antonym — sentence says 美味しい)" }
     ]
   },
   {
@@ -303,7 +344,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "from (source/giver)" },
       { "ja": "誕生日プレゼント", "furigana": "誕生日[たんじょうび]プレゼント", "en": "birthday present" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "もらいました", "furigana": "もらいました", "en": "received" }
+      { "ja": "もらいました", "furigana": "もらいました", "en": "received" },
+      { "ja": "あげました", "furigana": "あげました", "en": "gave (wrong direction — sentence says もらいました 'received')" },
+      { "ja": "から", "furigana": "から", "en": "from (wrong particle — this sentence uses に for the giver)" }
     ]
   },
   {
@@ -318,7 +361,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "in front of (location)" },
       { "ja": "郵便局", "furigana": "郵便局[ゆうびんきょく]", "en": "Post office" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "あります", "furigana": "あります", "en": "there is" }
+      { "ja": "あります", "furigana": "あります", "en": "there is" },
+      { "ja": "後ろ", "furigana": "後[うし]ろ", "en": "behind (antonym — sentence says 前)" },
+      { "ja": "います", "furigana": "います", "en": "there is (for animate things — 郵便局 is inanimate)" }
     ]
   },
   {
@@ -332,7 +377,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "授業", "furigana": "授業[じゅぎょう]", "en": "Class" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "楽しい", "furigana": "楽[たの]しい", "en": "fun" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "つまらない", "furigana": "つまらない", "en": "boring (antonym — sentence says 楽しい)" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 授業 is the topic, は)" }
     ]
   },
   {
@@ -345,7 +392,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "まで", "furigana": "まで", "en": "to (the bank)" },
       { "ja": "歩いて", "furigana": "歩[ある]いて", "en": "walk (and) / by walking" },
       { "ja": "十分", "furigana": "十分[じゅっぷん]", "en": "10 minutes" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "から", "furigana": "から", "en": "from (wrong — sentence uses まで 'to')" },
+      { "ja": "五分", "furigana": "五分[ごふん]", "en": "five minutes (wrong duration — sentence says 十分)" }
     ]
   },
   {
@@ -360,7 +409,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "ある", "furigana": "ある", "en": "there is / to exist" },
       { "ja": "ので", "furigana": "ので", "en": "because / so" },
       { "ja": "今晩", "furigana": "今晩[こんばん]", "en": "tonight" },
-      { "ja": "勉強します", "furigana": "勉強[べんきょう]します", "en": "will study" }
+      { "ja": "勉強します", "furigana": "勉強[べんきょう]します", "en": "will study" },
+      { "ja": "から", "furigana": "から", "en": "because (wrong — sentence uses ので)" },
+      { "ja": "昨日", "furigana": "昨日[きのう]", "en": "yesterday (wrong time — sentence says 明日 'tomorrow')" }
     ]
   },
   {
@@ -375,7 +426,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "と", "furigana": "と", "en": "and" },
       { "ja": "魚", "furigana": "魚[さかな]", "en": "Fish" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "買いました", "furigana": "買[か]いました", "en": "bought" }
+      { "ja": "買いました", "furigana": "買[か]いました", "en": "bought" },
+      { "ja": "や", "furigana": "や", "en": "and (non-exhaustive — sentence uses と)" },
+      { "ja": "買います", "furigana": "買[か]います", "en": "buy (present, but sentence is past)" }
     ]
   },
   {
@@ -390,7 +443,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "よく", "furigana": "よく", "en": "often" },
       { "ja": "川", "furigana": "川[かわ]", "en": "River" },
       { "ja": "で", "furigana": "で", "en": "in (the river)" },
-      { "ja": "泳ぎました", "furigana": "泳[およ]ぎました", "en": "swam" }
+      { "ja": "泳ぎました", "furigana": "泳[およ]ぎました", "en": "swam" },
+      { "ja": "海", "furigana": "海[うみ]", "en": "sea (wrong place — sentence says 川)" },
+      { "ja": "泳ぎます", "furigana": "泳[およ]ぎます", "en": "swim (present, but sentence is past)" }
     ]
   },
   {
@@ -404,7 +459,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "赤い", "furigana": "赤[あか]い", "en": "red" },
       { "ja": "車", "furigana": "車[くるま]", "en": "car" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "持っています", "furigana": "持[も]っています", "en": "has" }
+      { "ja": "持っています", "furigana": "持[も]っています", "en": "has" },
+      { "ja": "青い", "furigana": "青[あお]い", "en": "blue (wrong color — sentence says 赤い)" },
+      { "ja": "持っていません", "furigana": "持[も]っていません", "en": "doesn't have (negative — sentence is affirmative)" }
     ]
   },
   {
@@ -419,7 +476,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "to (purpose)" },
       { "ja": "コンビニ", "furigana": "コンビニ", "en": "Convenience store" },
       { "ja": "へ", "furigana": "へ", "en": "to (direction)" },
-      { "ja": "行きます", "furigana": "行[い]きます", "en": "go" }
+      { "ja": "行きます", "furigana": "行[い]きます", "en": "go" },
+      { "ja": "食べ物", "furigana": "食[た]べ物[もの]", "en": "food (wrong object — sentence says 飲み物)" },
+      { "ja": "から", "furigana": "から", "en": "from (wrong — purpose uses に)" }
     ]
   },
   {
@@ -438,7 +497,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "が", "furigana": "が", "en": "but" },
       { "ja": "とても", "furigana": "とても", "en": "very" },
       { "ja": "人気", "furigana": "人気[にんき]", "en": "Popular" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "安い", "furigana": "安[やす]い", "en": "cheap (antonym — sentence says 高い)" },
+      { "ja": "不人気", "furigana": "不人気[ふにんき]", "en": "unpopular (antonym — sentence says 人気)" }
     ]
   },
   {
@@ -452,7 +513,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "父", "furigana": "父[ちち]", "en": "father" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "医者", "furigana": "医者[いしゃ]", "en": "Doctor" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "母", "furigana": "母[はは]", "en": "mother (wrong — sentence says 父)" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 父 is topic, は)" }
     ]
   },
   {
@@ -466,7 +529,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "毎朝", "furigana": "毎朝[まいあさ]", "en": "Every morning" },
       { "ja": "新聞", "furigana": "新聞[しんぶん]", "en": "newspaper" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "読みます", "furigana": "読[よ]みます", "en": "reads" }
+      { "ja": "読みます", "furigana": "読[よ]みます", "en": "reads" },
+      { "ja": "雑誌", "furigana": "雑誌[ざっし]", "en": "magazine (wrong object — sentence says 新聞)" },
+      { "ja": "書きます", "furigana": "書[か]きます", "en": "writes (wrong verb — sentence says 読みます)" }
     ]
   },
   {
@@ -481,7 +546,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "で", "furigana": "で", "en": "at (location)" },
       { "ja": "英語", "furigana": "英語[えいご]", "en": "English" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "勉強しています", "furigana": "勉強[べんきょう]しています", "en": "am studying" }
+      { "ja": "勉強しています", "furigana": "勉強[べんきょう]しています", "en": "am studying" },
+      { "ja": "日本語", "furigana": "日本語[にほんご]", "en": "Japanese (wrong language — sentence says 英語)" },
+      { "ja": "勉強しました", "furigana": "勉強[べんきょう]しました", "en": "studied (finished, not ongoing しています)" }
     ]
   },
   {
@@ -497,7 +564,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "から", "furigana": "から", "en": "since" },
       { "ja": "ピアノ", "furigana": "ピアノ", "en": "Piano" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "弾きます", "furigana": "弾[ひ]きます", "en": "play (piano)" }
+      { "ja": "弾きます", "furigana": "弾[ひ]きます", "en": "play (piano)" },
+      { "ja": "ギター", "furigana": "ギター", "en": "guitar (wrong instrument — sentence says ピアノ)" },
+      { "ja": "まで", "furigana": "まで", "en": "until (wrong — sentence uses から 'since')" }
     ]
   },
   {
@@ -512,7 +581,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "田舎", "furigana": "田舎[いなか]", "en": "countryside" },
       { "ja": "に", "furigana": "に", "en": "in (location of existence)" },
-      { "ja": "住んでいます", "furigana": "住[す]んでいます", "en": "live (reside)" }
+      { "ja": "住んでいます", "furigana": "住[す]んでいます", "en": "live (reside)" },
+      { "ja": "都会", "furigana": "都会[とかい]", "en": "city (antonym — sentence says 田舎)" },
+      { "ja": "で", "furigana": "で", "en": "at (wrong — existence uses に)" }
     ]
   },
   {
@@ -527,7 +598,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "で", "furigana": "で", "en": "by (means of)" },
       { "ja": "会社", "furigana": "会社[かいしゃ]", "en": "office" },
       { "ja": "へ", "furigana": "へ", "en": "to (direction)" },
-      { "ja": "行きます", "furigana": "行[い]きます", "en": "goes" }
+      { "ja": "行きます", "furigana": "行[い]きます", "en": "goes" },
+      { "ja": "電車", "furigana": "電車[でんしゃ]", "en": "train (wrong vehicle — sentence says 車)" },
+      { "ja": "に", "furigana": "に", "en": "to (wrong — destination direction uses へ)" }
     ]
   },
   {
@@ -539,7 +612,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "従兄弟", "furigana": "従兄弟[いとこ]", "en": "Cousin" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "来年", "furigana": "来年[らいねん]", "en": "Next year" },
-      { "ja": "結婚します", "furigana": "結婚[けっこん]します", "en": "will get married" }
+      { "ja": "結婚します", "furigana": "結婚[けっこん]します", "en": "will get married" },
+      { "ja": "去年", "furigana": "去年[きょねん]", "en": "last year (wrong time — sentence says 来年)" },
+      { "ja": "結婚しました", "furigana": "結婚[けっこん]しました", "en": "got married (past, but sentence is future)" }
     ]
   },
   {
@@ -555,7 +630,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "とても", "furigana": "とても", "en": "very" },
       { "ja": "親切", "furigana": "親切[しんせつ]", "en": "kind" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "古い", "furigana": "古[ふる]い", "en": "old (antonym — sentence says 新しい)" },
+      { "ja": "意地悪", "furigana": "意地悪[いじわる]", "en": "mean / unkind (antonym — sentence says 親切)" }
     ]
   },
   {
@@ -570,7 +647,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "一時間", "furigana": "一時間[いちじかん]", "en": "one hour" },
       { "ja": "日本語", "furigana": "日本語[にほんご]", "en": "Japanese (language)" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "練習します", "furigana": "練習[れんしゅう]します", "en": "practices" }
+      { "ja": "練習します", "furigana": "練習[れんしゅう]します", "en": "practices" },
+      { "ja": "二時間", "furigana": "二時間[にじかん]", "en": "two hours (wrong duration — sentence says 一時間)" },
+      { "ja": "英語", "furigana": "英語[えいご]", "en": "English (wrong language — sentence says 日本語)" }
     ]
   },
   {
@@ -584,7 +663,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "綺麗な", "furigana": "綺麗[きれい]な", "en": "beautiful" },
       { "ja": "声", "furigana": "声[こえ]", "en": "voice" },
       { "ja": "で", "furigana": "で", "en": "with (means/manner)" },
-      { "ja": "歌います", "furigana": "歌[うた]います", "en": "sings" }
+      { "ja": "歌います", "furigana": "歌[うた]います", "en": "sings" },
+      { "ja": "汚い", "furigana": "汚[きたな]い", "en": "ugly/dirty (antonym — sentence says 綺麗な)" },
+      { "ja": "踊ります", "furigana": "踊[おど]ります", "en": "dances (wrong verb — sentence says 歌います)" }
     ]
   },
   {
@@ -596,7 +677,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "赤ちゃん", "furigana": "赤[あか]ちゃん", "en": "Baby" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "今", "furigana": "今[いま]", "en": "now" },
-      { "ja": "寝ています", "furigana": "寝[ね]ています", "en": "is sleeping" }
+      { "ja": "寝ています", "furigana": "寝[ね]ています", "en": "is sleeping" },
+      { "ja": "起きています", "furigana": "起[お]きています", "en": "is awake (antonym — sentence says 寝ています)" },
+      { "ja": "さっき", "furigana": "さっき", "en": "a moment ago (wrong time — sentence says 今)" }
     ]
   },
   {
@@ -611,7 +694,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "to (recipient)" },
       { "ja": "宿題", "furigana": "宿題[しゅくだい]", "en": "Homework" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "出しました", "furigana": "出[だ]しました", "en": "gave (homework)" }
+      { "ja": "出しました", "furigana": "出[だ]しました", "en": "gave (homework)" },
+      { "ja": "もらいました", "furigana": "もらいました", "en": "received (wrong direction — teacher gave)" },
+      { "ja": "から", "furigana": "から", "en": "from (wrong — recipient uses に)" }
     ]
   },
   {
@@ -626,7 +711,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "together with" },
       { "ja": "ご飯", "furigana": "ご飯[はん]", "en": "meal" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "食べました", "furigana": "食[た]べました", "en": "ate" }
+      { "ja": "食べました", "furigana": "食[た]べました", "en": "ate" },
+      { "ja": "一人で", "furigana": "一人[ひとり]で", "en": "alone (antonym — sentence says 一緒に)" },
+      { "ja": "食べます", "furigana": "食[た]べます", "en": "eat (present, but sentence is past)" }
     ]
   },
   {
@@ -642,7 +729,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "引いて", "furigana": "引[ひ]いて", "en": "caught (a cold)" },
       { "ja": "会社", "furigana": "会社[かいしゃ]", "en": "work" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "休みました", "furigana": "休[やす]みました", "en": "took a day off" }
+      { "ja": "休みました", "furigana": "休[やす]みました", "en": "took a day off" },
+      { "ja": "病気", "furigana": "病気[びょうき]", "en": "illness (wrong noun — sentence says 風邪)" },
+      { "ja": "休みます", "furigana": "休[やす]みます", "en": "take off (present, but sentence is past)" }
     ]
   },
   {
@@ -656,7 +745,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "親切", "furigana": "親切[しんせつ]", "en": "kind" },
       { "ja": "に", "furigana": "に", "en": "kindly (adverbial)" },
       { "ja": "説明して", "furigana": "説明[せつめい]して", "en": "explained" },
-      { "ja": "くれました", "furigana": "くれました", "en": "did (for me)" }
+      { "ja": "くれました", "furigana": "くれました", "en": "did (for me)" },
+      { "ja": "意地悪", "furigana": "意地悪[いじわる]", "en": "mean / unkind (antonym — sentence says 親切)" },
+      { "ja": "あげました", "furigana": "あげました", "en": "gave (wrong direction — sentence says くれました)" }
     ]
   },
   {
@@ -672,7 +763,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "毎晩", "furigana": "毎晩[まいばん]", "en": "Every night" },
       { "ja": "遅く", "furigana": "遅[おそ]く", "en": "late" },
       { "ja": "まで", "furigana": "まで", "en": "until" },
-      { "ja": "起きています", "furigana": "起[お]きています", "en": "is staying up" }
+      { "ja": "起きています", "furigana": "起[お]きています", "en": "is staying up" },
+      { "ja": "早く", "furigana": "早[はや]く", "en": "early (antonym — sentence says 遅く)" },
+      { "ja": "寝ています", "furigana": "寝[ね]ています", "en": "is sleeping (antonym — sentence says 起きています)" }
     ]
   },
   {
@@ -687,7 +780,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "で", "furigana": "で", "en": "at (location)" },
       { "ja": "友達", "furigana": "友達[ともだち]", "en": "friend" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "待ちます", "furigana": "待[ま]ちます", "en": "waits for" }
+      { "ja": "待ちます", "furigana": "待[ま]ちます", "en": "waits for" },
+      { "ja": "息子", "furigana": "息子[むすこ]", "en": "son (wrong family member — sentence says 娘)" },
+      { "ja": "待ちました", "furigana": "待[ま]ちました", "en": "waited (past, but sentence is present)" }
     ]
   },
   {
@@ -701,7 +796,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "野球", "furigana": "野球[やきゅう]", "en": "Baseball" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "好き", "furigana": "好[す]き", "en": "likes" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "嫌い", "furigana": "嫌[きら]い", "en": "dislikes (antonym — sentence says 好き)" },
+      { "ja": "サッカー", "furigana": "サッカー", "en": "soccer (wrong sport — sentence says 野球)" }
     ]
   },
   {
@@ -715,7 +812,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "旅行", "furigana": "旅行[りょこう]", "en": "Traveling" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "大好き", "furigana": "大好[だいす]き", "en": "love (very much)" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "大嫌い", "furigana": "大嫌[だいきら]い", "en": "hate (antonym — sentence says 大好き)" },
+      { "ja": "仕事", "furigana": "仕事[しごと]", "en": "work (wrong object — sentence says 旅行)" }
     ]
   },
   {
@@ -729,7 +828,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "泣いている", "furigana": "泣[な]いている", "en": "crying" },
       { "ja": "の", "furigana": "の", "en": "nominalizer" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "聞きました", "furigana": "聞[き]きました", "en": "heard" }
+      { "ja": "聞きました", "furigana": "聞[き]きました", "en": "heard" },
+      { "ja": "笑っている", "furigana": "笑[わら]っている", "en": "laughing (antonym — sentence says 泣いている)" },
+      { "ja": "見ました", "furigana": "見[み]ました", "en": "saw (wrong verb — sentence says 聞きました 'heard')" }
     ]
   },
   {
@@ -743,7 +844,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "とても", "furigana": "とても", "en": "very" },
       { "ja": "真面目な", "furigana": "真面目[まじめ]な", "en": "serious" },
       { "ja": "人間", "furigana": "人間[にんげん]", "en": "person" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "不真面目な", "furigana": "不真面目[ふまじめ]な", "en": "not serious (antonym — sentence says 真面目な)" },
+      { "ja": "学生", "furigana": "学生[がくせい]", "en": "student (wrong noun — sentence says 人間)" }
     ]
   },
   {
@@ -756,7 +859,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "公園", "furigana": "公園[こうえん]", "en": "Park" },
       { "ja": "で", "furigana": "で", "en": "in (location)" },
-      { "ja": "遊んでいます", "furigana": "遊[あそ]んでいます", "en": "are playing" }
+      { "ja": "遊んでいます", "furigana": "遊[あそ]んでいます", "en": "are playing" },
+      { "ja": "勉強しています", "furigana": "勉強[べんきょう]しています", "en": "are studying (wrong verb — sentence says 遊んでいます)" },
+      { "ja": "に", "furigana": "に", "en": "at (wrong — action location uses で)" }
     ]
   },
   {
@@ -770,7 +875,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "いつも", "furigana": "いつも", "en": "always" },
       { "ja": "笑顔", "furigana": "笑顔[えがお]", "en": "smile" },
       { "ja": "で", "furigana": "で", "en": "with (manner)" },
-      { "ja": "話します", "furigana": "話[はな]します", "en": "speaks" }
+      { "ja": "話します", "furigana": "話[はな]します", "en": "speaks" },
+      { "ja": "泣き顔", "furigana": "泣[な]き顔[がお]", "en": "crying face (antonym — sentence says 笑顔)" },
+      { "ja": "時々", "furigana": "時々[ときどき]", "en": "sometimes (antonym — sentence says いつも)" }
     ]
   },
   {
@@ -786,7 +893,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "背", "furigana": "背[せ]", "en": "height" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "高い", "furigana": "高[たか]い", "en": "tall" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "低い", "furigana": "低[ひく]い", "en": "short (antonym — sentence says 高い)" },
+      { "ja": "ほど", "furigana": "ほど", "en": "to the extent of (wrong — comparison uses より)" }
     ]
   },
   {
@@ -799,7 +908,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "どこ", "furigana": "どこ", "en": "where" },
       { "ja": "です", "furigana": "です", "en": "is" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "だれ", "furigana": "だれ", "en": "who (wrong question word — sentence asks どこ 'where')" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 駅 is the topic, は)" }
     ]
   },
   {
@@ -812,7 +923,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "to (direction)" },
       { "ja": "曲がって", "furigana": "曲[ま]がって", "en": "turn" },
       { "ja": "直進して", "furigana": "直進[ちょくしん]して", "en": "go straight" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "左", "furigana": "左[ひだり]", "en": "left (antonym — sentence says 右)" },
+      { "ja": "で", "furigana": "で", "en": "at (wrong — direction of turning uses に)" }
     ]
   },
   {
@@ -825,7 +938,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "渡って", "furigana": "渡[わた]って", "en": "cross (and)" },
       { "ja": "左", "furigana": "左[ひだり]", "en": "left" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "右", "furigana": "右[みぎ]", "en": "right (antonym — sentence says 左)" },
+      { "ja": "に", "furigana": "に", "en": "at (wrong — the intersection is crossed with を)" }
     ]
   },
   {
@@ -840,7 +955,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "の", "furigana": "の", "en": "of (linking)" },
       { "ja": "隣", "furigana": "隣[となり]", "en": "next to" },
       { "ja": "に", "furigana": "に", "en": "in / at (location)" },
-      { "ja": "あります", "furigana": "あります", "en": "is (located)" }
+      { "ja": "あります", "furigana": "あります", "en": "is (located)" },
+      { "ja": "前", "furigana": "前[まえ]", "en": "front (wrong position — sentence says 隣)" },
+      { "ja": "います", "furigana": "います", "en": "there is (for animate things — 銀行 is inanimate)" }
     ]
   },
   {
@@ -854,7 +971,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "学校", "furigana": "学校[がっこう]", "en": "School" },
       { "ja": "の", "furigana": "の", "en": "of (linking)" },
       { "ja": "向かい", "furigana": "向[む]かい", "en": "Across from" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "隣", "furigana": "隣[となり]", "en": "next to (wrong position — sentence says 向かい)" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 図書館 is topic, は)" }
     ]
   },
   {
@@ -870,7 +989,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "曲がった", "furigana": "曲[ま]がった", "en": "turned" },
       { "ja": "所", "furigana": "所[ところ]", "en": "place" },
       { "ja": "に", "furigana": "に", "en": "at (location)" },
-      { "ja": "あります", "furigana": "あります", "en": "is (located)" }
+      { "ja": "あります", "furigana": "あります", "en": "is (located)" },
+      { "ja": "直進した", "furigana": "直進[ちょくしん]した", "en": "went straight (antonym — sentence says 曲がった)" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 郵便局 is topic, は)" }
     ]
   },
   {
@@ -883,7 +1004,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "まで", "furigana": "まで", "en": "to" },
       { "ja": "歩いて", "furigana": "歩[ある]いて", "en": "walk (and)" },
       { "ja": "五分", "furigana": "五分[ごふん]", "en": "five minutes" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "から", "furigana": "から", "en": "from (wrong — sentence uses まで 'to')" },
+      { "ja": "十分", "furigana": "十分[じゅっぷん]", "en": "10 minutes (wrong duration — sentence says 五分)" }
     ]
   },
   {
@@ -899,7 +1022,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "大阪", "furigana": "大阪[おおさか]", "en": "Osaka" },
       { "ja": "まで", "furigana": "まで", "en": "to" },
       { "ja": "二時間半", "furigana": "二時間半[にじかんはん]", "en": "two and a half hours" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "京都", "furigana": "京都[きょうと]", "en": "Kyoto (wrong city — sentence says 大阪)" },
+      { "ja": "一時間", "furigana": "一時間[いちじかん]", "en": "one hour (wrong duration — sentence says 二時間半)" }
     ]
   },
   {
@@ -912,7 +1037,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "to (destination)" },
       { "ja": "乗って", "furigana": "乗[の]って", "en": "ride/take (and)" },
       { "ja": "二駅", "furigana": "二駅[にえき]", "en": "two stops" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "バス", "furigana": "バス", "en": "bus (wrong vehicle — sentence says 地下鉄)" },
+      { "ja": "三駅", "furigana": "三駅[さんえき]", "en": "three stops (wrong number — sentence says 二駅)" }
     ]
   },
   {
@@ -928,7 +1055,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "が", "furigana": "が", "en": "but" },
       { "ja": "少し", "furigana": "少し[すこし]", "en": "a little" },
       { "ja": "高い", "furigana": "高[たか]い", "en": "expensive" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "遅い", "furigana": "遅[おそ]い", "en": "slow (antonym — sentence says 速い)" },
+      { "ja": "安い", "furigana": "安[やす]い", "en": "cheap (antonym — sentence says 高い)" }
     ]
   },
   {
@@ -943,7 +1072,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "方", "furigana": "方[ほう]", "en": "way / method" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "いい", "furigana": "いい", "en": "good" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "バス", "furigana": "バス", "en": "bus (wrong vehicle — sentence says タクシー)" },
+      { "ja": "悪い", "furigana": "悪[わる]い", "en": "bad (antonym — sentence says いい)" }
     ]
   },
   {
@@ -957,7 +1088,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "駅", "furigana": "駅[えき]", "en": "Station" },
       { "ja": "まで", "furigana": "まで", "en": "to" },
       { "ja": "十分", "furigana": "十分[じゅっぷん]", "en": "10 minutes" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "車", "furigana": "車[くるま]", "en": "car (wrong vehicle — sentence says 自転車)" },
+      { "ja": "五分", "furigana": "五分[ごふん]", "en": "five minutes (wrong duration — sentence says 十分)" }
     ]
   },
   {
@@ -968,7 +1101,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "道", "furigana": "道[みち]", "en": "road" },
       { "ja": "に", "furigana": "に", "en": "in/at" },
-      { "ja": "迷いました", "furigana": "迷[まよ]いました", "en": "got lost" }
+      { "ja": "迷いました", "furigana": "迷[まよ]いました", "en": "got lost" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 迷う takes に for the place)" },
+      { "ja": "見つけました", "furigana": "見[み]つけました", "en": "found (opposite outcome — sentence says 迷いました 'got lost')" }
     ]
   },
   {
@@ -981,7 +1116,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "見", "furigana": "見[み]", "en": "look at" },
       { "ja": "ながら", "furigana": "ながら", "en": "while" },
-      { "ja": "歩きます", "furigana": "歩[ある]きます", "en": "walk" }
+      { "ja": "歩きます", "furigana": "歩[ある]きます", "en": "walk" },
+      { "ja": "から", "furigana": "から", "en": "after (wrong — sentence uses ながら 'while')" },
+      { "ja": "走ります", "furigana": "走[はし]ります", "en": "run (wrong verb — sentence says 歩きます)" }
     ]
   },
   {
@@ -993,7 +1130,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "看板", "furigana": "看板[かんばん]", "en": "Sign" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "見えます", "furigana": "見[み]えます", "en": "can see" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 見えます takes が)" },
+      { "ja": "見せます", "furigana": "見[み]せます", "en": "show (wrong — sentence says 見えます 'can see')" }
     ]
   },
   {
@@ -1004,7 +1143,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "まっすぐ", "furigana": "まっすぐ", "en": "straight" },
       { "ja": "行って", "furigana": "行[い]って", "en": "go" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "曲がって", "furigana": "曲[ま]がって", "en": "turn (wrong direction — sentence says まっすぐ)" },
+      { "ja": "行きます", "furigana": "行[い]きます", "en": "go (plain form, not the te-form + ください request)" }
     ]
   },
   {
@@ -1016,7 +1157,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "ここ", "furigana": "ここ", "en": "here" },
       { "ja": "で", "furigana": "で", "en": "at (location)" },
       { "ja": "止まって", "furigana": "止[と]まって", "en": "stop" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "そこ", "furigana": "そこ", "en": "there (wrong place — sentence says ここ)" },
+      { "ja": "に", "furigana": "に", "en": "at (wrong — location of action uses で)" }
     ]
   },
   {
@@ -1030,7 +1173,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "角", "furigana": "角[かど]", "en": "corner" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "左", "furigana": "左[ひだり]", "en": "left" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "右", "furigana": "右[みぎ]", "en": "right (antonym — sentence says 左)" },
+      { "ja": "前", "furigana": "前[まえ]", "en": "previous (antonym — sentence says 次)" }
     ]
   },
   {
@@ -1044,7 +1189,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "コンビニ", "furigana": "コンビニ", "en": "convenience store" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "あります", "furigana": "あります", "en": "is there" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "スーパー", "furigana": "スーパー", "en": "supermarket (wrong store — sentence says コンビニ)" },
+      { "ja": "います", "furigana": "います", "en": "there is (for animate things — コンビニ is inanimate)" }
     ]
   },
   {
@@ -1057,7 +1204,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "in (location)" },
       { "ja": "山", "furigana": "山[やま]", "en": "Mountains" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "見えます", "furigana": "見[み]えます", "en": "can see" }
+      { "ja": "見えます", "furigana": "見[み]えます", "en": "can see" },
+      { "ja": "近く", "furigana": "近[ちか]く", "en": "nearby (antonym — sentence says 遠く)" },
+      { "ja": "海", "furigana": "海[うみ]", "en": "sea (wrong noun — sentence says 山)" }
     ]
   },
   {
@@ -1070,7 +1219,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "で", "furigana": "で", "en": "by (means)" },
       { "ja": "三階", "furigana": "三階[さんがい]", "en": "third floor" },
       { "ja": "に", "furigana": "に", "en": "to (destination)" },
-      { "ja": "上がります", "furigana": "上[あ]がります", "en": "go up" }
+      { "ja": "上がります", "furigana": "上[あ]がります", "en": "go up" },
+      { "ja": "下がります", "furigana": "下[さ]がります", "en": "go down (antonym — sentence says 上がります)" },
+      { "ja": "二階", "furigana": "二階[にかい]", "en": "second floor (wrong floor — sentence says 三階)" }
     ]
   },
   {
@@ -1082,7 +1233,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "出口", "furigana": "出口[でぐち]", "en": "Exit" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "左側", "furigana": "左側[ひだりがわ]", "en": "Left side" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "右側", "furigana": "右側[みぎがわ]", "en": "right side (antonym — sentence says 左側)" },
+      { "ja": "入り口", "furigana": "入[い]り口[ぐち]", "en": "entrance (antonym — sentence says 出口)" }
     ]
   },
   {
@@ -1093,7 +1246,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "入口", "furigana": "入口[いりぐち]", "en": "Entrance" },
       { "ja": "で", "furigana": "で", "en": "at (location)" },
-      { "ja": "待ち合わせましょう", "furigana": "待[ま]ち合[あ]わせましょう", "en": "Let's meet up" }
+      { "ja": "待ち合わせましょう", "furigana": "待[ま]ち合[あ]わせましょう", "en": "Let's meet up" },
+      { "ja": "出口", "furigana": "出口[でぐち]", "en": "exit (antonym — sentence says 入口)" },
+      { "ja": "に", "furigana": "に", "en": "at (wrong — meeting location uses で)" }
     ]
   },
   {
@@ -1107,7 +1262,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "建物", "furigana": "建物[たてもの]", "en": "Building" },
       { "ja": "の", "furigana": "の", "en": "of / 's" },
       { "ja": "後ろ", "furigana": "後[うし]ろ", "en": "Behind" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "前", "furigana": "前[まえ]", "en": "front (antonym — sentence says 後ろ)" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 駐車場 is topic, は)" }
     ]
   },
   {
@@ -1120,7 +1277,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "上がって", "furigana": "上[あ]がって", "en": "go up (and)" },
       { "ja": "二階", "furigana": "二階[にかい]", "en": "Second floor" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "下がって", "furigana": "下[さ]がって", "en": "go down (antonym — sentence says 上がって)" },
+      { "ja": "一階", "furigana": "一階[いっかい]", "en": "first floor (wrong floor — sentence says 二階)" }
     ]
   },
   {
@@ -1133,7 +1292,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "何", "furigana": "何[なに]", "en": "What" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "探しています", "furigana": "探[さが]しています", "en": "are looking for" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "だれ", "furigana": "だれ", "en": "who (wrong question word — sentence asks 何 'what')" },
+      { "ja": "見つけています", "furigana": "見[み]つけています", "en": "are finding (wrong — sentence says 探しています 'searching')" }
     ]
   },
   {
@@ -1148,7 +1309,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "一個", "furigana": "一個[いっこ]", "en": "one (piece)" },
       { "ja": "いくら", "furigana": "いくら", "en": "how much" },
       { "ja": "です", "furigana": "です", "en": "is" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "みかん", "furigana": "みかん", "en": "mandarin orange (wrong fruit — sentence says りんご)" },
+      { "ja": "二個", "furigana": "二個[にこ]", "en": "two pieces (wrong quantity — sentence says 一個)" }
     ]
   },
   {
@@ -1160,7 +1323,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "三本", "furigana": "三本[さんぼん]", "en": "Three bottles" },
       { "ja": "で", "furigana": "で", "en": "for (unit of exchange)" },
       { "ja": "五百円", "furigana": "五百円[ごひゃくえん]", "en": "500 yen" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "二本", "furigana": "二本[にほん]", "en": "two bottles (wrong quantity — sentence says 三本)" },
+      { "ja": "千円", "furigana": "千円[せんえん]", "en": "1,000 yen (wrong price — sentence says 五百円)" }
     ]
   },
   {
@@ -1174,7 +1339,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "の", "furigana": "の", "en": "nominalizer ('one')" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "ありません", "furigana": "ありません", "en": "don't have" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "高い", "furigana": "高[たか]い", "en": "expensive (antonym — sentence says 安い)" },
+      { "ja": "あります", "furigana": "あります", "en": "have (affirmative, but sentence is negative ありません)" }
     ]
   },
   {
@@ -1187,7 +1354,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "も", "furigana": "も", "en": "even (if)" },
       { "ja": "いい", "furigana": "いい", "en": "okay" },
       { "ja": "です", "furigana": "です", "en": "is" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "いけません", "furigana": "いけません", "en": "not allowed (antonym — sentence asks permission with いい)" },
+      { "ja": "買って", "furigana": "買[か]って", "en": "buy (wrong verb — sentence says 試着して 'try on')" }
     ]
   },
   {
@@ -1198,7 +1367,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "サイズ", "furigana": "サイズ", "en": "Size" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "合いません", "furigana": "合[あ]いません", "en": "doesn't fit" }
+      { "ja": "合いません", "furigana": "合[あ]いません", "en": "doesn't fit" },
+      { "ja": "合います", "furigana": "合[あ]います", "en": "fits (affirmative, but sentence is negative)" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 合う takes が)" }
     ]
   },
   {
@@ -1210,7 +1381,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "クレジットカード", "furigana": "クレジットカード", "en": "Credit card" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "使えます", "furigana": "使[つか]えます", "en": "can use" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "現金", "furigana": "現金[げんきん]", "en": "cash (wrong payment — sentence says クレジットカード)" },
+      { "ja": "使えません", "furigana": "使[つか]えません", "en": "cannot use (negative, but sentence asks 'can I?')" }
     ]
   },
   {
@@ -1221,7 +1394,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "現金", "furigana": "現金[げんきん]", "en": "Cash" },
       { "ja": "だけ", "furigana": "だけ", "en": "only" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "も", "furigana": "も", "en": "also (wrong — sentence says だけ 'only')" },
+      { "ja": "カード", "furigana": "カード", "en": "card (wrong payment — sentence says 現金)" }
     ]
   },
   {
@@ -1234,7 +1409,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "有料", "furigana": "有料[ゆうりょう]", "en": "fee required" },
       { "ja": "です", "furigana": "です", "en": "is" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "無料", "furigana": "無料[むりょう]", "en": "free (antonym — sentence asks if 有料)" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 袋 is topic, は)" }
     ]
   },
   {
@@ -1245,7 +1422,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "レシート", "furigana": "レシート", "en": "Receipt" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "ください", "furigana": "ください", "en": "Please give me" }
+      { "ja": "ください", "furigana": "ください", "en": "Please give me" },
+      { "ja": "お釣り", "furigana": "お釣[つ]り", "en": "change (wrong item — sentence says レシート)" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — レシート is the object, を)" }
     ]
   },
   {
@@ -1257,7 +1436,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "寿司", "furigana": "寿司[すし]", "en": "Sushi" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "食べたい", "furigana": "食[た]べたい", "en": "want to eat" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "ラーメン", "furigana": "ラーメン", "en": "ramen (wrong food — sentence says 寿司)" },
+      { "ja": "飲みたい", "furigana": "飲[の]みたい", "en": "want to drink (wrong verb — sentence says 食べたい)" }
     ]
   },
   {
@@ -1271,7 +1452,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "卵", "furigana": "卵[たまご]", "en": "Egg" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "入れて", "furigana": "入[い]れて", "en": "add" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "出して", "furigana": "出[だ]して", "en": "take out (antonym — sentence says 入れて 'add')" },
+      { "ja": "肉", "furigana": "肉[にく]", "en": "meat (wrong topping — sentence says 卵)" }
     ]
   },
   {
@@ -1286,7 +1469,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "何", "furigana": "何[なに]", "en": "what" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "入っています", "furigana": "入[はい]っています", "en": "contains" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 入っています takes が)" },
+      { "ja": "出ています", "furigana": "出[で]ています", "en": "is coming out (antonym — sentence says 入っています 'is inside')" }
     ]
   },
   {
@@ -1299,7 +1484,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "少し", "furigana": "少し[すこし]", "en": "a little" },
       { "ja": "辛く", "furigana": "辛[から]く", "en": "spicy (adverbial)" },
       { "ja": "して", "furigana": "して", "en": "do (and)" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "甘く", "furigana": "甘[あま]く", "en": "sweet (antonym — sentence says 辛く)" },
+      { "ja": "なる", "furigana": "なる", "en": "become (wrong verb — request uses して)" }
     ]
   },
   {
@@ -1310,7 +1497,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "お会計", "furigana": "お会計[かいけい]", "en": "The check/bill" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "お願いします", "furigana": "お願[ねが]いします", "en": "please" }
+      { "ja": "お願いします", "furigana": "お願[ねが]いします", "en": "please" },
+      { "ja": "お水", "furigana": "お水[みず]", "en": "water (wrong request — sentence asks for the check)" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — お会計 is the object, を)" }
     ]
   },
   {
@@ -1320,7 +1509,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "translation": "Please give me five (flat things).",
     "wordBank": [
       { "ja": "五枚", "furigana": "五枚[ごまい]", "en": "five (flat things)" },
-      { "ja": "ください", "furigana": "ください", "en": "Please give me" }
+      { "ja": "ください", "furigana": "ください", "en": "Please give me" },
+      { "ja": "三枚", "furigana": "三枚[さんまい]", "en": "three (flat things) — wrong quantity, sentence says 五枚" },
+      { "ja": "五本", "furigana": "五本[ごほん]", "en": "five (long things) — wrong counter, sentence uses 枚 for flat things" }
     ]
   },
   {
@@ -1332,7 +1523,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "飲み放題", "furigana": "飲[の]み放題[ほうだい]", "en": "All-you-can-drink" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "あります", "furigana": "あります", "en": "do you have" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "食べ放題", "furigana": "食[た]べ放題[ほうだい]", "en": "all-you-can-eat (wrong option — sentence says 飲み放題)" },
+      { "ja": "ありません", "furigana": "ありません", "en": "don't have (negative, but sentence asks 'do you have?')" }
     ]
   },
   {
@@ -1345,7 +1538,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "したい", "furigana": "したい", "en": "want to do" },
       { "ja": "の", "furigana": "の", "en": "explanatory particle" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "キャンセル", "furigana": "キャンセル", "en": "cancellation (antonym — sentence says 予約 'reservation')" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 予約 is the object, を)" }
     ]
   },
   {
@@ -1355,7 +1550,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "translation": "We are fully booked.",
     "wordBank": [
       { "ja": "満席", "furigana": "満席[まんせき]", "en": "Fully booked" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "空席", "furigana": "空席[くうせき]", "en": "vacant seat (antonym — sentence says 満席 'full')" },
+      { "ja": "ではありません", "furigana": "ではありません", "en": "is not (negative, but sentence is affirmative)" }
     ]
   },
   {
@@ -1367,7 +1564,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "一階", "furigana": "一階[いっかい]", "en": "First floor" },
       { "ja": "で", "furigana": "で", "en": "on (location)" },
       { "ja": "お待ち", "furigana": "お待[ま]ち", "en": "waiting" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "二階", "furigana": "二階[にかい]", "en": "second floor (wrong floor — sentence says 一階)" },
+      { "ja": "に", "furigana": "に", "en": "at (wrong — location of waiting uses で)" }
     ]
   },
   {
@@ -1379,7 +1578,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "アルコール", "furigana": "アルコール", "en": "Alcohol" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "あります", "furigana": "あります", "en": "have" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "ソフトドリンク", "furigana": "ソフトドリンク", "en": "soft drink (antonym — sentence says アルコール)" },
+      { "ja": "ありません", "furigana": "ありません", "en": "don't have (negative, but sentence asks 'do you have?')" }
     ]
   },
   {
@@ -1390,7 +1591,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "ちょうど", "furigana": "ちょうど", "en": "exactly" },
       { "ja": "一万円", "furigana": "一万円[いちまんえん]", "en": "10,000 yen" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "千円", "furigana": "千円[せんえん]", "en": "1,000 yen (wrong amount — sentence says 一万円)" },
+      { "ja": "ぐらい", "furigana": "ぐらい", "en": "about (antonym — sentence says ちょうど 'exactly')" }
     ]
   },
   {
@@ -1401,7 +1604,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "お釣り", "furigana": "お釣[つ]り", "en": "Change (money)" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "違います", "furigana": "違[ちが]います", "en": "is wrong" }
+      { "ja": "違います", "furigana": "違[ちが]います", "en": "is wrong" },
+      { "ja": "合っています", "furigana": "合[あ]っています", "en": "is correct (antonym — sentence says 違います 'is wrong')" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 違う takes が)" }
     ]
   },
   {
@@ -1413,7 +1618,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "ポイントカード", "furigana": "ポイントカード", "en": "Point card" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "持っています", "furigana": "持[も]っています", "en": "have" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "持っていません", "furigana": "持[も]っていません", "en": "don't have (negative, but sentence asks 'do you have?')" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 持っています takes が/は)" }
     ]
   },
   {
@@ -1423,7 +1630,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "translation": "Next, please.",
     "wordBank": [
       { "ja": "次", "furigana": "次[つぎ]", "en": "Next" },
-      { "ja": "どうぞ", "furigana": "どうぞ", "en": "please" }
+      { "ja": "どうぞ", "furigana": "どうぞ", "en": "please" },
+      { "ja": "前", "furigana": "前[まえ]", "en": "previous (antonym — sentence says 次 'next')" },
+      { "ja": "だめ", "furigana": "だめ", "en": "not allowed (antonym — sentence is a welcoming どうぞ)" }
     ]
   },
   {
@@ -1436,7 +1645,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "とても", "furigana": "とても", "en": "very" },
       { "ja": "暑い", "furigana": "暑[あつ]い", "en": "hot" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "寒い", "furigana": "寒[さむ]い", "en": "cold (antonym — sentence says 暑い)" },
+      { "ja": "昨日", "furigana": "昨日[きのう]", "en": "yesterday (wrong day — sentence says 今日)" }
     ]
   },
   {
@@ -1448,7 +1659,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "昨日", "furigana": "昨日[きのう]", "en": "Yesterday" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "涼しかった", "furigana": "涼[すず]しかった", "en": "was cool" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "暑かった", "furigana": "暑[あつ]かった", "en": "was hot (antonym — sentence says 涼しかった)" },
+      { "ja": "涼しい", "furigana": "涼[すず]しい", "en": "is cool (present, but sentence is past)" }
     ]
   },
   {
@@ -1461,7 +1674,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "寒く", "furigana": "寒[さむ]く", "en": "cold (adverbial)" },
       { "ja": "なる", "furigana": "なる", "en": "to become" },
-      { "ja": "でしょう", "furigana": "でしょう", "en": "probably" }
+      { "ja": "でしょう", "furigana": "でしょう", "en": "probably" },
+      { "ja": "暑く", "furigana": "暑[あつ]く", "en": "hot (antonym — sentence says 寒く)" },
+      { "ja": "なりました", "furigana": "なりました", "en": "became (past, but sentence is future なる)" }
     ]
   },
   {
@@ -1475,7 +1690,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "よると", "furigana": "よると", "en": "according to" },
       { "ja": "雨", "furigana": "雨[あめ]", "en": "Rain" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "降ります", "furigana": "降[ふ]ります", "en": "will rain" }
+      { "ja": "降ります", "furigana": "降[ふ]ります", "en": "will rain" },
+      { "ja": "雪", "furigana": "雪[ゆき]", "en": "snow (wrong weather — sentence says 雨)" },
+      { "ja": "降りません", "furigana": "降[ふ]りません", "en": "will not rain (negative, but sentence is affirmative)" }
     ]
   },
   {
@@ -1487,7 +1704,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "曇り", "furigana": "曇[くも]り", "en": "Cloudy" },
       { "ja": "のち", "furigana": "のち", "en": "then" },
       { "ja": "雨", "furigana": "雨[あめ]", "en": "Rain" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "晴れ", "furigana": "晴[は]れ", "en": "sunny (antonym — sentence says 曇り)" },
+      { "ja": "から", "furigana": "から", "en": "from (wrong — sequence uses のち 'then')" }
     ]
   },
   {
@@ -1499,7 +1718,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "晴れ", "furigana": "晴[は]れ", "en": "Sunny" },
       { "ja": "のち", "furigana": "のち", "en": "then" },
       { "ja": "曇り", "furigana": "曇[くも]り", "en": "Cloudy" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "雨", "furigana": "雨[あめ]", "en": "rain (wrong weather — sentence says 曇り)" },
+      { "ja": "まで", "furigana": "まで", "en": "until (wrong — sequence uses のち 'then')" }
     ]
   },
   {
@@ -1511,7 +1732,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "風", "furigana": "風[かぜ]", "en": "Wind" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "強い", "furigana": "強[つよ]い", "en": "strong" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "弱い", "furigana": "弱[よわ]い", "en": "weak (antonym — sentence says 強い)" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 強い takes が)" }
     ]
   },
   {
@@ -1524,7 +1747,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "高くて", "furigana": "高[たか]くて", "en": "is high and" },
       { "ja": "不快", "furigana": "不快[ふかい]", "en": "Uncomfortable" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "低くて", "furigana": "低[ひく]くて", "en": "is low and (antonym — sentence says 高くて)" },
+      { "ja": "快適", "furigana": "快適[かいてき]", "en": "comfortable (antonym — sentence says 不快)" }
     ]
   },
   {
@@ -1535,7 +1760,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "雪", "furigana": "雪[ゆき]", "en": "Snow" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "降っています", "furigana": "降[ふ]っています", "en": "is falling" }
+      { "ja": "降っています", "furigana": "降[ふ]っています", "en": "is falling" },
+      { "ja": "雨", "furigana": "雨[あめ]", "en": "rain (wrong weather — sentence says 雪)" },
+      { "ja": "やんでいます", "furigana": "やんでいます", "en": "has stopped (antonym — sentence says 降っています 'falling')" }
     ]
   },
   {
@@ -1546,7 +1773,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "台風", "furigana": "台風[たいふう]", "en": "Typhoon" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "近づいています", "furigana": "近[ちか]づいています", "en": "is approaching" }
+      { "ja": "近づいています", "furigana": "近[ちか]づいています", "en": "is approaching" },
+      { "ja": "遠ざかっています", "furigana": "遠[とお]ざかっています", "en": "is moving away (antonym — sentence says 近づいています)" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 近づく takes が)" }
     ]
   },
   {
@@ -1558,7 +1787,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "気温", "furigana": "気温[きおん]", "en": "Temperature" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "二十度", "furigana": "二十度[にじゅうど]", "en": "20 degrees" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "三十度", "furigana": "三十度[さんじゅうど]", "en": "30 degrees (wrong number — sentence says 二十度)" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 気温 is topic, は)" }
     ]
   },
   {
@@ -1568,7 +1799,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "translation": "It's so hot I can't sleep.",
     "wordBank": [
       { "ja": "暑くて", "furigana": "暑[あつ]くて", "en": "hot (and so)" },
-      { "ja": "眠れません", "furigana": "眠[ねむ]れません", "en": "can't sleep" }
+      { "ja": "眠れません", "furigana": "眠[ねむ]れません", "en": "can't sleep" },
+      { "ja": "寒くて", "furigana": "寒[さむ]くて", "en": "cold (antonym — sentence says 暑くて)" },
+      { "ja": "眠れます", "furigana": "眠[ねむ]れます", "en": "can sleep (affirmative, but sentence is negative)" }
     ]
   },
   {
@@ -1580,7 +1813,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "暖房", "furigana": "暖房[だんぼう]", "en": "Heater" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "つけて", "furigana": "つけて", "en": "turn on" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "冷房", "furigana": "冷房[れいぼう]", "en": "air conditioner (antonym — sentence says 暖房)" },
+      { "ja": "消して", "furigana": "消[け]して", "en": "turn off (antonym — sentence says つけて 'turn on')" }
     ]
   },
   {
@@ -1592,7 +1827,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "冷房", "furigana": "冷房[れいぼう]", "en": "Air conditioning" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "効きすぎ", "furigana": "効[き]きすぎ", "en": "working too much" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "暖房", "furigana": "暖房[だんぼう]", "en": "heater (antonym — sentence says 冷房)" },
+      { "ja": "効かなすぎ", "furigana": "効[き]かなすぎ", "en": "not working enough (antonym — sentence says 効きすぎ 'too much')" }
     ]
   },
   {
@@ -1606,7 +1843,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "目", "furigana": "目[め]", "en": "eyes" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "かゆい", "furigana": "かゆい", "en": "itchy" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "鼻", "furigana": "鼻[はな]", "en": "nose (wrong body part — sentence says 目)" },
+      { "ja": "痛い", "furigana": "痛[いた]い", "en": "painful (wrong symptom — sentence says かゆい 'itchy')" }
     ]
   },
   {
@@ -1618,7 +1857,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "彼", "furigana": "彼[かれ]", "en": "He" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "嬉しそう", "furigana": "嬉[うれ]しそう", "en": "looks happy" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "悲しそう", "furigana": "悲[かな]しそう", "en": "looks sad (antonym — sentence says 嬉しそう)" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 彼 is topic, は)" }
     ]
   },
   {
@@ -1630,7 +1871,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "緊張して", "furigana": "緊張[きんちょう]して", "en": "being nervous" },
       { "ja": "手", "furigana": "手[て]", "en": "hand(s)" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "震えています", "furigana": "震[ふる]えています", "en": "are shaking" }
+      { "ja": "震えています", "furigana": "震[ふる]えています", "en": "are shaking" },
+      { "ja": "リラックスして", "furigana": "リラックスして", "en": "relaxing (antonym — sentence says 緊張して 'nervous')" },
+      { "ja": "止まっています", "furigana": "止[と]まっています", "en": "have stopped (antonym — sentence says 震えています 'shaking')" }
     ]
   },
   {
@@ -1643,7 +1886,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "映画", "furigana": "映画[えいが]", "en": "Movie" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "見て", "furigana": "見[み]て", "en": "watch (and)" },
-      { "ja": "泣きました", "furigana": "泣[な]きました", "en": "cried" }
+      { "ja": "泣きました", "furigana": "泣[な]きました", "en": "cried" },
+      { "ja": "楽しい", "furigana": "楽[たの]しい", "en": "fun/happy (antonym — sentence says 悲しい)" },
+      { "ja": "笑いました", "furigana": "笑[わら]いました", "en": "laughed (antonym — sentence says 泣きました)" }
     ]
   },
   {
@@ -1654,7 +1899,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "楽しい", "furigana": "楽[たの]しい", "en": "fun" },
       { "ja": "旅行", "furigana": "旅行[りょこう]", "en": "Trip" },
-      { "ja": "でした", "furigana": "でした", "en": "was" }
+      { "ja": "でした", "furigana": "でした", "en": "was" },
+      { "ja": "つまらない", "furigana": "つまらない", "en": "boring (antonym — sentence says 楽しい)" },
+      { "ja": "です", "furigana": "です", "en": "is (present, but sentence is past でした)" }
     ]
   },
   {
@@ -1665,7 +1912,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "退屈な", "furigana": "退屈[たいくつ]な", "en": "boring" },
       { "ja": "会議", "furigana": "会議[かいぎ]", "en": "Meeting" },
-      { "ja": "でした", "furigana": "でした", "en": "was" }
+      { "ja": "でした", "furigana": "でした", "en": "was" },
+      { "ja": "楽しい", "furigana": "楽[たの]しい", "en": "fun (antonym — sentence says 退屈な)" },
+      { "ja": "です", "furigana": "です", "en": "is (present, but sentence is past でした)" }
     ]
   },
   {
@@ -1677,7 +1926,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "疲れた", "furigana": "疲[つか]れた", "en": "tired" },
       { "ja": "ので", "furigana": "ので", "en": "because / since" },
       { "ja": "早く", "furigana": "早[はや]く", "en": "early" },
-      { "ja": "帰ります", "furigana": "帰[かえ]ります", "en": "will go home" }
+      { "ja": "帰ります", "furigana": "帰[かえ]ります", "en": "will go home" },
+      { "ja": "元気な", "furigana": "元気[げんき]な", "en": "energetic (antonym — sentence says 疲れた)" },
+      { "ja": "遅く", "furigana": "遅[おそ]く", "en": "late (antonym — sentence says 早く)" }
     ]
   },
   {
@@ -1691,7 +1942,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "本", "furigana": "本[ほん]", "en": "book" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "読みます", "furigana": "読[よ]みます", "en": "read" }
+      { "ja": "読みます", "furigana": "読[よ]みます", "en": "read" },
+      { "ja": "忙しい", "furigana": "忙[いそが]しい", "en": "busy (antonym — sentence says 暇な)" },
+      { "ja": "書きます", "furigana": "書[か]きます", "en": "write (wrong verb — sentence says 読みます)" }
     ]
   },
   {
@@ -1702,7 +1955,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "忙しい", "furigana": "忙[いそが]しい", "en": "Busy" },
       { "ja": "です", "furigana": "です", "en": "is" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "暇", "furigana": "暇[ひま]", "en": "free (antonym — sentence says 忙しい)" },
+      { "ja": "でした", "furigana": "でした", "en": "was (past, but sentence is present)" }
     ]
   },
   {
@@ -1713,7 +1968,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "大変", "furigana": "大変[たいへん]", "en": "tough" },
       { "ja": "でした", "furigana": "でした", "en": "was" },
-      { "ja": "ね", "furigana": "ね", "en": "wasn't it?" }
+      { "ja": "ね", "furigana": "ね", "en": "wasn't it?" },
+      { "ja": "楽", "furigana": "楽[らく]", "en": "easy / relaxed (antonym — sentence says 大変)" },
+      { "ja": "です", "furigana": "です", "en": "is (present, but sentence is past でした)" }
     ]
   },
   {
@@ -1724,7 +1981,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "素晴らしい", "furigana": "素晴[すば]らしい", "en": "wonderful" },
       { "ja": "アイデア", "furigana": "アイデア", "en": "idea" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "ひどい", "furigana": "ひどい", "en": "terrible (antonym — sentence says 素晴らしい)" },
+      { "ja": "でした", "furigana": "でした", "en": "was (past, but sentence is present)" }
     ]
   },
   {
@@ -1741,7 +2000,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "撮る", "furigana": "撮[と]る", "en": "to take" },
       { "ja": "こと", "furigana": "こと", "en": "nominalizer" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "見る", "furigana": "見[み]る", "en": "to see (wrong verb — hobby is 撮る 'take', not 見る)" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 趣味 is topic, は)" }
     ]
   },
   {
@@ -1755,7 +2016,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "弾く", "furigana": "弾[ひ]く", "en": "to play" },
       { "ja": "こと", "furigana": "こと", "en": "nominalizer" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "できます", "furigana": "できます", "en": "can do" }
+      { "ja": "できます", "furigana": "できます", "en": "can do" },
+      { "ja": "ピアノ", "furigana": "ピアノ", "en": "piano (wrong instrument — sentence says ギター)" },
+      { "ja": "できません", "furigana": "できません", "en": "cannot do (negative, but sentence says できます)" }
     ]
   },
   {
@@ -1770,7 +2033,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "の", "furigana": "の", "en": "nominalizer" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "好き", "furigana": "好[す]き", "en": "like" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "嫌い", "furigana": "嫌[きら]い", "en": "dislike (antonym — sentence says 好き)" },
+      { "ja": "聞く", "furigana": "聞[き]く", "en": "to listen (wrong verb — sentence says 見る 'watch')" }
     ]
   },
   {
@@ -1782,7 +2047,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "毎週", "furigana": "毎週[まいしゅう]", "en": "Every week" },
       { "ja": "ジョギング", "furigana": "ジョギング", "en": "jogging" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "しています", "furigana": "しています", "en": "am doing" }
+      { "ja": "しています", "furigana": "しています", "en": "am doing" },
+      { "ja": "毎日", "furigana": "毎日[まいにち]", "en": "every day (wrong frequency — sentence says 毎週)" },
+      { "ja": "していません", "furigana": "していません", "en": "am not doing (negative, but sentence is affirmative)" }
     ]
   },
   {
@@ -1793,7 +2060,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "料理", "furigana": "料理[りょうり]", "en": "Cooking" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "習っています", "furigana": "習[なら]っています", "en": "am learning" }
+      { "ja": "習っています", "furigana": "習[なら]っています", "en": "am learning" },
+      { "ja": "教えています", "furigana": "教[おし]えています", "en": "am teaching (antonym — sentence says 習っています 'learning')" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 料理 is the object, を)" }
     ]
   },
   {
@@ -1806,7 +2075,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "to" },
       { "ja": "本", "furigana": "本[ほん]", "en": "book" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "貸しました", "furigana": "貸[か]しました", "en": "lent" }
+      { "ja": "貸しました", "furigana": "貸[か]しました", "en": "lent" },
+      { "ja": "借りました", "furigana": "借[か]りました", "en": "borrowed (antonym — sentence says 貸しました 'lent')" },
+      { "ja": "から", "furigana": "から", "en": "from (wrong direction — recipient uses に)" }
     ]
   },
   {
@@ -1819,7 +2090,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "から", "furigana": "から", "en": "from" },
       { "ja": "時計", "furigana": "時計[とけい]", "en": "Watch" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "もらいました", "furigana": "もらいました", "en": "received" }
+      { "ja": "もらいました", "furigana": "もらいました", "en": "received" },
+      { "ja": "あげました", "furigana": "あげました", "en": "gave (antonym — sentence says もらいました 'received')" },
+      { "ja": "に", "furigana": "に", "en": "to (wrong particle — source uses から)" }
     ]
   },
   {
@@ -1832,7 +2105,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "to" },
       { "ja": "花", "furigana": "花[はな]", "en": "Flowers" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "あげました", "furigana": "あげました", "en": "gave" }
+      { "ja": "あげました", "furigana": "あげました", "en": "gave" },
+      { "ja": "もらいました", "furigana": "もらいました", "en": "received (antonym — sentence says あげました 'gave')" },
+      { "ja": "から", "furigana": "から", "en": "from (wrong — recipient uses に)" }
     ]
   },
   {
@@ -1844,7 +2119,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "先生", "furigana": "先生[せんせい]", "en": "Teacher" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "教えて", "furigana": "教[おし]えて", "en": "teach (and)" },
-      { "ja": "くれました", "furigana": "くれました", "en": "gave me" }
+      { "ja": "くれました", "furigana": "くれました", "en": "gave me" },
+      { "ja": "習って", "furigana": "習[なら]って", "en": "learn (antonym — sentence says 教えて 'teach')" },
+      { "ja": "あげました", "furigana": "あげました", "en": "gave (wrong direction — sentence says くれました)" }
     ]
   },
   {
@@ -1856,7 +2133,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "友達", "furigana": "友達[ともだち]", "en": "Friend" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "手伝って", "furigana": "手伝[てつだ]って", "en": "help (and)" },
-      { "ja": "くれました", "furigana": "くれました", "en": "gave (me)" }
+      { "ja": "くれました", "furigana": "くれました", "en": "gave (me)" },
+      { "ja": "断って", "furigana": "断[ことわ]って", "en": "refused (antonym — sentence says 手伝って 'helped')" },
+      { "ja": "もらいました", "furigana": "もらいました", "en": "received (wrong direction — sentence says くれました)" }
     ]
   },
   {
@@ -1869,7 +2148,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "to" },
       { "ja": "手紙", "furigana": "手紙[てがみ]", "en": "Letter" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "書きました", "furigana": "書[か]きました", "en": "wrote" }
+      { "ja": "書きました", "furigana": "書[か]きました", "en": "wrote" },
+      { "ja": "読みました", "furigana": "読[よ]みました", "en": "read (wrong verb — sentence says 書きました 'wrote')" },
+      { "ja": "から", "furigana": "から", "en": "from (wrong — recipient uses に)" }
     ]
   },
   {
@@ -1881,7 +2162,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "荷物", "furigana": "荷物[にもつ]", "en": "package" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "送って", "furigana": "送[おく]って", "en": "send" },
-      { "ja": "あげます", "furigana": "あげます", "en": "give (as a favor)" }
+      { "ja": "あげます", "furigana": "あげます", "en": "give (as a favor)" },
+      { "ja": "受け取って", "furigana": "受[う]け取[と]って", "en": "receive (antonym — sentence says 送って 'send')" },
+      { "ja": "もらいます", "furigana": "もらいます", "en": "receive (wrong direction — sentence says あげます)" }
     ]
   },
   {
@@ -1892,7 +2175,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "褒められて", "furigana": "褒[ほ]められて", "en": "being praised" },
       { "ja": "嬉しかった", "furigana": "嬉[うれ]しかった", "en": "was happy" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "叱られて", "furigana": "叱[しか]られて", "en": "being scolded (antonym — sentence says 褒められて)" },
+      { "ja": "悲しかった", "furigana": "悲[かな]しかった", "en": "was sad (antonym — sentence says 嬉しかった)" }
     ]
   },
   {
@@ -1903,7 +2188,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "試合", "furigana": "試合[しあい]", "en": "Match" },
       { "ja": "に", "furigana": "に", "en": "in (the match)" },
-      { "ja": "勝ちました", "furigana": "勝[か]ちました", "en": "won" }
+      { "ja": "勝ちました", "furigana": "勝[か]ちました", "en": "won" },
+      { "ja": "負けました", "furigana": "負[ま]けました", "en": "lost (antonym — sentence says 勝ちました)" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 勝つ takes に)" }
     ]
   },
   {
@@ -1914,7 +2201,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "ゲーム", "furigana": "ゲーム", "en": "game" },
       { "ja": "に", "furigana": "に", "en": "in (the game)" },
-      { "ja": "負けました", "furigana": "負[ま]けました", "en": "lost" }
+      { "ja": "負けました", "furigana": "負[ま]けました", "en": "lost" },
+      { "ja": "勝ちました", "furigana": "勝[か]ちました", "en": "won (antonym — sentence says 負けました)" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 負ける takes に)" }
     ]
   },
   {
@@ -1926,7 +2215,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "毎朝", "furigana": "毎朝[まいあさ]", "en": "Every morning" },
       { "ja": "瞑想", "furigana": "瞑想[めいそう]", "en": "Meditation" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "します", "furigana": "します", "en": "to do" }
+      { "ja": "します", "furigana": "します", "en": "to do" },
+      { "ja": "毎晩", "furigana": "毎晩[まいばん]", "en": "every night (wrong time — sentence says 毎朝)" },
+      { "ja": "しません", "furigana": "しません", "en": "do not do (negative, but sentence is affirmative)" }
     ]
   },
   {
@@ -1938,7 +2229,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "ヨガ", "furigana": "ヨガ", "en": "Yoga" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "習いたい", "furigana": "習[なら]いたい", "en": "want to learn" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "教えたい", "furigana": "教[おし]えたい", "en": "want to teach (antonym — sentence says 習いたい 'want to learn')" },
+      { "ja": "習いたくない", "furigana": "習[なら]いたくない", "en": "don't want to learn (negative, but sentence is affirmative)" }
     ]
   },
   {
@@ -1952,7 +2245,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "行った", "furigana": "行[い]った", "en": "went" },
       { "ja": "こと", "furigana": "こと", "en": "nominalizer" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "あります", "furigana": "あります", "en": "have" }
+      { "ja": "あります", "furigana": "あります", "en": "have" },
+      { "ja": "行かなかった", "furigana": "行[い]かなかった", "en": "didn't go (negative, but sentence says 行った)" },
+      { "ja": "ありません", "furigana": "ありません", "en": "don't have (negative, but sentence says あります)" }
     ]
   },
   {
@@ -1964,7 +2259,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "釣り", "furigana": "釣[つ]り", "en": "Fishing" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "好き", "furigana": "好[す]き", "en": "like" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "嫌い", "furigana": "嫌[きら]い", "en": "dislike (antonym — sentence says 好き)" },
+      { "ja": "狩り", "furigana": "狩[か]り", "en": "hunting (wrong hobby — sentence says 釣り)" }
     ]
   },
   {
@@ -1979,7 +2276,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "の", "furigana": "の", "en": "nominalizer" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "上手", "furigana": "上手[じょうず]", "en": "good at" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "下手", "furigana": "下手[へた]", "en": "bad at (antonym — sentence says 上手)" },
+      { "ja": "歌う", "furigana": "歌[うた]う", "en": "to sing (wrong verb — sentence says 踊る)" }
     ]
   },
   {
@@ -1992,7 +2291,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "の", "furigana": "の", "en": "nominalizer" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "下手", "furigana": "下手[へた]", "en": "bad at" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "上手", "furigana": "上手[じょうず]", "en": "good at (antonym — sentence says 下手)" },
+      { "ja": "踊る", "furigana": "踊[おど]る", "en": "to dance (wrong verb — sentence says 歌う)" }
     ]
   },
   {
@@ -2007,7 +2308,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "こと", "furigana": "こと", "en": "nominalizer" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "楽しい", "furigana": "楽[たの]しい", "en": "fun" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "つまらない", "furigana": "つまらない", "en": "boring (antonym — sentence says 楽しい)" },
+      { "ja": "書く", "furigana": "書[か]く", "en": "to write (wrong verb — sentence says 描く 'draw')" }
     ]
   },
   {
@@ -2020,7 +2323,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "の", "furigana": "の", "en": "of" },
       { "ja": "散歩", "furigana": "散歩[さんぽ]", "en": "Walk" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "頼まれました", "furigana": "頼[たの]まれました", "en": "was asked" }
+      { "ja": "頼まれました", "furigana": "頼[たの]まれました", "en": "was asked" },
+      { "ja": "頼みました", "furigana": "頼[たの]みました", "en": "asked (someone) — wrong direction, sentence says 頼まれました 'was asked'" },
+      { "ja": "猫", "furigana": "猫[ねこ]", "en": "cat (wrong animal — sentence says 犬)" }
     ]
   },
   {
@@ -2031,7 +2336,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "百科事典", "furigana": "百科事典[ひゃっかじてん]", "en": "Encyclopedia" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "引きました", "furigana": "引[ひ]きました", "en": "looked up" }
+      { "ja": "引きました", "furigana": "引[ひ]きました", "en": "looked up" },
+      { "ja": "閉じました", "furigana": "閉[と]じました", "en": "closed (antonym — sentence says 引きました 'looked up')" },
+      { "ja": "辞書", "furigana": "辞書[じしょ]", "en": "dictionary (wrong reference — sentence says 百科事典)" }
     ]
   },
   {
@@ -2042,7 +2349,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "交換して", "furigana": "交換[こうかん]して", "en": "exchange" },
       { "ja": "もらえます", "furigana": "もらえます", "en": "can receive" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "返品して", "furigana": "返品[へんぴん]して", "en": "return (wrong action — sentence says 交換して 'exchange')" },
+      { "ja": "あげます", "furigana": "あげます", "en": "give (wrong direction — sentence asks for a favor もらえます)" }
     ]
   },
   {
@@ -2054,7 +2363,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "頭", "furigana": "頭[あたま]", "en": "Head" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "痛い", "furigana": "痛[いた]い", "en": "painful" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "お腹", "furigana": "お腹[おなか]", "en": "stomach (wrong body part — sentence says 頭)" },
+      { "ja": "かゆい", "furigana": "かゆい", "en": "itchy (wrong symptom — sentence says 痛い 'painful')" }
     ]
   },
   {
@@ -2069,7 +2380,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "ので", "furigana": "ので", "en": "because" },
       { "ja": "歯医者", "furigana": "歯医者[はいしゃ]", "en": "Dentist" },
       { "ja": "に", "furigana": "に", "en": "to" },
-      { "ja": "行きます", "furigana": "行[い]きます", "en": "will go" }
+      { "ja": "行きます", "furigana": "行[い]きます", "en": "will go" },
+      { "ja": "医者", "furigana": "医者[いしゃ]", "en": "doctor (wrong specialist — sentence says 歯医者 'dentist')" },
+      { "ja": "から", "furigana": "から", "en": "because (wrong — sentence uses ので)" }
     ]
   },
   {
@@ -2080,7 +2393,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "熱", "furigana": "熱[ねつ]", "en": "fever" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "あります", "furigana": "あります", "en": "have" }
+      { "ja": "あります", "furigana": "あります", "en": "have" },
+      { "ja": "ありません", "furigana": "ありません", "en": "don't have (negative, but sentence is affirmative)" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — あります takes が)" }
     ]
   },
   {
@@ -2091,7 +2406,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "咳", "furigana": "咳[せき]", "en": "Cough" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "出ます", "furigana": "出[で]ます", "en": "comes out" }
+      { "ja": "出ます", "furigana": "出[で]ます", "en": "comes out" },
+      { "ja": "出ません", "furigana": "出[で]ません", "en": "doesn't come out (negative, but sentence is affirmative)" },
+      { "ja": "鼻水", "furigana": "鼻水[はなみず]", "en": "runny nose (wrong symptom — sentence says 咳)" }
     ]
   },
   {
@@ -2102,7 +2419,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "くしゃみ", "furigana": "くしゃみ", "en": "sneeze" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "止まりません", "furigana": "止[と]まりません", "en": "won't stop" }
+      { "ja": "止まりません", "furigana": "止[と]まりません", "en": "won't stop" },
+      { "ja": "止まります", "furigana": "止[と]まります", "en": "stops (affirmative, but sentence is negative)" },
+      { "ja": "咳", "furigana": "咳[せき]", "en": "cough (wrong symptom — sentence says くしゃみ)" }
     ]
   },
   {
@@ -2114,7 +2433,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "気分", "furigana": "気分[きぶん]", "en": "feeling" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "悪い", "furigana": "悪[わる]い", "en": "bad" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "いい", "furigana": "いい", "en": "good (antonym — sentence says 悪い)" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 悪い takes が)" }
     ]
   },
   {
@@ -2129,7 +2450,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "方", "furigana": "方[ほう]", "en": "way" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "いい", "furigana": "いい", "en": "good" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "行かない", "furigana": "行[い]かない", "en": "don't go (negative — advice says 行った 'should go')" },
+      { "ja": "悪い", "furigana": "悪[わる]い", "en": "bad (antonym — sentence says いい 'good to do')" }
     ]
   },
   {
@@ -2141,7 +2464,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "薬", "furigana": "薬[くすり]", "en": "Medicine" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "飲みました", "furigana": "飲[の]みました", "en": "took" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "飲みませんでした", "furigana": "飲[の]みませんでした", "en": "didn't take (negative, but sentence asks 'did you take?')" },
+      { "ja": "食べました", "furigana": "食[た]べました", "en": "ate (wrong verb — medicine uses 飲みました)" }
     ]
   },
   {
@@ -2153,7 +2478,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "安静", "furigana": "安静[あんせい]", "en": "Rest" },
       { "ja": "に", "furigana": "に", "en": "state particle" },
       { "ja": "して", "furigana": "して", "en": "do" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "運動", "furigana": "運動[うんどう]", "en": "exercise (antonym — sentence says 安静 'rest')" },
+      { "ja": "しないで", "furigana": "しないで", "en": "don't do (negative — sentence asks to please do)" }
     ]
   },
   {
@@ -2164,7 +2491,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "目", "furigana": "目[め]", "en": "Eyes" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "疲れました", "furigana": "疲[つか]れました", "en": "was tired" }
+      { "ja": "疲れました", "furigana": "疲[つか]れました", "en": "was tired" },
+      { "ja": "元気になりました", "furigana": "元気[げんき]になりました", "en": "became energetic (antonym — sentence says 疲れました)" },
+      { "ja": "耳", "furigana": "耳[みみ]", "en": "ears (wrong body part — sentence says 目)" }
     ]
   },
   {
@@ -2175,7 +2504,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "足", "furigana": "足[あし]", "en": "Leg/Foot" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "捻挫しました", "furigana": "捻挫[ねんざ]しました", "en": "sprained" }
+      { "ja": "捻挫しました", "furigana": "捻挫[ねんざ]しました", "en": "sprained" },
+      { "ja": "治しました", "furigana": "治[なお]しました", "en": "healed (antonym — sentence says 捻挫しました 'sprained')" },
+      { "ja": "腕", "furigana": "腕[うで]", "en": "arm (wrong body part — sentence says 足)" }
     ]
   },
   {
@@ -2187,7 +2518,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "救急車", "furigana": "救急車[きゅうきゅうしゃ]", "en": "Ambulance" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "呼んで", "furigana": "呼[よ]んで", "en": "call" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "警察", "furigana": "警察[けいさつ]", "en": "police (wrong service — sentence says 救急車)" },
+      { "ja": "呼ばないで", "furigana": "呼[よ]ばないで", "en": "don't call (negative — sentence asks to please call)" }
     ]
   },
   {
@@ -2198,7 +2531,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "事故", "furigana": "事故[じこ]", "en": "Accident" },
       { "ja": "に", "furigana": "に", "en": "in (event)" },
-      { "ja": "遭いました", "furigana": "遭[あ]いました", "en": "had (an accident)" }
+      { "ja": "遭いました", "furigana": "遭[あ]いました", "en": "had (an accident)" },
+      { "ja": "避けました", "furigana": "避[さ]けました", "en": "avoided (antonym — sentence says 遭いました 'had/encountered')" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 遭う takes に)" }
     ]
   },
   {
@@ -2210,7 +2545,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "保険証", "furigana": "保険証[ほけんしょう]", "en": "Insurance card" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "持っています", "furigana": "持[も]っています", "en": "have" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "免許証", "furigana": "免許証[めんきょしょう]", "en": "driver's license (wrong card — sentence says 保険証)" },
+      { "ja": "持っていません", "furigana": "持[も]っていません", "en": "don't have (negative, but sentence asks 'do you have?')" }
     ]
   },
   {
@@ -2221,7 +2558,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "診察", "furigana": "診察[しんさつ]", "en": "Medical examination" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "受けました", "furigana": "受[う]けました", "en": "received" }
+      { "ja": "受けました", "furigana": "受[う]けました", "en": "received" },
+      { "ja": "しました", "furigana": "しました", "en": "did (wrong verb — examination uses 受けました 'received')" },
+      { "ja": "治療", "furigana": "治療[ちりょう]", "en": "treatment (wrong noun — sentence says 診察 'examination')" }
     ]
   },
   {
@@ -2233,7 +2572,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "手術", "furigana": "手術[しゅじゅつ]", "en": "Surgery" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "必要", "furigana": "必要[ひつよう]", "en": "Necessary" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "不要", "furigana": "不要[ふよう]", "en": "unnecessary (antonym — sentence says 必要)" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 必要 takes が)" }
     ]
   },
   {
@@ -2245,7 +2586,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "注射", "furigana": "注射[ちゅうしゃ]", "en": "Injection" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "怖い", "furigana": "怖[こわ]い", "en": "scary" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "嬉しい", "furigana": "嬉[うれ]しい", "en": "happy (antonym — sentence says 怖い 'scary')" },
+      { "ja": "薬", "furigana": "薬[くすり]", "en": "medicine (wrong noun — sentence says 注射)" }
     ]
   },
   {
@@ -2256,7 +2599,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "視力", "furigana": "視力[しりょく]", "en": "Eyesight" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "悪くなりました", "furigana": "悪[わる]くなりました", "en": "has gotten worse" }
+      { "ja": "悪くなりました", "furigana": "悪[わる]くなりました", "en": "has gotten worse" },
+      { "ja": "よくなりました", "furigana": "よくなりました", "en": "has gotten better (antonym — sentence says 悪くなりました)" },
+      { "ja": "聴力", "furigana": "聴力[ちょうりょく]", "en": "hearing (wrong sense — sentence says 視力 'eyesight')" }
     ]
   },
   {
@@ -2269,7 +2614,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "の", "furigana": "の", "en": "of" },
       { "ja": "ため", "furigana": "ため", "en": "for" },
       { "ja": "に", "furigana": "に", "en": "for (purpose)" },
-      { "ja": "運動します", "furigana": "運動[うんどう]します", "en": "exercise" }
+      { "ja": "運動します", "furigana": "運動[うんどう]します", "en": "exercise" },
+      { "ja": "病気", "furigana": "病気[びょうき]", "en": "illness (antonym — sentence says 健康 'health')" },
+      { "ja": "運動しません", "furigana": "運動[うんどう]しません", "en": "don't exercise (negative, but sentence is affirmative)" }
     ]
   },
   {
@@ -2283,7 +2630,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "こと", "furigana": "こと", "en": "nominalizer" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "大切", "furigana": "大切[たいせつ]", "en": "Important" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "起きる", "furigana": "起[お]きる", "en": "to wake up (antonym — sentence says 寝る 'sleep')" },
+      { "ja": "大切じゃない", "furigana": "大切[たいせつ]じゃない", "en": "not important (negative, but sentence says 大切 'important')" }
     ]
   },
   {
@@ -2299,7 +2648,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "駅", "furigana": "駅[えき]", "en": "Station" },
       { "ja": "から", "furigana": "から", "en": "from" },
       { "ja": "近い", "furigana": "近[ちか]い", "en": "close" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "遠い", "furigana": "遠[とお]い", "en": "far (antonym — sentence says 近い)" },
+      { "ja": "まで", "furigana": "まで", "en": "to (wrong — source uses から 'from')" }
     ]
   },
   {
@@ -2312,7 +2663,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "in" },
       { "ja": "ソファ", "furigana": "ソファ", "en": "Sofa" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "あります", "furigana": "あります", "en": "there is" }
+      { "ja": "あります", "furigana": "あります", "en": "there is" },
+      { "ja": "テーブル", "furigana": "テーブル", "en": "table (wrong furniture — sentence says ソファ)" },
+      { "ja": "います", "furigana": "います", "en": "there is (for animate things — ソファ is inanimate)" }
     ]
   },
   {
@@ -2324,7 +2677,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "寝室", "furigana": "寝室[しんしつ]", "en": "Bedroom" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "二階", "furigana": "二階[にかい]", "en": "Second floor" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "一階", "furigana": "一階[いっかい]", "en": "first floor (wrong floor — sentence says 二階)" },
+      { "ja": "キッチン", "furigana": "キッチン", "en": "kitchen (wrong room — sentence says 寝室)" }
     ]
   },
   {
@@ -2339,7 +2694,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "です", "furigana": "です", "en": "is" },
       { "ja": "が", "furigana": "が", "en": "but" },
       { "ja": "綺麗", "furigana": "綺麗[きれい]", "en": "Clean" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "広い", "furigana": "広[ひろ]い", "en": "spacious (antonym — sentence says 狭い)" },
+      { "ja": "汚い", "furigana": "汚[きたな]い", "en": "dirty (antonym — sentence says 綺麗)" }
     ]
   },
   {
@@ -2350,7 +2707,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "風呂", "furigana": "風呂[ふろ]", "en": "Bath" },
       { "ja": "に", "furigana": "に", "en": "into" },
-      { "ja": "入ります", "furigana": "入[はい]ります", "en": "enter / take (a bath)" }
+      { "ja": "入ります", "furigana": "入[はい]ります", "en": "enter / take (a bath)" },
+      { "ja": "出ます", "furigana": "出[で]ます", "en": "exit (antonym — sentence says 入ります 'enter')" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 入る takes に)" }
     ]
   },
   {
@@ -2363,7 +2722,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "で", "furigana": "で", "en": "at" },
       { "ja": "手", "furigana": "手[て]", "en": "hand(s)" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "洗います", "furigana": "洗[あら]います", "en": "wash" }
+      { "ja": "洗います", "furigana": "洗[あら]います", "en": "wash" },
+      { "ja": "足", "furigana": "足[あし]", "en": "foot (wrong body part — sentence says 手)" },
+      { "ja": "拭きます", "furigana": "拭[ふ]きます", "en": "wipe (wrong verb — sentence says 洗います 'wash')" }
     ]
   },
   {
@@ -2376,7 +2737,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "in" },
       { "ja": "木", "furigana": "木[き]", "en": "Tree" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "植えました", "furigana": "植[う]えました", "en": "planted" }
+      { "ja": "植えました", "furigana": "植[う]えました", "en": "planted" },
+      { "ja": "切りました", "furigana": "切[き]りました", "en": "cut (antonym — sentence says 植えました 'planted')" },
+      { "ja": "花", "furigana": "花[はな]", "en": "flower (wrong plant — sentence says 木 'tree')" }
     ]
   },
   {
@@ -2390,7 +2753,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "開けて", "furigana": "開[あ]けて", "en": "open" },
       { "ja": "空気", "furigana": "空気[くうき]", "en": "air" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "入れます", "furigana": "入[い]れます", "en": "to let in" }
+      { "ja": "入れます", "furigana": "入[い]れます", "en": "to let in" },
+      { "ja": "閉めて", "furigana": "閉[し]めて", "en": "close (antonym — sentence says 開けて 'open')" },
+      { "ja": "出します", "furigana": "出[だ]します", "en": "let out (antonym — sentence says 入れます 'let in')" }
     ]
   },
   {
@@ -2401,7 +2766,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "カーテン", "furigana": "カーテン", "en": "Curtain" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "閉めます", "furigana": "閉[し]めます", "en": "close" }
+      { "ja": "閉めます", "furigana": "閉[し]めます", "en": "close" },
+      { "ja": "開けます", "furigana": "開[あ]けます", "en": "open (antonym — sentence says 閉めます)" },
+      { "ja": "窓", "furigana": "窓[まど]", "en": "window (wrong object — sentence says カーテン)" }
     ]
   },
   {
@@ -2413,7 +2780,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "電気", "furigana": "電気[でんき]", "en": "lights" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "消して", "furigana": "消[け]して", "en": "turn off" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "つけて", "furigana": "つけて", "en": "turn on (antonym — sentence says 消して 'turn off')" },
+      { "ja": "水", "furigana": "水[みず]", "en": "water (wrong object — sentence says 電気 'lights')" }
     ]
   },
   {
@@ -2426,7 +2795,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "in" },
       { "ja": "牛乳", "furigana": "牛乳[ぎゅうにゅう]", "en": "Milk" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "ありません", "furigana": "ありません", "en": "there is no" }
+      { "ja": "ありません", "furigana": "ありません", "en": "there is no" },
+      { "ja": "あります", "furigana": "あります", "en": "there is (affirmative, but sentence is negative)" },
+      { "ja": "ジュース", "furigana": "ジュース", "en": "juice (wrong drink — sentence says 牛乳)" }
     ]
   },
   {
@@ -2437,7 +2808,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "電子レンジ", "furigana": "電子[でんし]レンジ", "en": "Microwave" },
       { "ja": "で", "furigana": "で", "en": "in (a microwave)" },
-      { "ja": "温めます", "furigana": "温[あたた]めます", "en": "to heat" }
+      { "ja": "温めます", "furigana": "温[あたた]めます", "en": "to heat" },
+      { "ja": "冷やします", "furigana": "冷[ひ]やします", "en": "to cool (antonym — sentence says 温めます 'heat')" },
+      { "ja": "に", "furigana": "に", "en": "in (wrong — means/tool uses で)" }
     ]
   },
   {
@@ -2449,7 +2822,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "掃除機", "furigana": "掃除機[そうじき]", "en": "Vacuum cleaner" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "かけて", "furigana": "かけて", "en": "to apply/put on" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "洗濯機", "furigana": "洗濯機[せんたくき]", "en": "washing machine (wrong appliance — sentence says 掃除機)" },
+      { "ja": "かけないで", "furigana": "かけないで", "en": "don't do (negative — sentence asks to please do)" }
     ]
   },
   {
@@ -2460,7 +2835,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "洗濯機", "furigana": "洗濯機[せんたくき]", "en": "Washing machine" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "回します", "furigana": "回[まわ]します", "en": "to run (a machine)" }
+      { "ja": "回します", "furigana": "回[まわ]します", "en": "to run (a machine)" },
+      { "ja": "止めます", "furigana": "止[と]めます", "en": "to stop (antonym — sentence says 回します 'run')" },
+      { "ja": "掃除機", "furigana": "掃除機[そうじき]", "en": "vacuum cleaner (wrong appliance — sentence says 洗濯機)" }
     ]
   },
   {
@@ -2472,7 +2849,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "ゴミ", "furigana": "ゴミ", "en": "Trash" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "出して", "furigana": "出[だ]して", "en": "take out" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "入れないで", "furigana": "入[い]れないで", "en": "don't put in (wrong action — sentence asks to take out)" },
+      { "ja": "洗濯物", "furigana": "洗濯物[せんたくもの]", "en": "laundry (wrong item — sentence says ゴミ)" }
     ]
   },
   {
@@ -2485,7 +2864,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "on" },
       { "ja": "洗濯物", "furigana": "洗濯物[せんたくもの]", "en": "Laundry" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "干します", "furigana": "干[ほ]します", "en": "hang out to dry" }
+      { "ja": "干します", "furigana": "干[ほ]します", "en": "hang out to dry" },
+      { "ja": "取り込みます", "furigana": "取[と]り込[こ]みます", "en": "take in (antonym — sentence says 干します 'hang out')" },
+      { "ja": "部屋", "furigana": "部屋[へや]", "en": "room (wrong place — sentence says ベランダ)" }
     ]
   },
   {
@@ -2496,7 +2877,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "鍵", "furigana": "鍵[かぎ]", "en": "lock" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "かけ忘れました", "furigana": "かけ忘[わす]れました", "en": "forgot to do" }
+      { "ja": "かけ忘れました", "furigana": "かけ忘[わす]れました", "en": "forgot to do" },
+      { "ja": "かけました", "furigana": "かけました", "en": "locked (opposite outcome — sentence says かけ忘れました 'forgot to lock')" },
+      { "ja": "窓", "furigana": "窓[まど]", "en": "window (wrong object — sentence says 鍵 'lock')" }
     ]
   },
   {
@@ -2508,7 +2891,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "住所", "furigana": "住所[じゅうしょ]", "en": "Address" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "書いて", "furigana": "書[か]いて", "en": "write" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "名前", "furigana": "名前[なまえ]", "en": "name (wrong item — sentence says 住所)" },
+      { "ja": "消して", "furigana": "消[け]して", "en": "erase (antonym — sentence says 書いて 'write')" }
     ]
   },
   {
@@ -2519,7 +2904,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "階段", "furigana": "階段[かいだん]", "en": "Stairs" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "上ります", "furigana": "上[のぼ]ります", "en": "go up" }
+      { "ja": "上ります", "furigana": "上[のぼ]ります", "en": "go up" },
+      { "ja": "下ります", "furigana": "下[お]ります", "en": "go down (antonym — sentence says 上ります)" },
+      { "ja": "に", "furigana": "に", "en": "at (wrong — climbing path uses を)" }
     ]
   },
   {
@@ -2533,7 +2920,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "つけっぱなし", "furigana": "つけっぱなし", "en": "left on" },
       { "ja": "に", "furigana": "に", "en": "state particle" },
       { "ja": "しないで", "furigana": "しないで", "en": "don't (do)" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "消しっぱなし", "furigana": "消[け]しっぱなし", "en": "left off (antonym — sentence warns against つけっぱなし 'left on')" },
+      { "ja": "して", "furigana": "して", "en": "do (affirmative — sentence says しないで 'don't')" }
     ]
   },
   {
@@ -2544,7 +2933,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "会社", "furigana": "会社[かいしゃ]", "en": "work" },
       { "ja": "に", "furigana": "に", "en": "to" },
-      { "ja": "遅刻しました", "furigana": "遅刻[ちこく]しました", "en": "was late" }
+      { "ja": "遅刻しました", "furigana": "遅刻[ちこく]しました", "en": "was late" },
+      { "ja": "間に合いました", "furigana": "間[ま]に合[あ]いました", "en": "was in time (antonym — sentence says 遅刻しました 'was late')" },
+      { "ja": "学校", "furigana": "学校[がっこう]", "en": "school (wrong place — sentence says 会社)" }
     ]
   },
   {
@@ -2555,7 +2946,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "残業", "furigana": "残業[ざんぎょう]", "en": "Overtime work" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "しなければなりません", "furigana": "しなければなりません", "en": "must do" }
+      { "ja": "しなければなりません", "furigana": "しなければなりません", "en": "must do" },
+      { "ja": "してはいけません", "furigana": "してはいけません", "en": "must not do (opposite — sentence says しなければなりません 'must')" },
+      { "ja": "早退", "furigana": "早退[そうたい]", "en": "leaving early (wrong action — sentence says 残業 'overtime')" }
     ]
   },
   {
@@ -2569,7 +2962,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "何時", "furigana": "何時[なんじ]", "en": "What time" },
       { "ja": "に", "furigana": "に", "en": "at" },
       { "ja": "終わります", "furigana": "終[お]わります", "en": "ends" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "始まります", "furigana": "始[はじ]まります", "en": "starts (antonym — sentence says 終わります 'ends')" },
+      { "ja": "どこ", "furigana": "どこ", "en": "where (wrong question word — sentence asks 何時 'what time')" }
     ]
   },
   {
@@ -2580,7 +2975,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "部長", "furigana": "部長[ぶちょう]", "en": "Department manager" },
       { "ja": "に", "furigana": "に", "en": "to" },
-      { "ja": "報告します", "furigana": "報告[ほうこく]します", "en": "to report" }
+      { "ja": "報告します", "furigana": "報告[ほうこく]します", "en": "to report" },
+      { "ja": "課長", "furigana": "課長[かちょう]", "en": "section chief (wrong role — sentence says 部長)" },
+      { "ja": "から", "furigana": "から", "en": "from (wrong direction — recipient uses に)" }
     ]
   },
   {
@@ -2591,7 +2988,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "メール", "furigana": "メール", "en": "Email" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "送りました", "furigana": "送[おく]りました", "en": "sent" }
+      { "ja": "送りました", "furigana": "送[おく]りました", "en": "sent" },
+      { "ja": "受け取りました", "furigana": "受[う]け取[と]りました", "en": "received (antonym — sentence says 送りました 'sent')" },
+      { "ja": "手紙", "furigana": "手紙[てがみ]", "en": "letter (wrong item — sentence says メール)" }
     ]
   },
   {
@@ -2603,7 +3002,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "資料", "furigana": "資料[しりょう]", "en": "Documents" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "準備して", "furigana": "準備[じゅんび]して", "en": "prepare" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "片付けて", "furigana": "片付[かたづ]けて", "en": "tidy up (wrong action — sentence says 準備して 'prepare')" },
+      { "ja": "準備しないで", "furigana": "準備[じゅんび]しないで", "en": "don't prepare (negative — sentence asks to please prepare)" }
     ]
   },
   {
@@ -2614,7 +3015,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "コピー機", "furigana": "コピー機[き]", "en": "Copier" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "故障しました", "furigana": "故障[こしょう]しました", "en": "broke down" }
+      { "ja": "故障しました", "furigana": "故障[こしょう]しました", "en": "broke down" },
+      { "ja": "直りました", "furigana": "直[なお]りました", "en": "was fixed (antonym — sentence says 故障しました 'broke down')" },
+      { "ja": "プリンター", "furigana": "プリンター", "en": "printer (wrong device — sentence says コピー機)" }
     ]
   },
   {
@@ -2626,7 +3029,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "休暇", "furigana": "休暇[きゅうか]", "en": "Vacation" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "取りたい", "furigana": "取[と]りたい", "en": "want to take" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "仕事", "furigana": "仕事[しごと]", "en": "work (antonym — sentence says 休暇 'vacation')" },
+      { "ja": "取りたくない", "furigana": "取[と]りたくない", "en": "don't want to take (negative, but sentence is affirmative)" }
     ]
   },
   {
@@ -2637,7 +3042,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "授業", "furigana": "授業[じゅぎょう]", "en": "Class" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "欠席します", "furigana": "欠席[けっせき]します", "en": "will be absent" }
+      { "ja": "欠席します", "furigana": "欠席[けっせき]します", "en": "will be absent" },
+      { "ja": "出席します", "furigana": "出席[しゅっせき]します", "en": "will attend (antonym — sentence says 欠席します 'will be absent')" },
+      { "ja": "会議", "furigana": "会議[かいぎ]", "en": "meeting (wrong noun — sentence says 授業 'class')" }
     ]
   },
   {
@@ -2648,7 +3055,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "宿題", "furigana": "宿題[しゅくだい]", "en": "Homework" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "忘れました", "furigana": "忘[わす]れました", "en": "forgot" }
+      { "ja": "忘れました", "furigana": "忘[わす]れました", "en": "forgot" },
+      { "ja": "覚えていました", "furigana": "覚[おぼ]えていました", "en": "remembered (antonym — sentence says 忘れました 'forgot')" },
+      { "ja": "教科書", "furigana": "教科書[きょうかしょ]", "en": "textbook (wrong item — sentence says 宿題)" }
     ]
   },
   {
@@ -2659,7 +3068,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "試験", "furigana": "試験[しけん]", "en": "Exam" },
       { "ja": "に", "furigana": "に", "en": "particle marking the target" },
-      { "ja": "合格しました", "furigana": "合格[ごうかく]しました", "en": "passed" }
+      { "ja": "合格しました", "furigana": "合格[ごうかく]しました", "en": "passed" },
+      { "ja": "不合格でした", "furigana": "不合格[ふごうかく]でした", "en": "failed (antonym — sentence says 合格しました 'passed')" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — 合格する takes に)" }
     ]
   },
   {
@@ -2670,7 +3081,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "課題", "furigana": "課題[かだい]", "en": "Assignment" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "提出します", "furigana": "提出[ていしゅつ]します", "en": "will submit" }
+      { "ja": "提出します", "furigana": "提出[ていしゅつ]します", "en": "will submit" },
+      { "ja": "受け取ります", "furigana": "受[う]け取[と]ります", "en": "will receive (wrong direction — sentence says 提出します 'submit')" },
+      { "ja": "レポート", "furigana": "レポート", "en": "report (wrong item — sentence says 課題)" }
     ]
   },
   {
@@ -2681,7 +3094,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "先生", "furigana": "先生[せんせい]", "en": "Teacher" },
       { "ja": "に", "furigana": "に", "en": "to" },
-      { "ja": "質問します", "furigana": "質問[しつもん]します", "en": "ask a question" }
+      { "ja": "質問します", "furigana": "質問[しつもん]します", "en": "ask a question" },
+      { "ja": "答えます", "furigana": "答[こた]えます", "en": "answer (antonym — sentence says 質問します 'ask')" },
+      { "ja": "友達", "furigana": "友達[ともだち]", "en": "friend (wrong recipient — sentence says 先生)" }
     ]
   },
   {
@@ -2693,7 +3108,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "教科書", "furigana": "教科書[きょうかしょ]", "en": "Textbook" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "開いて", "furigana": "開[ひら]いて", "en": "open" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "閉じて", "furigana": "閉[と]じて", "en": "close (antonym — sentence says 開いて 'open')" },
+      { "ja": "ノート", "furigana": "ノート", "en": "notebook (wrong item — sentence says 教科書)" }
     ]
   },
   {
@@ -2704,7 +3121,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "ノート", "furigana": "ノート", "en": "Notes" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "取っています", "furigana": "取[と]っています", "en": "am taking" }
+      { "ja": "取っています", "furigana": "取[と]っています", "en": "am taking" },
+      { "ja": "捨てています", "furigana": "捨[す]てています", "en": "am throwing away (wrong action — sentence says 取っています 'taking notes')" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — ノート is the object, を)" }
     ]
   },
   {
@@ -2716,7 +3135,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "発音", "furigana": "発音[はつおん]", "en": "Pronunciation" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "難しい", "furigana": "難[むずか]しい", "en": "difficult" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "簡単", "furigana": "簡単[かんたん]", "en": "easy (antonym — sentence says 難しい)" },
+      { "ja": "文法", "furigana": "文法[ぶんぽう]", "en": "grammar (wrong noun — sentence says 発音)" }
     ]
   },
   {
@@ -2728,7 +3149,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "もう", "furigana": "もう", "en": "one more" },
       { "ja": "一度", "furigana": "一度[いちど]", "en": "one time" },
       { "ja": "言って", "furigana": "言[い]って", "en": "say" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "二度", "furigana": "二度[にど]", "en": "two times (wrong number — sentence says 一度)" },
+      { "ja": "聞いて", "furigana": "聞[き]いて", "en": "listen (wrong verb — sentence says 言って 'say')" }
     ]
   },
   {
@@ -2739,7 +3162,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "ゆっくり", "furigana": "ゆっくり", "en": "slowly" },
       { "ja": "話して", "furigana": "話[はな]して", "en": "speak" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "早く", "furigana": "早[はや]く", "en": "quickly (antonym — sentence says ゆっくり 'slowly')" },
+      { "ja": "聞いて", "furigana": "聞[き]いて", "en": "listen (wrong verb — sentence says 話して 'speak')" }
     ]
   },
   {
@@ -2752,7 +3177,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "貸して", "furigana": "貸[か]して", "en": "lend" },
       { "ja": "もらえます", "furigana": "もらえます", "en": "can receive" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "借りて", "furigana": "借[か]りて", "en": "borrow (antonym — sentence says 貸して 'lend')" },
+      { "ja": "鉛筆", "furigana": "鉛筆[えんぴつ]", "en": "pencil (wrong item — sentence says ペン)" }
     ]
   },
   {
@@ -2763,7 +3190,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "手伝って", "furigana": "手伝[てつだ]って", "en": "help" },
       { "ja": "いただけません", "furigana": "いただけません", "en": "could you please" },
-      { "ja": "か", "furigana": "か", "en": "question particle" }
+      { "ja": "か", "furigana": "か", "en": "question particle" },
+      { "ja": "断って", "furigana": "断[ことわ]って", "en": "refuse (antonym — sentence asks for help)" },
+      { "ja": "あげます", "furigana": "あげます", "en": "give (wrong direction — sentence asks for a favor, いただけません)" }
     ]
   },
   {
@@ -2776,7 +3205,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "時間", "furigana": "時間[じかん]", "en": "time" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "あれば", "furigana": "あれば", "en": "if there is" },
-      { "ja": "行きます", "furigana": "行[い]きます", "en": "will go" }
+      { "ja": "行きます", "furigana": "行[い]きます", "en": "will go" },
+      { "ja": "なければ", "furigana": "なければ", "en": "if there is not (antonym — sentence says あれば 'if there is')" },
+      { "ja": "来ません", "furigana": "来[き]ません", "en": "will not come (wrong verb — sentence says 行きます 'go')" }
     ]
   },
   {
@@ -2791,7 +3222,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "試合", "furigana": "試合[しあい]", "en": "match" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "中止", "furigana": "中止[ちゅうし]", "en": "Cancellation" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "降らなかったら", "furigana": "降[ふ]らなかったら", "en": "if it doesn't rain (opposite condition — sentence says 降ったら 'if it rains')" },
+      { "ja": "開催", "furigana": "開催[かいさい]", "en": "holding (antonym — sentence says 中止 'canceled')" }
     ]
   },
   {
@@ -2803,7 +3236,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "勉強すれば", "furigana": "勉強[べんきょう]すれば", "en": "If you study" },
       { "ja": "成績", "furigana": "成績[せいせき]", "en": "grades" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "上がります", "furigana": "上[あ]がります", "en": "will improve" }
+      { "ja": "上がります", "furigana": "上[あ]がります", "en": "will improve" },
+      { "ja": "下がります", "furigana": "下[さ]がります", "en": "will drop (antonym — sentence says 上がります 'will improve')" },
+      { "ja": "勉強しなければ", "furigana": "勉強[べんきょう]しなければ", "en": "if you don't study (opposite condition — sentence says すれば)" }
     ]
   },
   {
@@ -2819,7 +3254,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "の", "furigana": "の", "en": "like" },
       { "ja": "よう", "furigana": "よう", "en": "like" },
       { "ja": "に", "furigana": "に", "en": "like" },
-      { "ja": "歌います", "furigana": "歌[うた]います", "en": "sings" }
+      { "ja": "歌います", "furigana": "歌[うた]います", "en": "sings" },
+      { "ja": "素人", "furigana": "素人[しろうと]", "en": "amateur (antonym — sentence says プロ)" },
+      { "ja": "踊ります", "furigana": "踊[おど]ります", "en": "dances (wrong verb — sentence says 歌います)" }
     ]
   },
   {
@@ -2831,7 +3268,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "この", "furigana": "この", "en": "This" },
       { "ja": "本", "furigana": "本[ほん]", "en": "book" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "読みなさい", "furigana": "読[よ]みなさい", "en": "Read (imperative)" }
+      { "ja": "読みなさい", "furigana": "読[よ]みなさい", "en": "Read (imperative)" },
+      { "ja": "書きなさい", "furigana": "書[か]きなさい", "en": "write (wrong verb — sentence says 読みなさい 'read')" },
+      { "ja": "読むな", "furigana": "読[よ]むな", "en": "don't read (negative imperative — sentence says 読みなさい 'read')" }
     ]
   },
   {
@@ -2842,7 +3281,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "行くな", "furigana": "行[い]くな", "en": "Don't go" },
       { "ja": "と", "furigana": "と", "en": "quotation particle" },
-      { "ja": "言われました", "furigana": "言[い]われました", "en": "was told" }
+      { "ja": "言われました", "furigana": "言[い]われました", "en": "was told" },
+      { "ja": "行け", "furigana": "行[い]け", "en": "Go (positive imperative — sentence says 行くな 'don't go')" },
+      { "ja": "言いました", "furigana": "言[い]いました", "en": "said (wrong direction — sentence says 言われました 'was told')" }
     ]
   },
   {
@@ -2855,7 +3296,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "先", "furigana": "先[さき]", "en": "ahead" },
       { "ja": "に", "furigana": "に", "en": "in order to" },
       { "ja": "行って", "furigana": "行[い]って", "en": "go" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "待って", "furigana": "待[ま]って", "en": "wait (affirmative — sentence says 待たないで 'without waiting')" },
+      { "ja": "後", "furigana": "後[あと]", "en": "behind (antonym — sentence says 先 'ahead')" }
     ]
   },
   {
@@ -2869,7 +3312,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "毎日", "furigana": "毎日[まいにち]", "en": "every day" },
       { "ja": "運動する", "furigana": "運動[うんどう]する", "en": "to exercise" },
       { "ja": "そう", "furigana": "そう", "en": "I hear" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "運動しない", "furigana": "運動[うんどう]しない", "en": "doesn't exercise (negative, but sentence says 運動する)" },
+      { "ja": "毎週", "furigana": "毎週[まいしゅう]", "en": "every week (wrong frequency — sentence says 毎日)" }
     ]
   },
   {
@@ -2883,7 +3328,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "昇る", "furigana": "昇[のぼ]る", "en": "to rise" },
       { "ja": "の", "furigana": "の", "en": "nominalizer" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "見えました", "furigana": "見[み]えました", "en": "was visible" }
+      { "ja": "見えました", "furigana": "見[み]えました", "en": "was visible" },
+      { "ja": "沈む", "furigana": "沈[しず]む", "en": "to set (antonym — sentence says 昇る 'rise')" },
+      { "ja": "月", "furigana": "月[つき]", "en": "moon (wrong celestial body — sentence says 太陽)" }
     ]
   },
   {
@@ -2900,7 +3347,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "だけ", "furigana": "だけ", "en": "just" },
       { "ja": "で", "furigana": "で", "en": "by merely doing" },
       { "ja": "幸せ", "furigana": "幸[しあわ]せ", "en": "Happy" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "泣き顔", "furigana": "泣[な]き顔[がお]", "en": "crying face (antonym — sentence says 笑顔)" },
+      { "ja": "不幸せ", "furigana": "不幸[ふしあわ]せ", "en": "unhappy (antonym — sentence says 幸せ)" }
     ]
   },
   {
@@ -2912,7 +3361,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "その", "furigana": "その", "en": "That" },
       { "ja": "話", "furigana": "話[はなし]", "en": "story" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
-      { "ja": "考えさせられます", "furigana": "考[かんが]えさせられます", "en": "makes me think" }
+      { "ja": "考えさせられます", "furigana": "考[かんが]えさせられます", "en": "makes me think" },
+      { "ja": "忘れさせられます", "furigana": "忘[わす]れさせられます", "en": "makes me forget (antonym — sentence says 考えさせられます 'makes me think')" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 話 is topic, は)" }
     ]
   },
   {
@@ -2924,7 +3375,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "もっと", "furigana": "もっと", "en": "more" },
       { "ja": "早く", "furigana": "早[はや]く", "en": "earlier" },
       { "ja": "来れば", "furigana": "来[く]れば", "en": "if I had come" },
-      { "ja": "良かった", "furigana": "良[よ]かった", "en": "was good (should have)" }
+      { "ja": "良かった", "furigana": "良[よ]かった", "en": "was good (should have)" },
+      { "ja": "遅く", "furigana": "遅[おそ]く", "en": "later (antonym — sentence says 早く 'earlier')" },
+      { "ja": "来なければ", "furigana": "来[こ]なければ", "en": "if I had not come (opposite condition)" }
     ]
   },
   {
@@ -2938,7 +3391,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "まだ", "furigana": "まだ", "en": "yet" },
       { "ja": "着いていない", "furigana": "着[つ]いていない", "en": "hasn't arrived" },
       { "ja": "よう", "furigana": "よう", "en": "seems like" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "着いている", "furigana": "着[つ]いている", "en": "has arrived (antonym — sentence says 着いていない 'hasn't arrived')" },
+      { "ja": "もう", "furigana": "もう", "en": "already (antonym — sentence says まだ 'yet')" }
     ]
   },
   {
@@ -2954,7 +3409,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "で", "furigana": "で", "en": "and" },
       { "ja": "いい", "furigana": "いい", "en": "nice" },
       { "ja": "です", "furigana": "です", "en": "is" },
-      { "ja": "ね", "furigana": "ね", "en": "right?" }
+      { "ja": "ね", "furigana": "ね", "en": "right?" },
+      { "ja": "賑やか", "furigana": "賑[にぎ]やか", "en": "lively (antonym — sentence says 静か)" },
+      { "ja": "悪い", "furigana": "悪[わる]い", "en": "bad (antonym — sentence says いい)" }
     ]
   },
   {
@@ -2970,7 +3427,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "バランス", "furigana": "バランス", "en": "Balance" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
       { "ja": "大切", "furigana": "大切[たいせつ]", "en": "Important" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "不要", "furigana": "不要[ふよう]", "en": "unnecessary (antonym — sentence says 大切)" },
+      { "ja": "病気", "furigana": "病気[びょうき]", "en": "illness (antonym — sentence says 健康)" }
     ]
   },
   {
@@ -2985,7 +3444,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "出てきたら", "furigana": "出[で]てきたら", "en": "when it comes up" },
       { "ja": "辞書", "furigana": "辞書[じしょ]", "en": "dictionary" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "引きます", "furigana": "引[ひ]きます", "en": "look up" }
+      { "ja": "引きます", "furigana": "引[ひ]きます", "en": "look up" },
+      { "ja": "知っている", "furigana": "知[し]っている", "en": "known (antonym — sentence says 知らない)" },
+      { "ja": "閉じます", "furigana": "閉[と]じます", "en": "close (antonym — sentence says 引きます 'look up')" }
     ]
   },
   {
@@ -2998,7 +3459,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "で", "furigana": "で", "en": "by" },
       { "ja": "できる", "furigana": "できる", "en": "can do" },
       { "ja": "限り", "furigana": "限[かぎ]り", "en": "as much as" },
-      { "ja": "やります", "furigana": "やります", "en": "will do" }
+      { "ja": "やります", "furigana": "やります", "en": "will do" },
+      { "ja": "できない", "furigana": "できない", "en": "cannot do (antonym — sentence says できる)" },
+      { "ja": "みんなで", "furigana": "みんなで", "en": "with everyone (antonym — sentence says 一人で)" }
     ]
   },
   {
@@ -3013,7 +3476,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "に", "furigana": "に", "en": "at" },
       { "ja": "腹", "furigana": "腹[はら]", "en": "anger" },
       { "ja": "が", "furigana": "が", "en": "subject marker" },
-      { "ja": "立った", "furigana": "立[た]った", "en": "rose (got angry)" }
+      { "ja": "立った", "furigana": "立[た]った", "en": "rose (got angry)" },
+      { "ja": "を", "furigana": "を", "en": "object marker (wrong — cause of anger uses に)" },
+      { "ja": "喜んだ", "furigana": "喜[よろこ]んだ", "en": "was glad (antonym — sentence says 腹が立った)" }
     ]
   },
   {
@@ -3026,7 +3491,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "件", "furigana": "件[けん]", "en": "matter" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "もう", "furigana": "もう", "en": "already" },
-      { "ja": "済ませました", "furigana": "済[す]ませました", "en": "finished" }
+      { "ja": "済ませました", "furigana": "済[す]ませました", "en": "finished" },
+      { "ja": "まだ", "furigana": "まだ", "en": "yet (antonym — sentence says もう 'already')" },
+      { "ja": "始めました", "furigana": "始[はじ]めました", "en": "started (antonym — sentence says 済ませました 'finished')" }
     ]
   },
   {
@@ -3041,7 +3508,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "ので", "furigana": "ので", "en": "because" },
       { "ja": "次", "furigana": "次[つぎ]", "en": "the next one" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
-      { "ja": "待ちます", "furigana": "待[ま]ちます", "en": "will wait" }
+      { "ja": "待ちます", "furigana": "待[ま]ちます", "en": "will wait" },
+      { "ja": "空いている", "furigana": "空[あ]いている", "en": "is empty (antonym — sentence says 混んでいる 'crowded')" },
+      { "ja": "前", "furigana": "前[まえ]", "en": "the previous one (antonym — sentence says 次 'next')" }
     ]
   },
   {
@@ -3055,7 +3524,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "名前", "furigana": "名前[なまえ]", "en": "name" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "記入して", "furigana": "記入[きにゅう]して", "en": "fill in" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "住所", "furigana": "住所[じゅうしょ]", "en": "address (wrong item — sentence says 名前)" },
+      { "ja": "消して", "furigana": "消[け]して", "en": "erase (antonym — sentence says 記入して 'fill in')" }
     ]
   },
   {
@@ -3069,7 +3540,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "少し", "furigana": "少し[すこし]", "en": "a little" },
       { "ja": "問題", "furigana": "問題[もんだい]", "en": "problem" },
       { "ja": "かも", "furigana": "かも", "en": "might be" },
-      { "ja": "しれません", "furigana": "しれません", "en": "may be" }
+      { "ja": "しれません", "furigana": "しれません", "en": "may be" },
+      { "ja": "解決", "furigana": "解決[かいけつ]", "en": "solution (antonym — sentence says 問題 'problem')" },
+      { "ja": "たくさん", "furigana": "たくさん", "en": "a lot (antonym — sentence says 少し 'a little')" }
     ]
   },
   {
@@ -3080,7 +3553,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "申し込み", "furigana": "申[もう]し込[こ]み", "en": "Application" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
-      { "ja": "締め切られました", "furigana": "締[し]め切[き]られました", "en": "was closed" }
+      { "ja": "締め切られました", "furigana": "締[し]め切[き]られました", "en": "was closed" },
+      { "ja": "受け付けています", "furigana": "受[う]け付[つ]けています", "en": "are being accepted (antonym — sentence says 締め切られました 'was closed')" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 申し込み is topic, は)" }
     ]
   },
   {
@@ -3093,7 +3568,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "商品", "furigana": "商品[しょうひん]", "en": "Product" },
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "お値打ち", "furigana": "お値打[ねう]ち", "en": "good value" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "割高", "furigana": "割高[わりだか]", "en": "overpriced (antonym — sentence says お値打ち 'good value')" },
+      { "ja": "が", "furigana": "が", "en": "subject marker (wrong — 商品 is topic, は)" }
     ]
   },
   {
@@ -3104,7 +3581,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "どうぞ", "furigana": "どうぞ", "en": "please" },
       { "ja": "お召し上がり", "furigana": "お召[め]し上[あ]がり", "en": "eating (honorific)" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "お控え", "furigana": "お控[ひか]え", "en": "refraining (antonym — sentence invites eating)" },
+      { "ja": "召し上がらないで", "furigana": "召[め]し上[あ]がらないで", "en": "don't eat (negative — sentence invites eating)" }
     ]
   },
   {
@@ -3115,7 +3594,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
     "wordBank": [
       { "ja": "ご連絡いただければ", "furigana": "ご連絡[れんらく]いただければ", "en": "if you could contact me" },
       { "ja": "幸い", "furigana": "幸[さいわ]い", "en": "fortunate/happy" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "ご連絡なしで", "furigana": "ご連絡[れんらく]なしで", "en": "without contacting (antonym)" },
+      { "ja": "残念", "furigana": "残念[ざんねん]", "en": "regrettable (antonym — sentence says 幸い)" }
     ]
   },
   {
@@ -3128,7 +3609,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "が", "furigana": "が", "en": "but" },
       { "ja": "少し", "furigana": "少し[すこし]", "en": "a little" },
       { "ja": "お待ち", "furigana": "お待[ま]ち", "en": "waiting" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "お帰り", "furigana": "お帰[かえ]り", "en": "leaving (antonym — sentence asks to wait)" },
+      { "ja": "たくさん", "furigana": "たくさん", "en": "a lot (antonym — sentence says 少し 'a little')" }
     ]
   },
   {
@@ -3141,7 +3624,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "こと", "furigana": "こと", "en": "thing" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "しないで", "furigana": "しないで", "en": "don't do" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "して", "furigana": "して", "en": "do (affirmative — sentence says しないで 'don't')" },
+      { "ja": "優しい", "furigana": "優[やさ]しい", "en": "kind (antonym — sentence says 勝手な)" }
     ]
   },
   {
@@ -3154,7 +3639,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "機会", "furigana": "機会[きかい]", "en": "Opportunity" },
       { "ja": "を", "furigana": "を", "en": "object marker" },
       { "ja": "逃さないで", "furigana": "逃[のが]さないで", "en": "don't miss" },
-      { "ja": "ください", "furigana": "ください", "en": "please" }
+      { "ja": "ください", "furigana": "ください", "en": "please" },
+      { "ja": "逃して", "furigana": "逃[のが]して", "en": "miss (affirmative — sentence says 逃さないで 'don't miss')" },
+      { "ja": "危険", "furigana": "危険[きけん]", "en": "danger (antonym — sentence says 機会 'opportunity')" }
     ]
   },
   {
@@ -3171,7 +3658,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "です", "furigana": "です", "en": "is" },
       { "ja": "が", "furigana": "が", "en": "but" },
       { "ja": "楽しい", "furigana": "楽[たの]しい", "en": "fun" },
-      { "ja": "です", "furigana": "です", "en": "is" }
+      { "ja": "です", "furigana": "です", "en": "is" },
+      { "ja": "低い", "furigana": "低[ひく]い", "en": "low (antonym — sentence says 高い)" },
+      { "ja": "つまらない", "furigana": "つまらない", "en": "boring (antonym — sentence says 楽しい)" }
     ]
   }
 ];
