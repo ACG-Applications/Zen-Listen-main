@@ -258,23 +258,26 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center p-8 bg-[#fdfdfd] text-[#2c2c2c] selection:bg-gray-100 font-sans transition-all duration-700">
       
-      <nav className="fixed top-12 left-1/2 -translate-x-1/2 flex items-center justify-center space-x-8 z-30 h-8">
-        {JLPT_LEVELS.map((lvl) => (
-          <button
-            key={lvl}
-            onClick={() => handleLevelChange(lvl)}
-            className={`text-xs font-semibold tracking-[0.4em] transition-all duration-300 ${
-              level === lvl 
-                ? 'text-black scale-125' 
-                : 'text-gray-200 hover:text-gray-400'
-            }`}
-          >
-            {lvl}
-          </button>
-        ))}
-      </nav>
+      <div className="fixed top-12 right-12 z-30 flex flex-col items-end space-y-6">
+        
+        {/* JLPT Levels moved here */}
+        <nav className="flex items-center justify-end space-x-6 h-6">
+          {JLPT_LEVELS.map((lvl) => (
+            <button
+              key={lvl}
+              onClick={() => handleLevelChange(lvl)}
+              className={`text-xs font-semibold tracking-[0.4em] transition-all duration-300 ${
+                level === lvl 
+                  ? 'text-black scale-125' 
+                  : 'text-gray-200 hover:text-gray-400'
+              }`}
+            >
+              {lvl}
+            </button>
+          ))}
+        </nav>
 
-      <div className="fixed top-12 right-12 z-20 flex flex-col items-end space-y-4">
+        {/* Toggles */}
         <div className="flex items-center space-x-6">
             <button onClick={handleReset} className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-red-400 transition-colors">
               Reset Session
