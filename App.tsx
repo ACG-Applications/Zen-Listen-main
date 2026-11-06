@@ -118,7 +118,6 @@ const App: React.FC = () => {
   const [availableWords, setAvailableWords] = useState<WordChunk[]>([]);
   const [appState, setAppState] = useState<AppState>(AppState.IDLE);
   const [isCorrect, setIsCorrect] = useState(false);
-  const [showHint, setShowHint] = useState(false);
   const [history, setHistory] = useState<JapaneseSentence[]>([]);
   const [historyIndex, setHistoryIndex] = useState<number | null>(null);
 
@@ -158,7 +157,6 @@ const App: React.FC = () => {
     setSelectedWords([]);
     setAvailableWords([]);
     setIsCorrect(false);
-    setShowHint(false);
     setHistoryIndex(null);
     
     try {
@@ -421,21 +419,6 @@ const App: React.FC = () => {
               className="px-12 py-5 bg-black text-white rounded-full text-xs font-semibold hover:bg-gray-800 transition-all hover:px-14 active:scale-95 tracking-[0.4em] uppercase shadow-lg shadow-black/5">
               {isViewingHistory ? 'Back to Current' : 'Next Sentence'}
             </button>
-          </div>
-        )}
-
-        {!isCorrect && !isViewingHistory && appState !== AppState.LOADING && (
-          <div className="pt-8">
-            <button onClick={() => setShowHint(!showHint)} className="text-[10px] text-gray-300 hover:text-gray-500 transition-colors uppercase tracking-[0.4em] font-bold">
-              {showHint ? 'Dismiss Hint' : 'Stuck?'}
-            </button>
-            {showHint && sentence && (
-              <div className={`mt-8 text-center space-y-3 ${fadeUp}`}>
-                <div className="space-y-1">
-                  <p className="text-gray-300 text-xs italic font-light">{sentence.translation}</p>
-                </div>
-              </div>
-            )}
           </div>
         )}
       </div>
