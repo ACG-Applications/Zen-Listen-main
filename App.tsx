@@ -84,7 +84,6 @@ const WordBlock = ({
   const hasFurigana = chunk.furigana.includes('[');
   const showTooltip = (showEigo && chunk.en !== "?") || (showWordFurigana && hasFurigana);
 
-  // Determine button styling based on the variant
   const buttonClasses = {
     available: 'bg-white border-gray-200 text-gray-700 hover:border-gray-300 hover:shadow hover:text-black',
     selected: 'bg-gray-50 border-gray-200 text-black hover:bg-gray-100',
@@ -114,7 +113,7 @@ const WordBlock = ({
 
       <button
         onClick={onClick}
-        disabled={variant === 'correct'}
+        disabled={variant === 'correct' && !onClick} // only disable if correct AND no onClick provided (fallback)
         className={`px-5 py-3 rounded-xl border text-xl font-medium shadow-sm transition-all active:scale-95 ${buttonClasses}`}
       >
         {chunk.ja}
@@ -132,6 +131,7 @@ const App: React.FC = () => {
   const [enableWordAudio, setEnableWordAudio] = useState(false);
   const [showEigo, setShowEigo] = useState(false);
   const [showWordFurigana, setShowWordFurigana] = useState(false);
+  const [showTranslation, setShowTranslation] = useState(false);
 
   const [selectedWords, setSelectedWords] = useState<WordChunk[]>([]);
   const [availableWords, setAvailableWords] = useState<WordChunk[]>([]);
@@ -145,15 +145,26 @@ const App: React.FC = () => {
     try { return localStorage.getItem('zen-listen:shadowOpen') === '1'; }
     catch { return false; }
   });
+  const [isHowToOpen, setIsHowToOpen] = useState(false);
   const recorder = useRecorder();
+
+  const initialBankRef = useRef<WordChunk[]>([]);
+  const audioContextRef = useRef<AudioContext | null>(null);
+  const currentSentenceRef = useRef<string | undefined>(undefined);
 
   useEffect(() => {
     try { localStorage.setItem('zen-listen:shadowOpen', shadowOpen ? '1' : '0'); }
     catch { /* ignore */ }
   }, [shadowOpen]);
 
-  const audioContextRef = useRef<AudioContext | null>(null);
-  const currentSentenceRef = useRef<string | undefined>(undefined);
+  // Handle Esc key for closing modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsHowToOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   const playSuccessSound = useCallback(() => {
     if (!audioContextRef.current) audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
@@ -172,15 +183,15 @@ const App: React.FC = () => {
     osc.stop(ctx.currentTime + 0.5);
   }, []);
 
-  const speak = (text: string, rate: number = 0.9) => {
+  const speak = useCallback((text: string, rate: number = 0.9) => {
     if (!text) return;
-    if (document.hidden) return; // never speak while the tab is backgrounded
+    if (document.hidden) return;
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'ja-JP';
     utterance.rate = rate;
     window.speechSynthesis.speak(utterance);
-  };
+  }, []);
 
   const initSession = useCallback(async (targetLevel: JLPTLevel = level) => {
     window.speechSynthesis.cancel();
@@ -191,6 +202,7 @@ const App: React.FC = () => {
     setIsCorrect(false);
     setHistoryIndex(null);
     setRecording({});
+    setShowTranslation(false);
 
     try {
       const newSentence = await fetchRandomSentence(targetLevel, currentSentenceRef.current);
@@ -198,9 +210,9 @@ const App: React.FC = () => {
 
       setSentence(newSentence);
       const shuffledBank = [...(newSentence.wordBank || [])].sort(() => Math.random() - 0.5);
+      initialBankRef.current = [...shuffledBank]; // Store original shuffled order
       setAvailableWords(shuffledBank);
       setAppState(AppState.LISTENING);
-
     } catch (error) {
       console.error("Initialization error", error);
       setAppState(AppState.IDLE);
@@ -223,7 +235,7 @@ const App: React.FC = () => {
     if (activeSentence) {
       speak(activeSentence, isSlowAudio ? SLOW_AUDIO_RATE : NORMAL_AUDIO_RATE);
     }
-  }, [history, historyIndex, sentence, isSlowAudio]);
+  }, [history, historyIndex, sentence, isSlowAudio, speak]);
 
   const playMySentence = () => {
     if (selectedWords.length === 0) return;
@@ -243,11 +255,18 @@ const App: React.FC = () => {
       setAppState(AppState.FINISHED);
       playSuccessSound();
       setHistory(prev => [...prev, sentence]);
+      
+      // Auto-play sentence slightly after success chime
+      setTimeout(() => speak(sentence.kanji, isSlowAudio ? SLOW_AUDIO_RATE : NORMAL_AUDIO_RATE), 400);
     }
   };
 
   const handleWordClick = (chunk: WordChunk, index: number, fromBank: boolean) => {
-    if (isCorrect) return;
+    if (isCorrect) {
+      // In correct state, clicking a word just speaks it
+      speak(chunk.ja, 0.85);
+      return;
+    }
 
     if (fromBank && enableWordAudio) {
       speak(chunk.ja, 0.85);
@@ -259,10 +278,30 @@ const App: React.FC = () => {
       setAvailableWords(prev => prev.filter((_, i) => i !== index));
       checkAnswer(newSelected);
     } else {
+      // Removing a word: Speak it if Word Audio is on
+      if (enableWordAudio) {
+        speak(chunk.ja, 0.85);
+      }
       const newSelected = selectedWords.filter((_, i) => i !== index);
       setSelectedWords(newSelected);
-      setAvailableWords(prev => [...prev, chunk]);
+      
+      // Smarter undo: Insert back into the bank and sort by original order
+      setAvailableWords(prev => {
+        const nextBank = [...prev, chunk];
+        return nextBank.sort((a, b) => {
+          const indexA = initialBankRef.current.findIndex(w => w.ja === a.ja);
+          const indexB = initialBankRef.current.findIndex(w => w.ja === b.ja);
+          return indexA - indexB;
+        });
+      });
     }
+  };
+
+  const handleClearAll = () => {
+    if (isCorrect) return;
+    setSelectedWords([]);
+    setAvailableWords([...initialBankRef.current]);
+    // Don't clear recordings when clearing text, just the words
   };
 
   const navigateHistory = (direction: 'prev' | 'next') => {
@@ -313,6 +352,74 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center p-8 bg-[#fdfdfd] text-[#2c2c2c] selection:bg-gray-100 font-sans transition-all duration-700">
 
+      {/* --- HOW TO MODAL --- */}
+      {isHowToOpen && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/20 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => setIsHowToOpen(false)}
+        >
+          <div 
+            className="bg-white rounded-2xl shadow-xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-6 md:p-8 animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-semibold text-black tracking-wide">How to use Zen Listen</h2>
+              <button onClick={() => setIsHowToOpen(false)} className="text-gray-400 hover:text-black transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+              </button>
+            </div>
+
+            <div className="space-y-6 text-sm text-gray-600 leading-relaxed">
+              <section>
+                <h3 className="font-bold text-black mb-1">The basics</h3>
+                <p>Listen to the sentence using the big blue speaker button. Then, tap the word blocks below to build what you heard. Tap them again to remove them. When you are correct, you'll see a green tick.</p>
+              </section>
+              
+              <section>
+                <h3 className="font-bold text-black mb-1">Getting help</h3>
+                <p>Hover over any word (or long-press on mobile) to see its English meaning and reading. This works on both the available words and the ones you have placed in the sentence.</p>
+              </section>
+
+              <section className="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
+                <h3 className="font-bold text-blue-600 mb-1 flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+                  Shadow & Compare
+                </h3>
+                <p className="mb-2">This is the most powerful feature for learning:</p>
+                <ul className="list-disc list-inside space-y-1 ml-1 mb-2">
+                  <li><strong>Capture first impression:</strong> Record yourself before solving. This is your raw interpretation.</li>
+                  <li><strong>My first impression:</strong> After solving, listen back to what you thought it was.</li>
+                  <li><strong>Record again:</strong> Make a second attempt now that you know the correct sentence.</li>
+                </ul>
+                <p className="text-xs text-blue-600/80 italic">Comparing your first and second attempts shows you exactly what your ear missed.</p>
+              </section>
+
+              <section>
+                <h3 className="font-bold text-black mb-1">Toggles</h3>
+                <ul className="list-disc list-inside space-y-1">
+                  <li><strong>Furigana:</strong> Shows/hides readings over the completed sentence.</li>
+                  <li><strong>Slow Audio:</strong> Slows down the model speaker for listening practice.</li>
+                  <li><strong>Word Audio:</strong> Speaks each word as you tap it.</li>
+                </ul>
+              </section>
+
+              <section>
+                <h3 className="font-bold text-black mb-1">History</h3>
+                <p>Use the <strong>Review</strong> button on the right edge to step back through sentences you've already solved.</p>
+              </section>
+            </div>
+
+            <button 
+              onClick={() => setIsHowToOpen(false)}
+              className="mt-8 w-full py-3 bg-black text-white rounded-xl text-xs font-semibold tracking-[0.2em] uppercase hover:bg-gray-800 transition-all active:scale-[0.98]"
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
+      {/* ------------------- */}
+
       <div className="fixed top-12 right-12 z-30 flex flex-col items-end space-y-6">
         <nav className="flex items-center justify-end space-x-6 h-6">
           {JLPT_LEVELS.map((lvl) => (
@@ -331,6 +438,11 @@ const App: React.FC = () => {
         </nav>
 
         <div className="flex items-center space-x-6">
+          <button onClick={() => setIsHowToOpen(true)} className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors flex items-center space-x-1">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>How To</span>
+          </button>
+
           <button onClick={handleReset} className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-red-400 transition-colors">
             Reset Session
           </button>
@@ -469,7 +581,6 @@ const App: React.FC = () => {
 
                 {selectedWords.length === 0 && <span className="text-gray-400 text-xl font-light tracking-wide mt-2">Tap words below to build the sentence</span>}
 
-                {/* --- CHANGED: Using WordBlock for selected words --- */}
                 {selectedWords.map((chunk, idx) => (
                   <WordBlock
                     key={`selected-${idx}`}
@@ -480,7 +591,6 @@ const App: React.FC = () => {
                     variant={isCorrect ? 'correct' : 'selected'}
                   />
                 ))}
-                {/* -------------------------------------------------- */}
 
                 {isCorrect && (
                   <div className="ml-2 animate-in zoom-in fade-in duration-500 fill-mode-forwards flex items-center">
@@ -496,10 +606,15 @@ const App: React.FC = () => {
               <div className="flex flex-col items-center space-y-4 pt-2">
 
                 {selectedWords.length > 0 && (
-                  <button onClick={playMySentence} className="flex items-center space-x-2 text-xs font-semibold tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    <span>Play My Sentence</span>
-                  </button>
+                  <div className="flex items-center space-x-6">
+                    <button onClick={playMySentence} className="flex items-center space-x-2 text-xs font-semibold tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                      <span>Play My Sentence</span>
+                    </button>
+                    <button onClick={handleClearAll} className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-400 hover:text-red-400 transition-colors">
+                      Clear All
+                    </button>
+                  </div>
                 )}
 
                 <div className="flex flex-wrap justify-center gap-3">
@@ -527,8 +642,19 @@ const App: React.FC = () => {
                   <FuriganaText text={displayedSentence.furigana || displayedSentence.kanji} showFurigana={showFurigana} />
                 </p>
               </div>
-              <div className="pt-2 max-w-lg mx-auto">
-                <p className="text-xl text-gray-600 font-light tracking-wide">{displayedSentence.translation}</p>
+              <div className="pt-2 max-w-lg mx-auto flex flex-col items-center min-h-[3rem]">
+                {!isViewingHistory && !showTranslation ? (
+                  <button 
+                    onClick={() => setShowTranslation(true)}
+                    className="text-xs font-semibold tracking-[0.1em] text-gray-400 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+                  >
+                    Reveal English
+                  </button>
+                ) : (
+                  <p className="text-xl text-gray-600 font-light tracking-wide animate-in fade-in duration-300">
+                    {displayedSentence.translation}
+                  </p>
+                )}
               </div>
             </div>
             <button onClick={() => isViewingHistory ? setHistoryIndex(null) : initSession()}
