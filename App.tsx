@@ -113,7 +113,7 @@ const WordBlock = ({
 
       <button
         onClick={onClick}
-        disabled={variant === 'correct' && !onClick} // only disable if correct AND no onClick provided (fallback)
+        disabled={variant === 'correct' && !onClick}
         className={`px-5 py-3 rounded-xl border text-xl font-medium shadow-sm transition-all active:scale-95 ${buttonClasses}`}
       >
         {chunk.ja}
@@ -141,6 +141,7 @@ const App: React.FC = () => {
   const [historyIndex, setHistoryIndex] = useState<number | null>(null);
 
   const [recording, setRecording] = useState<EphemeralRecordings>({});
+  const [isSequencePlaying, setIsSequencePlaying] = useState(false);
   const [shadowOpen, setShadowOpen] = useState<boolean>(() => {
     try { return localStorage.getItem('zen-listen:shadowOpen') === '1'; }
     catch { return false; }
@@ -203,6 +204,7 @@ const App: React.FC = () => {
     setHistoryIndex(null);
     setRecording({});
     setShowTranslation(false);
+    setIsSequencePlaying(false);
 
     try {
       const newSentence = await fetchRandomSentence(targetLevel, currentSentenceRef.current);
@@ -301,7 +303,6 @@ const App: React.FC = () => {
     if (isCorrect) return;
     setSelectedWords([]);
     setAvailableWords([...initialBankRef.current]);
-    // Don't clear recordings when clearing text, just the words
   };
 
   const navigateHistory = (direction: 'prev' | 'next') => {
@@ -349,6 +350,41 @@ const App: React.FC = () => {
     setRecording((prev) => ({ ...prev, after: undefined }));
   };
 
+  const playSequence = () => {
+    if (isSequencePlaying) return;
+    setIsSequencePlaying(true);
+
+    // 1. Play Model
+    speak(displayedSentence!.kanji, isSlowAudio ? SLOW_AUDIO_RATE : NORMAL_AUDIO_RATE);
+
+    // 2. Wait roughly 3.5s (estimate for sentence length), then play Before
+    setTimeout(() => {
+      if (recording.before) {
+        const audioBefore = new Audio(recording.before);
+        audioBefore.play();
+        
+        // 3. Wait for Before to finish, then play After
+        audioBefore.onended = () => {
+          setTimeout(() => {
+            if (recording.after) {
+              const audioAfter = new Audio(recording.after);
+              audioAfter.play();
+              audioAfter.onended = () => setIsSequencePlaying(false);
+            } else {
+              setIsSequencePlaying(false);
+            }
+          }, 1000); // 1s pause
+        };
+      } else if (recording.after) {
+        const audioAfter = new Audio(recording.after);
+        audioAfter.play();
+        audioAfter.onended = () => setIsSequencePlaying(false);
+      } else {
+        setIsSequencePlaying(false);
+      }
+    }, 3500);
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center p-8 bg-[#fdfdfd] text-[#2c2c2c] selection:bg-gray-100 font-sans transition-all duration-700">
 
@@ -389,9 +425,10 @@ const App: React.FC = () => {
                 <ul className="list-disc list-inside space-y-1 ml-1 mb-2">
                   <li><strong>Capture first impression:</strong> Record yourself before solving. This is your raw interpretation.</li>
                   <li><strong>My first impression:</strong> After solving, listen back to what you thought it was.</li>
-                  <li><strong>Record again:</strong> Make a second attempt now that you know the correct sentence.</li>
+                  <li><strong>Record Shadow:</strong> Make a second attempt now that you know the correct sentence.</li>
+                  <li><strong>Play Sequence:</strong> Listen to the Model, then your First Impression, then your Shadow back-to-back.</li>
                 </ul>
-                <p className="text-xs text-blue-600/80 italic">Comparing your first and second attempts shows you exactly what your ear missed.</p>
+                <p className="text-xs text-blue-600/80 italic">Comparing your attempts shows you exactly what your ear missed.</p>
               </section>
 
               <section>
@@ -681,6 +718,7 @@ const App: React.FC = () => {
 
                 {shadowOpen && (
                   <div className={`mt-2 space-y-4 ${fadeUp}`}>
+                    {/* 1. Model */}
                     <div className="flex items-center justify-between px-4 py-3 rounded-xl bg-blue-50/50 border border-blue-100">
                       <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-blue-500">Model</span>
                       <button
@@ -694,6 +732,7 @@ const App: React.FC = () => {
                       </button>
                     </div>
 
+                    {/* 2. First Impression */}
                     <div className="flex items-center justify-between px-4 py-3 rounded-xl bg-gray-50 border border-gray-100">
                       <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500">My first impression</span>
                       {recording.before ? (
@@ -712,10 +751,11 @@ const App: React.FC = () => {
                       )}
                     </div>
 
+                    {/* 3. Post-Solve Attempt */}
                     {recorder.isSupported && (
                       <div className="flex items-center justify-between px-4 py-3 rounded-xl bg-gray-50 border border-gray-100">
                         <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500">
-                          {recorder.isRecording ? 'Recording…' : recording.after ? 'My second attempt' : 'Record again'}
+                          {recorder.isRecording ? 'Recording…' : recording.after ? 'My Shadow' : 'Record Shadow'}
                         </span>
                         {recording.after && !recorder.isRecording ? (
                           <div className="flex items-center space-x-3">
@@ -748,10 +788,41 @@ const App: React.FC = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
                               </svg>
                             )}
-                            <span>{recorder.isRecording ? 'Stop' : 'Record'}</span>
+                            <span>Record</span>
                           </button>
                         )}
                       </div>
+                    )}
+
+                    {/* 4. Play Sequence Button */}
+                    {(recording.before || recording.after) && !recorder.isRecording && (
+                      <button
+                        onClick={playSequence}
+                        disabled={isSequencePlaying}
+                        className={`w-full mt-4 py-3 rounded-xl border flex items-center justify-center space-x-2 text-xs font-semibold tracking-[0.2em] uppercase transition-colors ${
+                          isSequencePlaying 
+                            ? 'bg-gray-50 text-gray-400 border-gray-200 cursor-wait' 
+                            : 'bg-white text-black border-gray-300 hover:bg-gray-50 hover:border-gray-400 active:scale-[0.98]'
+                        }`}
+                      >
+                        {isSequencePlaying ? (
+                          <>
+                            <svg className="animate-spin h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            <span>Playing...</span>
+                          </>
+                        ) : (
+                          <>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Play Sequence</span>
+                          </>
+                        )}
+                      </button>
                     )}
                   </div>
                 )}
