@@ -72,15 +72,24 @@ const WordBlock = ({
   chunk,
   showEigo,
   showWordFurigana,
-  onClick
+  onClick,
+  variant = 'available'
 }: {
   chunk: WordChunk,
   showEigo: boolean,
   showWordFurigana: boolean,
-  onClick: () => void
+  onClick: () => void,
+  variant?: 'available' | 'selected' | 'correct'
 }) => {
   const hasFurigana = chunk.furigana.includes('[');
   const showTooltip = (showEigo && chunk.en !== "?") || (showWordFurigana && hasFurigana);
+
+  // Determine button styling based on the variant
+  const buttonClasses = {
+    available: 'bg-white border-gray-200 text-gray-700 hover:border-gray-300 hover:shadow hover:text-black',
+    selected: 'bg-gray-50 border-gray-200 text-black hover:bg-gray-100',
+    correct: 'bg-green-50 border-green-200 text-green-600 cursor-default',
+  }[variant];
 
   return (
     <div className="relative group">
@@ -105,7 +114,8 @@ const WordBlock = ({
 
       <button
         onClick={onClick}
-        className="px-5 py-3 rounded-xl bg-white border border-gray-200 text-xl font-medium text-gray-700 shadow-sm hover:border-gray-300 hover:shadow hover:text-black transition-all active:scale-95"
+        disabled={variant === 'correct'}
+        className={`px-5 py-3 rounded-xl border text-xl font-medium shadow-sm transition-all active:scale-95 ${buttonClasses}`}
       >
         {chunk.ja}
       </button>
@@ -180,8 +190,6 @@ const App: React.FC = () => {
     setAvailableWords([]);
     setIsCorrect(false);
     setHistoryIndex(null);
-
-    // Clear ephemeral recordings — new sentence, fresh slate.
     setRecording({});
 
     try {
@@ -192,8 +200,6 @@ const App: React.FC = () => {
       const shuffledBank = [...(newSentence.wordBank || [])].sort(() => Math.random() - 0.5);
       setAvailableWords(shuffledBank);
       setAppState(AppState.LISTENING);
-
-      // No auto-speak — user initiates playback via the speaker button.
 
     } catch (error) {
       console.error("Initialization error", error);
@@ -278,7 +284,6 @@ const App: React.FC = () => {
   const canGoBack = history.length > 0 && (historyIndex === null || historyIndex > 0);
   const fadeUp = "animate-in fade-in slide-in-from-bottom-2 duration-500 fill-mode-forwards";
 
-  // Toggle recording: click once to start, click again to stop & keep in state.
   const handleRecordBefore = async () => {
     if (recorder.isRecording) {
       const url = await recorder.stop();
@@ -309,7 +314,6 @@ const App: React.FC = () => {
     <div className="min-h-screen flex flex-col items-center p-8 bg-[#fdfdfd] text-[#2c2c2c] selection:bg-gray-100 font-sans transition-all duration-700">
 
       <div className="fixed top-12 right-12 z-30 flex flex-col items-end space-y-6">
-
         <nav className="flex items-center justify-end space-x-6 h-6">
           {JLPT_LEVELS.map((lvl) => (
             <button
@@ -465,12 +469,18 @@ const App: React.FC = () => {
 
                 {selectedWords.length === 0 && <span className="text-gray-400 text-xl font-light tracking-wide mt-2">Tap words below to build the sentence</span>}
 
+                {/* --- CHANGED: Using WordBlock for selected words --- */}
                 {selectedWords.map((chunk, idx) => (
-                  <button key={`selected-${idx}`} onClick={() => handleWordClick(chunk, idx, false)} disabled={isCorrect}
-                    className={`px-5 py-2.5 rounded-xl text-xl font-medium transition-all ${isCorrect ? 'bg-green-50 text-green-600 cursor-default' : 'bg-gray-50 text-black hover:bg-gray-100 active:scale-95'}`}>
-                    {chunk.ja}
-                  </button>
+                  <WordBlock
+                    key={`selected-${idx}`}
+                    chunk={chunk}
+                    showEigo={showEigo}
+                    showWordFurigana={showWordFurigana}
+                    onClick={() => handleWordClick(chunk, idx, false)}
+                    variant={isCorrect ? 'correct' : 'selected'}
+                  />
                 ))}
+                {/* -------------------------------------------------- */}
 
                 {isCorrect && (
                   <div className="ml-2 animate-in zoom-in fade-in duration-500 fill-mode-forwards flex items-center">
@@ -500,6 +510,7 @@ const App: React.FC = () => {
                       showEigo={showEigo}
                       showWordFurigana={showWordFurigana}
                       onClick={() => handleWordClick(chunk, idx, true)}
+                      variant="available"
                     />
                   ))}
                 </div>
@@ -525,7 +536,6 @@ const App: React.FC = () => {
               {isViewingHistory ? 'Back to Current' : 'Next Sentence'}
             </button>
 
-            {/* Shadow & compare — ephemeral, current sentence only, never in review */}
             {!isViewingHistory && (
               <div className="w-full max-w-lg mx-auto">
                 <button
@@ -545,7 +555,6 @@ const App: React.FC = () => {
 
                 {shadowOpen && (
                   <div className={`mt-2 space-y-4 ${fadeUp}`}>
-                    {/* 1. Model */}
                     <div className="flex items-center justify-between px-4 py-3 rounded-xl bg-blue-50/50 border border-blue-100">
                       <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-blue-500">Model</span>
                       <button
@@ -559,7 +568,6 @@ const App: React.FC = () => {
                       </button>
                     </div>
 
-                    {/* 2. My first impression (pre-solve) */}
                     <div className="flex items-center justify-between px-4 py-3 rounded-xl bg-gray-50 border border-gray-100">
                       <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500">My first impression</span>
                       {recording.before ? (
@@ -578,7 +586,6 @@ const App: React.FC = () => {
                       )}
                     </div>
 
-                    {/* 3. Record again — post-solve */}
                     {recorder.isSupported && (
                       <div className="flex items-center justify-between px-4 py-3 rounded-xl bg-gray-50 border border-gray-100">
                         <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500">
@@ -628,7 +635,6 @@ const App: React.FC = () => {
         )}
       </div>
 
-      {/* Updated Acknowledgement Footer */}
       <footer className="fixed bottom-6 text-[10px] text-gray-400 opacity-60 hover:opacity-100 transition-opacity duration-300 text-center px-4 w-full">
         Base code by{' '}
         <a
