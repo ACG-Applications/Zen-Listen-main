@@ -3,6 +3,9 @@ import { fetchRandomSentence } from './services/sentenceService';
 import { useRecorder } from './hooks/useRecorder';
 import { JapaneseSentence, AppState, JLPTLevel, WordChunk } from './types';
 
+const SLOW_AUDIO_RATE = 0.6;
+const NORMAL_AUDIO_RATE = 1.0;
+
 const JLPT_LEVELS: JLPTLevel[] = ['N5', 'N4', 'N3', 'N2', 'N1'];
 
 interface EphemeralRecordings {
@@ -212,14 +215,14 @@ const App: React.FC = () => {
   const playAudio = useCallback(async () => {
     const activeSentence = historyIndex !== null ? history[historyIndex].kanji : sentence?.kanji;
     if (activeSentence) {
-      speak(activeSentence, isSlowAudio ? 0.75 : 1.0);
+      speak(activeSentence, isSlowAudio ? SLOW_AUDIO_RATE : NORMAL_AUDIO_RATE);
     }
   }, [history, historyIndex, sentence, isSlowAudio]);
 
   const playMySentence = () => {
     if (selectedWords.length === 0) return;
     const mySentence = selectedWords.map(w => w.ja).join('');
-    speak(mySentence, isSlowAudio ? 0.75 : 1.0);
+    speak(mySentence, isSlowAudio ? SLOW_AUDIO_RATE : NORMAL_AUDIO_RATE);
   };
 
   const checkAnswer = (newSelectedWords: WordChunk[]) => {
@@ -546,7 +549,7 @@ const App: React.FC = () => {
                     <div className="flex items-center justify-between px-4 py-3 rounded-xl bg-blue-50/50 border border-blue-100">
                       <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-blue-500">Model</span>
                       <button
-                        onClick={() => speak(displayedSentence.kanji, isSlowAudio ? 0.75 : 1.0)}
+                        onClick={() => speak(displayedSentence.kanji, isSlowAudio ? SLOW_AUDIO_RATE : NORMAL_AUDIO_RATE)}
                         className="p-2 rounded-full hover:bg-blue-100 transition-colors"
                         aria-label="Play model"
                       >
