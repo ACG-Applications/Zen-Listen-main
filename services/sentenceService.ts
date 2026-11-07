@@ -5,7 +5,7 @@ import { N3_SENTENCE_BANK } from "../sentenceBankN3";
 import { N2_SENTENCE_BANK } from "../sentenceBankN2";
 import { N1_SENTENCE_BANK } from "../sentenceBankN1";
 
-const cleanString = (str: string) => str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()！？。、（）\s]/g, "");
+export const cleanString = (str: string) => str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()！？。、（）\s]/g, "");
 
 export async function fetchRandomSentence(level: JLPTLevel, currentKanji?: string): Promise<JapaneseSentence> {
   let bank: JapaneseSentence[] = N5_SENTENCE_BANK; // Default
