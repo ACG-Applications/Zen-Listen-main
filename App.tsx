@@ -679,7 +679,46 @@ const App: React.FC = () => {
                   <FuriganaText text={displayedSentence.furigana || displayedSentence.kanji} showFurigana={showFurigana} />
                 </p>
               </div>
-              <div className="pt-2 max-w-lg mx-auto flex flex-col items-center min-h-[3rem]">
+
+              {/* --- NEW REVIEW WORD CHUNKS SECTION --- */}
+              {isViewingHistory && (
+                <div className="flex flex-col items-center w-full max-w-2xl mx-auto mt-6 space-y-4">
+                  
+                  {/* The correct chunks (Green) */}
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {displayedSentence.wordBank
+                      .filter(chunk => displayedSentence.kanji.includes(chunk.ja))
+                      .map((chunk, idx) => (
+                        <div 
+                          key={`correct-${idx}`} 
+                          className="px-3 py-1.5 rounded-lg bg-green-50/50 border border-green-200 text-sm font-medium text-green-700"
+                          title={chunk.en}
+                        >
+                          {chunk.ja}
+                        </div>
+                    ))}
+                  </div>
+
+                  {/* The distractors (Purple, dashed, strikethrough) */}
+                  <div className="flex flex-wrap justify-center gap-2 mt-2 w-full">
+                    {displayedSentence.wordBank
+                      .filter(chunk => !displayedSentence.kanji.includes(chunk.ja))
+                      .map((chunk, idx) => (
+                        <div 
+                          key={`distractor-${idx}`} 
+                          className="px-3 py-1.5 rounded-lg bg-violet-50/50 border border-dashed border-violet-300 text-sm font-medium text-violet-500 line-through decoration-violet-300 opacity-80 cursor-help"
+                          title={chunk.en}
+                        >
+                          {chunk.ja}
+                        </div>
+                    ))}
+                  </div>
+
+                </div>
+              )}
+              {/* -------------------------------------- */}
+
+              <div className="pt-4 max-w-lg mx-auto flex flex-col items-center min-h-[3rem]">
                 {!isViewingHistory && !showTranslation ? (
                   <button 
                     onClick={() => setShowTranslation(true)}
