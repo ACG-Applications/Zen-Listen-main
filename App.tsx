@@ -461,7 +461,7 @@ const App: React.FC = () => {
       {/* --- Antonio (Top Left) --- */}
       <div className="fixed top-8 left-8 z-20 pointer-events-none opacity-40">
         <img
-          src="/Antonio.png"
+          src="/Zen-Listen-main/Antonio.png"
           alt="Antonio"
           className="w-20 h-20 md:w-24 md:h-24 object-contain mix-blend-multiply"
         />
