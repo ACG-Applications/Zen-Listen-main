@@ -91,7 +91,7 @@ const WordBlock = ({
   }[variant];
 
   return (
-    <div className="relative group">
+    <div className="relative group hover:z-50">
       {showTooltip && (
         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-xs bg-white border border-gray-200 shadow-xl rounded-lg p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50 flex flex-col items-center gap-1">
 
@@ -691,10 +691,23 @@ const App: React.FC = () => {
                       .map((chunk, idx) => (
                         <div 
                           key={`correct-${idx}`} 
-                          className="px-3 py-1.5 rounded-lg bg-green-50/50 border border-green-200 text-base font-medium text-green-700 flex items-center"
+                          className="relative hover:z-50 group"
                           title={chunk.en}
                         >
-                          <FuriganaText text={chunk.furigana} showFurigana={showWordFurigana} />
+                          {/* Tooltip */}
+                          {showEigo && chunk.en !== "?" && (
+                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-xs bg-white border border-gray-200 shadow-xl rounded-lg p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50 flex flex-col items-center gap-1">
+                              <div className="text-xs text-gray-600 font-medium">{chunk.en}</div>
+                              <div className="absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent border-t-white" />
+                            </div>
+                          )}
+                          
+                          <button 
+                            onClick={() => enableWordAudio && speak(chunk.ja, 0.85)}
+                            className="px-3 py-1.5 rounded-lg bg-green-50/50 border border-green-200 text-base font-medium text-green-700 flex items-center transition-colors hover:bg-green-100/50 cursor-pointer"
+                          >
+                            <FuriganaText text={chunk.furigana} showFurigana={showWordFurigana} />
+                          </button>
                         </div>
                     ))}
                   </div>
@@ -706,10 +719,23 @@ const App: React.FC = () => {
                       .map((chunk, idx) => (
                         <div 
                           key={`distractor-${idx}`} 
-                          className="px-3 py-1.5 rounded-lg bg-violet-50/50 border border-dashed border-violet-300 text-base font-medium text-violet-500 opacity-80 cursor-help flex items-center"
+                          className="relative hover:z-50 group"
                           title={chunk.en}
                         >
-                          <FuriganaText text={chunk.furigana} showFurigana={showWordFurigana} />
+                           {/* Tooltip */}
+                           {showEigo && chunk.en !== "?" && (
+                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-xs bg-white border border-gray-200 shadow-xl rounded-lg p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50 flex flex-col items-center gap-1">
+                              <div className="text-xs text-gray-600 font-medium">{chunk.en}</div>
+                              <div className="absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent border-t-white" />
+                            </div>
+                          )}
+
+                          <button 
+                            onClick={() => enableWordAudio && speak(chunk.ja, 0.85)}
+                            className="px-3 py-1.5 rounded-lg bg-violet-50/50 border border-dashed border-violet-300 text-base font-medium text-violet-500 opacity-80 flex items-center transition-colors hover:bg-violet-100/50 hover:opacity-100 cursor-pointer"
+                          >
+                            <FuriganaText text={chunk.furigana} showFurigana={showWordFurigana} />
+                          </button>
                         </div>
                     ))}
                   </div>
