@@ -3251,9 +3251,9 @@ export const N5_SENTENCE_BANK: JapaneseSentence[] = [
       { "ja": "は", "furigana": "は", "en": "topic marker" },
       { "ja": "まるで", "furigana": "まるで", "en": "just like" },
       { "ja": "プロ", "furigana": "プロ", "en": "pro" },
-      { "ja": "の", "furigana": "の", "en": "like" },
-      { "ja": "よう", "furigana": "よう", "en": "like" },
-      { "ja": "に", "furigana": "に", "en": "like" },
+      { "ja": "の", "furigana": "の", "en": "possessive particle" },
+      { "ja": "よう", "furigana": "よう", "en": "appearance / manner" },
+      { "ja": "に", "furigana": "に", "en": "adverbial particle" },
       { "ja": "歌います", "furigana": "歌[うた]います", "en": "sings" },
       { "ja": "素人", "furigana": "素人[しろうと]", "en": "amateur" },
       { "ja": "踊ります", "furigana": "踊[おど]ります", "en": "dances" }
