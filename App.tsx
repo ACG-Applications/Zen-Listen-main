@@ -33,11 +33,11 @@ const FuriganaText = ({ text, showFurigana }: { text: string, showFurigana: bool
           const afterKanji = baseText.split(kanji)[1] || "";
 
           if (beforeKanji) {
-            parts.push(<span key={`pre-${match.index}`} className="text-black">{beforeKanji}</span>);
+            parts.push(<span key={`pre-${match.index}`} className="text-inherit">{beforeKanji}</span>);
           }
 
           parts.push(
-            <ruby key={`ruby-${match.index}`} className="mx-0 text-black" style={{ rubyAlign: 'start', rubyPosition: 'over' }}>
+            <ruby key={`ruby-${match.index}`} className="mx-0 text-inherit" style={{ rubyAlign: 'start', rubyPosition: 'over' }}>
               {kanji}
               <rt
                 className={`text-[0.55em] font-bold text-red-600 transition-all duration-300 ${showFurigana ? 'opacity-100' : 'opacity-0 overflow-hidden'}`}
@@ -49,21 +49,21 @@ const FuriganaText = ({ text, showFurigana }: { text: string, showFurigana: bool
           );
 
           if (afterKanji) {
-            parts.push(<span key={`post-${match.index}`} className="text-black">{afterKanji}</span>);
+            parts.push(<span key={`post-${match.index}`} className="text-inherit">{afterKanji}</span>);
           }
         } else {
-          parts.push(<span key={`text-${match.index}`} className="text-black">{baseText}</span>);
+          parts.push(<span key={`text-${match.index}`} className="text-inherit">{baseText}</span>);
         }
 
         lastIndex = regex.lastIndex;
       }
 
       if (lastIndex < str.length) {
-        parts.push(<span key={`text-end`} className="text-black">{str.slice(lastIndex)}</span>);
+        parts.push(<span key={`text-end`} className="text-inherit">{str.slice(lastIndex)}</span>);
       }
       return parts.length > 0 ? parts : [str];
     }
-    return [<span key="raw" className="text-black">{str}</span>];
+    return [<span key="raw" className="text-inherit">{str}</span>];
   };
   return <>{parseFurigana(text)}</>;
 };
@@ -691,25 +691,25 @@ const App: React.FC = () => {
                       .map((chunk, idx) => (
                         <div 
                           key={`correct-${idx}`} 
-                          className="px-3 py-1.5 rounded-lg bg-green-50/50 border border-green-200 text-sm font-medium text-green-700"
+                          className="px-3 py-1.5 rounded-lg bg-green-50/50 border border-green-200 text-base font-medium text-green-700 flex items-center"
                           title={chunk.en}
                         >
-                          {chunk.ja}
+                          <FuriganaText text={chunk.furigana} showFurigana={showWordFurigana} />
                         </div>
                     ))}
                   </div>
 
-                  {/* The distractors (Purple, dashed, strikethrough) */}
+                  {/* The distractors (Purple, dashed) */}
                   <div className="flex flex-wrap justify-center gap-2 mt-2 w-full">
                     {displayedSentence.wordBank
                       .filter(chunk => !displayedSentence.kanji.includes(chunk.ja))
                       .map((chunk, idx) => (
                         <div 
                           key={`distractor-${idx}`} 
-                          className="px-3 py-1.5 rounded-lg bg-violet-50/50 border border-dashed border-violet-300 text-sm font-medium text-violet-500 line-through decoration-violet-300 opacity-80 cursor-help"
+                          className="px-3 py-1.5 rounded-lg bg-violet-50/50 border border-dashed border-violet-300 text-base font-medium text-violet-500 opacity-80 cursor-help flex items-center"
                           title={chunk.en}
                         >
-                          {chunk.ja}
+                          <FuriganaText text={chunk.furigana} showFurigana={showWordFurigana} />
                         </div>
                     ))}
                   </div>
