@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { fetchRandomSentence } from "./services/sentenceService";
+import { getShuffledBank } from "./services/sentenceService";
 import { useRecorder } from "./hooks/useRecorder";
 import { JapaneseSentence, AppState, JLPTLevel, WordChunk } from "./types";
 
@@ -169,6 +169,9 @@ const App: React.FC = () => {
   const [history, setHistory] = useState<JapaneseSentence[]>([]);
   const [historyIndex, setHistoryIndex] = useState<number | null>(null);
 
+  // DECK STATE
+  const [remainingSentences, setRemainingSentences] = useState<JapaneseSentence[]>([]);
+
   const [recording, setRecording] = useState<EphemeralRecordings>({});
   const [isSequencePlaying, setIsSequencePlaying] = useState(false);
   const [shadowOpen, setShadowOpen] = useState<boolean>(() => {
@@ -183,7 +186,6 @@ const App: React.FC = () => {
 
   const initialBankRef = useRef<WordChunk[]>([]);
   const audioContextRef = useRef<AudioContext | null>(null);
-  const currentSentenceRef = useRef<string | undefined>(undefined);
 
   useEffect(() => {
     try {
@@ -246,17 +248,24 @@ const App: React.FC = () => {
       setIsSequencePlaying(false);
 
       try {
-        const newSentence = await fetchRandomSentence(
-          targetLevel,
-          currentSentenceRef.current,
-        );
-        currentSentenceRef.current = newSentence.kanji;
+        let deck = remainingSentences;
+
+        // If the deck is empty, fetch a fresh shuffled bank
+        if (deck.length === 0) {
+          deck = getShuffledBank(targetLevel);
+        }
+
+        // Pop the first sentence off the deck
+        const newSentence = deck[0];
+        const newDeck = deck.slice(1);
+        
+        setRemainingSentences(newDeck);
 
         setSentence(newSentence);
         const shuffledBank = [...(newSentence.wordBank || [])].sort(
           () => Math.random() - 0.5,
         );
-        initialBankRef.current = [...shuffledBank]; // Store original shuffled order
+        initialBankRef.current = [...shuffledBank];
         setAvailableWords(shuffledBank);
         setAppState(AppState.LISTENING);
       } catch (error) {
@@ -264,17 +273,18 @@ const App: React.FC = () => {
         setAppState(AppState.IDLE);
       }
     },
-    [level],
+    [level, remainingSentences],
   );
 
   const handleReset = () => {
-    currentSentenceRef.current = undefined;
+    setRemainingSentences([]);
     initSession();
   };
 
   const handleLevelChange = (newLevel: JLPTLevel) => {
     if (newLevel === level) return;
     setLevel(newLevel);
+    setRemainingSentences([]); // Clear deck when switching levels
     initSession(newLevel);
   };
 
@@ -332,7 +342,7 @@ const App: React.FC = () => {
     }
 
     if (fromBank && enableWordAudio) {
-      speak(chunk.ja, 0.75);
+      speak(chunk.ja, 0.75); // Slower for single words
     }
 
     if (fromBank) {
@@ -381,7 +391,9 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
+    // Only run once on mount
     initSession();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const displayedSentence =
@@ -1047,7 +1059,7 @@ const App: React.FC = () => {
 
                           <button
                             onClick={() =>
-                              enableWordAudio && speak(chunk.ja, 0.85)
+                              enableWordAudio && speak(chunk.ja, 0.75)
                             }
                             className="px-3 py-1.5 rounded-lg bg-green-50/50 border border-green-200 text-base font-medium text-green-700 flex items-center transition-colors hover:bg-green-100/50 cursor-pointer"
                           >
@@ -1084,7 +1096,7 @@ const App: React.FC = () => {
 
                           <button
                             onClick={() =>
-                              enableWordAudio && speak(chunk.ja, 0.85)
+                              enableWordAudio && speak(chunk.ja, 0.75)
                             }
                             className="px-3 py-1.5 rounded-lg bg-violet-50/50 border border-dashed border-violet-300 text-base font-medium text-violet-500 opacity-80 flex items-center transition-colors hover:bg-violet-100/50 hover:opacity-100 cursor-pointer"
                           >

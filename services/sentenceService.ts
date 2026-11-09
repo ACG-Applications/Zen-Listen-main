@@ -7,8 +7,8 @@ import { N1_SENTENCE_BANK } from "../sentenceBankN1";
 
 export const cleanString = (str: string) => str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()！？。、（）\s]/g, "");
 
-export async function fetchRandomSentence(level: JLPTLevel, currentKanji?: string): Promise<JapaneseSentence> {
-  let bank: JapaneseSentence[] = N5_SENTENCE_BANK; // Default
+export function getShuffledBank(level: JLPTLevel): JapaneseSentence[] {
+  let bank: JapaneseSentence[] = N5_SENTENCE_BANK;
   
   switch (level) {
     case 'N5': bank = N5_SENTENCE_BANK; break;
@@ -18,15 +18,6 @@ export async function fetchRandomSentence(level: JLPTLevel, currentKanji?: strin
     case 'N1': bank = N1_SENTENCE_BANK; break;
   }
   
-  const targetKanji = currentKanji ? cleanString(currentKanji) : undefined;
-  
-  // Filter out the current sentence so we don't repeat it
-  let availableChoices = bank.filter(s => cleanString(s.kanji) !== targetKanji);
-  
-  // If the filter empties the array, reset it to the full bank
-  if (availableChoices.length === 0) availableChoices = bank;
-
-  // Pick a random sentence
-  const randomIndex = Math.floor(Math.random() * availableChoices.length);
-  return availableChoices[randomIndex];
+  // Return a new shuffled copy of the bank
+  return [...bank].sort(() => Math.random() - 0.5);
 }
