@@ -327,12 +327,12 @@ const App: React.FC = () => {
   ) => {
     if (isCorrect) {
       // In correct state, clicking a word just speaks it
-      speak(chunk.ja, 0.85);
+      speak(chunk.ja, 0.75);
       return;
     }
 
     if (fromBank && enableWordAudio) {
-      speak(chunk.ja, 0.85);
+      speak(chunk.ja, 0.75);
     }
 
     if (fromBank) {
@@ -343,7 +343,7 @@ const App: React.FC = () => {
     } else {
       // Removing a word: Speak it if Word Audio is on
       if (enableWordAudio) {
-        speak(chunk.ja, 0.85);
+        speak(chunk.ja, 0.75);
       }
       const newSelected = selectedWords.filter((_, i) => i !== index);
       setSelectedWords(newSelected);
