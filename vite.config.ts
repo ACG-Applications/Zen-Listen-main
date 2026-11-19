@@ -15,9 +15,6 @@ export default defineConfig(() => {
           ignored: ['**/node_modules/**', '**/.git/**']
         }
       },
-      optimizeDeps: {
-        exclude: ['@google/genai']
-      },
       css: {
         postcss: path.resolve(__dirname, 'postcss.config.js'),
       },

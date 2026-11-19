@@ -469,7 +469,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center p-4 md:p-8 bg-[#fdfdfd] text-[#2c2c2c] selection:bg-gray-100 font-sans transition-all duration-700">
+    <div className="app-shell flex flex-col items-center p-4 md:p-8 bg-[#fdfdfd] text-[#2c2c2c] selection:bg-gray-100 font-sans transition-all duration-700">
 
       {/* --- HOW TO MODAL --- */}
       {isHowToOpen && (

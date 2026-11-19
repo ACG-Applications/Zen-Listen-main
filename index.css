@@ -59,3 +59,16 @@ html {
     animation-duration: 0.01ms !important;
   }
 }
+
+/* Full-height shell. 100vh includes the browser chrome on iOS Safari, which clips the
+   bottom of the layout; 100dvh tracks the visible viewport. Kept behind @supports so
+   older browsers still get the vh fallback. */
+.app-shell {
+  min-height: 100vh;
+}
+
+@supports (min-height: 100dvh) {
+  .app-shell {
+    min-height: 100dvh;
+  }
+}
