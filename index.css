@@ -11,10 +11,12 @@ html {
   font-size: 17px;
 }
 
-/* Extra bump when installed as a PWA (standalone mode) */
+/* Extra bump when installed as a PWA (standalone mode).
+   'zoom' is non-standard and scales hit areas as well as text; a root font-size bump
+   achieves the same 10% increase with standard CSS (Tailwind sizes are rem-based). */
 @media (display-mode: standalone) {
-  #root {
-    zoom: 1.1;
+  html {
+    font-size: 18.5px;
   }
 }
 /* Short landscape (phone held sideways): the control panel stacked five rows and

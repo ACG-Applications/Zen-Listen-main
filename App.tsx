@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { getShuffledBank } from "./services/sentenceService";
+import { getShuffledBank, shuffle } from "./services/sentenceService";
 import { useRecorder } from "./hooks/useRecorder";
 import { JapaneseSentence, AppState, JLPTLevel, WordChunk } from "./types";
 
@@ -182,6 +182,7 @@ const App: React.FC = () => {
     }
   });
   const [isHowToOpen, setIsHowToOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const recorder = useRecorder();
 
   const initialBankRef = useRef<WordChunk[]>([]);
@@ -252,7 +253,7 @@ const App: React.FC = () => {
 
         // If the deck is empty, fetch a fresh shuffled bank
         if (deck.length === 0) {
-          deck = getShuffledBank(targetLevel);
+          deck = await getShuffledBank(targetLevel);
         }
 
         // Pop the first sentence off the deck
@@ -262,9 +263,7 @@ const App: React.FC = () => {
         setRemainingSentences(newDeck);
 
         setSentence(newSentence);
-        const shuffledBank = [...(newSentence.wordBank || [])].sort(
-          () => Math.random() - 0.5,
-        );
+        const shuffledBank = shuffle(newSentence.wordBank || []);
         initialBankRef.current = [...shuffledBank];
         setAvailableWords(shuffledBank);
         setAppState(AppState.LISTENING);
@@ -632,6 +631,7 @@ const App: React.FC = () => {
         </nav>
 
         <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 md:flex-nowrap md:space-x-6">
+          <div className="hidden items-center space-x-6 md:flex">
           <button
             onClick={() => setIsHowToOpen(true)}
             className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors flex items-center space-x-1"
@@ -659,7 +659,18 @@ const App: React.FC = () => {
           >
             Reset Session
           </button>
+          </div>
 
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen((open) => !open)}
+            aria-haspopup="true"
+            aria-expanded={isMenuOpen}
+            aria-label="Session menu"
+            className="md:hidden text-sm leading-none font-bold text-gray-400 hover:text-black transition-colors px-1"
+          >
+            ⋯
+          </button>
           <label className="flex items-center cursor-pointer space-x-3 group">
             <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 group-hover:text-black transition-colors">
               Furigana
@@ -680,6 +691,29 @@ const App: React.FC = () => {
             </div>
           </label>
         </div>
+
+        {isMenuOpen && (
+          <div className="flex items-center justify-end space-x-6 md:hidden">
+            <button
+              onClick={() => {
+                setIsMenuOpen(false);
+                setIsHowToOpen(true);
+              }}
+              className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors"
+            >
+              How To
+            </button>
+            <button
+              onClick={() => {
+                setIsMenuOpen(false);
+                handleReset();
+              }}
+              className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-red-400 transition-colors"
+            >
+              Reset Session
+            </button>
+          </div>
+        )}
 
         <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 md:flex-nowrap md:space-x-6">
           <label className="flex items-center cursor-pointer space-x-3 group">
@@ -1356,7 +1390,7 @@ const App: React.FC = () => {
         )}
       </div>
 
-      <footer className="fixed bottom-6 text-[10px] text-gray-400 opacity-60 hover:opacity-100 transition-opacity duration-300 text-center px-4 w-full">
+      <footer className="mt-auto pt-8 text-[10px] text-gray-400 opacity-60 hover:opacity-100 transition-opacity duration-300 text-center px-4 w-full">
         Base code by{" "}
         <a
           href="https://github.com/chrisloveliverpool-debug/Zen-Listen"

@@ -1,29 +1,31 @@
 import { JapaneseSentence, JLPTLevel } from "../types";
-import { N5_SENTENCE_BANK } from "../sentenceBank";
-import { N4_SENTENCE_BANK } from "../sentenceBankN4";
-import { N3_SENTENCE_BANK } from "../sentenceBankN3";
-import { N2_SENTENCE_BANK } from "../sentenceBankN2";
-import { N1_SENTENCE_BANK } from "../sentenceBankN1";
 
 export const cleanString = (str: string) => str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()！？。、（）\s]/g, "");
 
-export function getShuffledBank(level: JLPTLevel): JapaneseSentence[] {
-  let bank: JapaneseSentence[] = N5_SENTENCE_BANK;
-  
-  switch (level) {
-    case 'N5': bank = N5_SENTENCE_BANK; break;
-    case 'N4': bank = N4_SENTENCE_BANK; break;
-    case 'N3': bank = N3_SENTENCE_BANK; break;
-    case 'N2': bank = N2_SENTENCE_BANK; break;
-    case 'N1': bank = N1_SENTENCE_BANK; break;
-  }
-  
+// One chunk per level: Vite turns each dynamic import into its own file, so the app
+// only downloads the bank being played (N5 loads as soon as the first session starts).
+const BANK_LOADERS: Record<JLPTLevel, () => Promise<JapaneseSentence[]>> = {
+  N5: () => import("../sentenceBank").then((m) => m.N5_SENTENCE_BANK),
+  N4: () => import("../sentenceBankN4").then((m) => m.N4_SENTENCE_BANK),
+  N3: () => import("../sentenceBankN3").then((m) => m.N3_SENTENCE_BANK),
+  N2: () => import("../sentenceBankN2").then((m) => m.N2_SENTENCE_BANK),
+  N1: () => import("../sentenceBankN1").then((m) => m.N1_SENTENCE_BANK),
+};
+
+export function shuffle<T>(items: T[]): T[] {
   // Fisher-Yates: sort(() => Math.random() - 0.5) is biased and leaves items
   // noticeably close to their original positions.
-  const shuffled = [...bank];
-  for (let i = shuffled.length - 1; i > 0; i--) {
+  const out = [...items];
+  for (let i = out.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    [out[i], out[j]] = [out[j], out[i]];
   }
-  return shuffled;
+  return out;
+}
+
+export async function getShuffledBank(
+  level: JLPTLevel,
+): Promise<JapaneseSentence[]> {
+  const load = BANK_LOADERS[level] ?? BANK_LOADERS.N5;
+  return shuffle(await load());
 }
