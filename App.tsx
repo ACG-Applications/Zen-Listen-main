@@ -469,16 +469,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center p-8 bg-[#fdfdfd] text-[#2c2c2c] selection:bg-gray-100 font-sans transition-all duration-700">
-      {/* --- Antonio (Top Left) --- */}
-      <div className="fixed top-8 left-8 z-20 pointer-events-none opacity-40">
-        <img
-          src="/Zen-Listen-main/Antonio.png"
-          alt="Antonio"
-          className="w-20 h-20 md:w-24 md:h-24 object-contain mix-blend-multiply"
-        />
-      </div>
-      {/* --------------------------- */}
+    <div className="min-h-screen flex flex-col items-center p-4 md:p-8 bg-[#fdfdfd] text-[#2c2c2c] selection:bg-gray-100 font-sans transition-all duration-700">
 
       {/* --- HOW TO MODAL --- */}
       {isHowToOpen && (
@@ -617,8 +608,14 @@ const App: React.FC = () => {
       )}
       {/* ------------------- */}
 
-      <div className="fixed top-12 right-12 z-30 flex flex-col items-end space-y-6">
-        <nav className="flex items-center justify-end space-x-6 h-6">
+      <div className="zl-controls z-30 flex w-full flex-col items-end space-y-4 md:fixed md:right-12 md:top-12 md:w-auto md:space-y-6">
+        {/* --- Antonio (top right) --- */}
+        <img
+          src={`${import.meta.env.BASE_URL}Antonio.png`}
+          alt="ACG Applications"
+          className="h-11 w-11 object-contain md:h-12 md:w-12"
+        />
+        <nav className="flex items-center justify-end space-x-4 md:space-x-6 h-6">
           {JLPT_LEVELS.map((lvl) => (
             <button
               key={lvl}
@@ -634,7 +631,7 @@ const App: React.FC = () => {
           ))}
         </nav>
 
-        <div className="flex items-center space-x-6">
+        <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 md:flex-nowrap md:space-x-6">
           <button
             onClick={() => setIsHowToOpen(true)}
             className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors flex items-center space-x-1"
@@ -684,7 +681,7 @@ const App: React.FC = () => {
           </label>
         </div>
 
-        <div className="flex items-center space-x-6">
+        <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 md:flex-nowrap md:space-x-6">
           <label className="flex items-center cursor-pointer space-x-3 group">
             <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 group-hover:text-black transition-colors">
               Slow Audio
@@ -726,7 +723,7 @@ const App: React.FC = () => {
           </label>
         </div>
 
-        <div className="flex items-center space-x-6">
+        <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 md:flex-nowrap md:space-x-6">
           <label className="flex items-center cursor-pointer space-x-3 group">
             <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 group-hover:text-black transition-colors">
               Word Eigo
@@ -822,7 +819,7 @@ const App: React.FC = () => {
         </div>
       )}
 
-      <div className="max-w-2xl w-full flex-grow flex flex-col items-center justify-center space-y-8 pt-24 pb-12">
+      <div className="max-w-2xl w-full flex-grow flex flex-col items-center justify-center space-y-8 pt-4 pb-12 md:pt-24">
         <header className="text-center opacity-40">
           <h1 className="text-sm font-medium tracking-[0.3em] uppercase">
             {isViewingHistory ? "Review Mode" : "🧘 Zen Listen 🧘"}
@@ -965,7 +962,7 @@ const App: React.FC = () => {
             {!isCorrect && (
               <div className="flex flex-col items-center space-y-4 pt-2">
                 {selectedWords.length > 0 && (
-                  <div className="flex items-center space-x-6">
+                  <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 md:flex-nowrap md:space-x-6">
                     <button
                       onClick={playMySentence}
                       className="flex items-center space-x-2 text-xs font-semibold tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors"

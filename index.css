@@ -17,3 +17,45 @@ html {
     zoom: 1.1;
   }
 }
+/* Short landscape (phone held sideways): the control panel stacked five rows and
+   pushed the practice area off screen. Lay it out as a compact horizontal bar. */
+@media (orientation: landscape) and (max-height: 560px) {
+  .zl-controls {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.35rem 1rem;
+  }
+
+  .zl-controls > * {
+    margin-top: 0 !important;
+  }
+
+  /* In the row layout the mark would land at the far LEFT as the first flex item,
+     so anchor it to the panel's top-right corner instead. */
+  .zl-controls {
+    position: relative;
+    padding-right: 42px;
+  }
+
+  .zl-controls > img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 30px;
+    width: 30px;
+  }
+
+  .zl-controls nav {
+    height: auto;
+  }
+}
+
+/* Respect reduced-motion for the entrance transitions */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
